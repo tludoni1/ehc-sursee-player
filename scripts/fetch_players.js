@@ -22,6 +22,7 @@ function stripJsonCallback(text) {
   return text.substring(start + marker.length, end);
 }
 
+// fetchJson kann JSONP oder pures JSON verarbeiten
 async function fetchJson(url) {
   const cacheBuster = `v=${Date.now()}`;
   const fullUrl = url + (url.includes("?") ? "&" : "?") + cacheBuster;
@@ -34,12 +35,17 @@ async function fetchJson(url) {
   });
 
   const text = await res.text();
-  return JSON.parse(stripJsonCallback(text));
+
+  if (text.includes("externalStatisticsCallback(")) {
+    return JSON.parse(stripJsonCallback(text));
+  }
+
+  return JSON.parse(text);
 }
 
 // 🔍 Holt dynamisch Region + Group IDs für Team/Saison
 async function fetchGroupInfo(season, leagueId, teamId) {
-  const url = `${BASE_URL}?alias=standings&searchQuery=${season}/${leagueId}/&filterQuery=${season}/${leagueId}/&language=de&callback=externalStatisticsCallback`;
+  const url = `${BASE_URL}?alias=standings&searchQuery=${season}/${leagueId}/&filterQuery=${season}/${leagueId}/&language=de`;
 
   const raw = await fetchJson(url);
 
@@ -66,7 +72,6 @@ async function fetchGroupInfo(season, leagueId, teamId) {
 async function fetchTeamSeason(season) {
   const { leagueId, teamId, name } = TEAM;
 
-  // dynamisch IDs suchen
   const { region, group } = await fetchGroupInfo(season, leagueId, teamId);
 
   const filterQuery = `${season}/${leagueId}/${region}/${group}/${teamId}`;
@@ -78,13 +83,13 @@ async function fetchTeamSeason(season) {
   const raw = await fetchJson(url);
 
   if (!raw.data || !Array.isArray(raw.data)) {
-    throw new Error("API hat kein gültiges data-Array zurückgegeben. Schlüssel: " + Object.keys(raw));
+    throw new Error("Player API hat kein gültiges data-Array zurückgegeben. Schlüssel: " + Object.keys(raw));
   }
 
   const players = raw.data.map((p) => ({
-    rank: p[0],               // Rang oder interne ID
-    name: p[1],               // Spielername
-    position: p[3],           // Position (Stürmer / Verteidiger / Goalie)
+    rank: p[0],
+    name: p[1],
+    position: p[3],
     games: parseInt(p[4]),
     goals: parseInt(p[5]),
     assists: parseInt(p[6]),
