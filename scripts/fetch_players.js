@@ -11,32 +11,7 @@ const TEAM = {
 const SEASONS = [2022, 2023, 2024, 2025];
 const BASE_URL = "https://data.sihf.ch/Statistic/api/cms/cache300";
 
-// Gruppen und Regionen ID Ausfindig machen
-async function fetchGroupInfo(season, leagueId, teamId) {
-  const url = `${BASE_URL}?alias=standings&searchQuery=${season}/${leagueId}/&filterQuery=${season}/${leagueId}/&language=de&callback=externalStatisticsCallback`;
-
-  const raw = await fetchJson(url);
-
-  if (!raw.data || !Array.isArray(raw.data)) {
-    throw new Error("Standings API hat kein gültiges data-Array zurückgegeben.");
-  }
-
-  // raw.data ist verschachtelt: Region -> Group -> Teams
-  for (const region of raw.data) {
-    const regionId = region.Id;
-    for (const group of region.Groups || []) {
-      const groupId = group.Id;
-      const team = (group.Teams || []).find((t) => t.Id === teamId);
-      if (team) {
-        return { region: regionId, group: groupId };
-      }
-    }
-  }
-
-  throw new Error(`Keine Region/Group für Team ${teamId} in Season ${season} gefunden`);
-}
-
-
+// Parser für JSONP mit externalStatisticsCallback
 function stripJsonCallback(text) {
   const marker = "externalStatisticsCallback(";
   const start = text.indexOf(marker);
@@ -62,19 +37,43 @@ async function fetchJson(url) {
   return JSON.parse(stripJsonCallback(text));
 }
 
+// 🔍 Holt dynamisch Region + Group IDs für Team/Saison
+async function fetchGroupInfo(season, leagueId, teamId) {
+  const url = `${BASE_URL}?alias=standings&searchQuery=${season}/${leagueId}/&filterQuery=${season}/${leagueId}/&language=de&callback=externalStatisticsCallback`;
+
+  const raw = await fetchJson(url);
+
+  if (!raw.data || !Array.isArray(raw.data)) {
+    throw new Error("Standings API hat kein gültiges data-Array zurückgegeben.");
+  }
+
+  for (const region of raw.data) {
+    const regionId = region.Id;
+    for (const group of region.Groups || []) {
+      const groupId = group.Id;
+      const team = (group.Teams || []).find((t) => t.Id === teamId);
+      if (team) {
+        console.log(`🔎 Gefunden: season ${season} -> region ${regionId}, group ${groupId}`);
+        return { region: regionId, group: groupId };
+      }
+    }
+  }
+
+  throw new Error(`Keine Region/Group für Team ${teamId} in Season ${season} gefunden`);
+}
+
+// Holt Player-Stats
 async function fetchTeamSeason(season) {
   const { leagueId, teamId, name } = TEAM;
-  // vorher:
-  // const { region, group } = GROUPS[season];
 
-  // jetzt dynamisch:
+  // dynamisch IDs suchen
   const { region, group } = await fetchGroupInfo(season, leagueId, teamId);
 
   const filterQuery = `${season}/${leagueId}/${region}/${group}/${teamId}`;
 
   const url = `${BASE_URL}?alias=player&searchQuery=1/2015-2099/3,10,18,19,33,35,36,38,37,39,40,41,43,101,44,45,46,104&filterQuery=${filterQuery}&orderBy=points&orderByDescending=true&take=200&filterBy=Season,League,Region,Phase,Team,Position,Licence&callback=externalStatisticsCallback&skip=-1&language=de`;
 
-  console.log(`➡️  Fetching: ${season}`);
+  console.log(`➡️  Fetching stats: ${season}`);
 
   const raw = await fetchJson(url);
 
@@ -82,11 +81,11 @@ async function fetchTeamSeason(season) {
     throw new Error("API hat kein gültiges data-Array zurückgegeben. Schlüssel: " + Object.keys(raw));
   }
 
-  const players = raw.data.map((p, idx) => ({
+  const players = raw.data.map((p) => ({
     rank: p[0],               // Rang oder interne ID
     name: p[1],               // Spielername
     position: p[3],           // Position (Stürmer / Verteidiger / Goalie)
-    games: parseInt(p[4]),    // Anzahl Spiele (GP)
+    games: parseInt(p[4]),
     goals: parseInt(p[5]),
     assists: parseInt(p[6]),
     points: parseInt(p[7]),
