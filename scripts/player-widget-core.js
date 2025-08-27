@@ -1,11 +1,11 @@
-// Farben-Sets (gleich wie Games-Widget, erweiterbar)
+// Farben-Sets (anpassbar)
 const COLORS = {
   1: { header: "#D71920", text: "#000", line: "#ccc", bg: "#fff", hover: "#f5f5f5" },
   2: { header: "#333", text: "#000", line: "#ddd", bg: "#fff", hover: "#eee" },
   3: { header: "#fff", text: "#fff", line: "#D71920", bg: "#D71920", hover: "#A21318" }
 };
 
-// Team-Mapping
+// Team-Mapping für Kürzel
 const TEAM_MAP = {
   "1T": "1 Mannschaft",
   "2T": "2 Mannschaft",
@@ -13,30 +13,31 @@ const TEAM_MAP = {
   "S": "Senioren"
 };
 
-// Hauptfunktion, die vom Loader aufgerufen wird
+// Hauptfunktion – vom Loader aufgerufen
 window.EHCPlayerWidgetCore = async function (config) {
   const container = config.el;
   container.innerHTML = `<div style="font-family:${config.font};">⏳ Lade Daten...</div>`;
 
   try {
+    const mappings = await fetchMappings();
+
     // Seasons bestimmen
-    const allSeasons = Object.keys(await fetchMappings());
+    const allSeasons = [...new Set(Object.keys(mappings).map((k) => k.split("-")[0]))];
     const seasons = resolveSeasons(config.season, allSeasons);
 
     // Teams bestimmen
     const teams = config.team.split(",").map((t) => t.trim());
 
-    // Daten sammeln
     let players = [];
     for (const team of teams) {
       const teamName = TEAM_MAP[team] || team;
       for (const season of seasons) {
-        const seasonData = await loadSeasonData(teamName, season, config.phase);
+        const seasonData = await loadSeasonData(mappings, teamName, season, config.phase);
         players = mergePlayers(players, seasonData, teamName, config.showleague);
       }
     }
 
-    // Sortieren
+    // Sortierung
     players.sort((a, b) => (b[config.sort] || 0) - (a[config.sort] || 0));
 
     // Rendern
@@ -46,24 +47,86 @@ window.EHCPlayerWidgetCore = async function (config) {
   }
 };
 
-// 🔎 Hilfsfunktionen
+// --- Hilfsfunktionen ---
+
 async function fetchMappings() {
   const res = await fetch("https://tludoni1.github.io/ehc-sursee-player/data/mappings.json?v=" + Date.now());
+  if (!res.ok) throw new Error("Konnte mappings.json nicht laden");
   return res.json();
 }
 
 function resolveSeasons(param, allSeasons) {
-  if (param === "all") return [...new Set(allSeasons.map((k) => k.substring(0, 4)))];
-  if (param === "current") return [Math.max(...allSeasons.map((k) => parseInt(k.substring(0, 4), 10)))];
+  if (param === "all") return allSeasons;
+  if (param === "current") return [Math.max(...allSeasons.map((s) => parseInt(s)))];
   return param.split(",").map((s) => s.trim());
 }
 
-async function loadSeasonData(teamName, season, phase) {
-  const url = `https://tludoni1.github.io/ehc-sursee-player/data/${teamName.replace(/\s+/g, "_")}/${season}*.json`; 
-  // TODO: mit GitHub Pages geht kein Wildcard → du musst alle Phasen-Dateien einlesen. 
-  // Für MVP nehmen wir nur Regular Season:
-  const res = await fetch(`https://tludoni1.github.io/ehc-sursee-player/data/${teamName.replace(/\s+/g, "_")}/${season}-Regular-Season.json?v=${Date.now()}`);
-  return res.json();
+async function loadSeasonData(mappings, teamName, season, phase) {
+  // Alle Einträge für Saison+Team finden
+  const entries = Object.values(mappings).filter(
+    (m) => m.season === parseInt(season) && m.team === teamName
+  );
+
+  if (entries.length === 0) {
+    console.warn(`⚠️ Keine Mapping-Einträge für ${teamName} ${season}`);
+    return { season, team: teamName, league: "", players: [] };
+  }
+
+  // Phasen-Filter anwenden
+  let filtered = entries;
+  if (phase === "regular") {
+    filtered = entries.filter((e) => e.phase.toLowerCase().includes("regular"));
+  } else if (phase === "playoffs") {
+    filtered = entries.filter((e) => !e.phase.toLowerCase().includes("regular"));
+  }
+
+  // Alle passenden Files laden
+  let allData = [];
+  for (const entry of filtered) {
+    const safePhase = entry.phase
+      .replace(/\s+/g, "-")
+      .replace(/\//g, "-")
+      .replace(/[^\w\-]/g, "");
+    const file = `${entry.season}-${safePhase}.json`;
+
+    const url = `https://tludoni1.github.io/ehc-sursee-player/data/${teamName.replace(/\s+/g, "_")}/${file}?v=${Date.now()}`;
+
+    const res = await fetch(url);
+    if (res.ok) {
+      const json = await res.json();
+      allData.push(json);
+    } else {
+      console.warn("⚠️ Datei nicht gefunden:", url);
+    }
+  }
+
+  return mergePhaseData(allData, season, teamName);
+}
+
+function mergePhaseData(datasets, season, teamName) {
+  if (datasets.length === 0) return { season, team: teamName, league: "", players: [] };
+  if (datasets.length === 1) return datasets[0];
+
+  const merged = { season, phase: "Merged", team: teamName, league: datasets[0].league, players: [] };
+
+  datasets.forEach((ds) => {
+    ds.players.forEach((p) => {
+      let player = merged.players.find((x) => x.name === p.name);
+      if (!player) {
+        player = { ...p };
+        merged.players.push(player);
+      } else {
+        player.games += p.games || 0;
+        player.goals += p.goals || 0;
+        player.assists += p.assists || 0;
+        player.points += p.points || 0;
+        player.pointsPerGame = player.points / (player.games || 1);
+        player.penaltyMinutes += p.penaltyMinutes || 0;
+      }
+    });
+  });
+
+  return merged;
 }
 
 function mergePlayers(acc, seasonData, teamName, showleague) {
