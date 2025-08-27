@@ -1,4 +1,3 @@
-// scripts/fetch_players.js
 import fs from "fs";
 import path from "path";
 import fetch from "node-fetch";
@@ -19,7 +18,6 @@ const GROUPS = {
 const SEASONS = [2022, 2023, 2024, 2025];
 const BASE_URL = "https://data.sihf.ch/Statistic/api/cms/cache300";
 
-// Parser für JSONP mit externalStatisticsCallback
 function stripJsonCallback(text) {
   const marker = "externalStatisticsCallback(";
   const start = text.indexOf(marker);
@@ -57,24 +55,20 @@ async function fetchTeamSeason(season) {
 
   const raw = await fetchJson(url);
 
-    if (!raw.data || !Array.isArray(raw.data)) {
+  if (!raw.data || !Array.isArray(raw.data)) {
     throw new Error("API hat kein gültiges data-Array zurückgegeben. Schlüssel: " + Object.keys(raw));
   }
 
-  // 👉 Debug-Ausgabe: zeigt die echten Feldnamen des ersten Spielers
-  console.log(`🔎 Beispiel für ${season}:`, raw.data[0]);
-
-
-  const players = raw.data.map((p) => ({
-    id: p.PlayerId,
-    name: `${p.FirstName} ${p.LastName}`,
-    position: p.Position,
-    games: p.GP,
-    goals: p.Goals,
-    assists: p.Assists,
-    points: p.Points,
-    pointsPerGame: p.PPG,
-    penaltyMinutes: p.PIM,
+  const players = raw.data.map((p, idx) => ({
+    rank: p[0],               // Rang oder interne ID
+    name: p[1],               // Spielername
+    position: p[3],           // Position (Stürmer / Verteidiger / Goalie)
+    games: parseInt(p[4]),    // Anzahl Spiele (GP)
+    goals: parseInt(p[5]),
+    assists: parseInt(p[6]),
+    points: parseInt(p[7]),
+    pointsPerGame: parseFloat(p[8]),
+    penaltyMinutes: parseInt(p[9]),
   }));
 
   const out = {
