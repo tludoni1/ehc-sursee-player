@@ -45,7 +45,7 @@ async function fetchTeamSeason(teamKey, season) {
 
   // FilterQuery: Season/League/Region/Phase/Team
   // Wir versuchen mit 0 als Region/Phase → evtl. gruppenunabhängig
-  const filterQuery = `${season}/${leagueId}/0/0/${teamId}`;
+  const filterQuery = `${season}/${leagueId}/all/all/${teamId}`;
 
   const url = `${BASE_URL}?alias=player&searchQuery=1/2015-2099/3,10,18,19,33,35,36,38,37,39,40,41,43,101,44,45,46,104&filterQuery=${filterQuery}&orderBy=points&orderByDescending=true&take=200&filterBy=Season,League,Region,Phase,Team,Position,Licence&callback=externalStatisticsCallback&skip=-1&language=de`;
 
