@@ -10,6 +10,7 @@ const TEAM = {
 
 const SEASONS = [2022, 2023, 2024, 2025];
 const BASE_URL = "https://data.sihf.ch/Statistic/api/cms/cache300";
+const MAPPING_FILE = path.join("data", "mappings.json");
 
 // JSON/JSONP-Parser
 function stripAnyJsonCallback(text) {
@@ -44,48 +45,24 @@ async function fetchJson(url) {
   }
 }
 
-// 🔍 Region + Phase dynamisch bestimmen
+// Mapping laden
+function loadMappings() {
+  if (fs.existsSync(MAPPING_FILE)) {
+    return JSON.parse(fs.readFileSync(MAPPING_FILE, "utf-8"));
+  }
+  return {};
+}
+
 async function findRegionAndPhase(season, leagueId, teamId) {
-  // 👉 WICHTIG: Basis-Request mit TeamId
-  const url = `${BASE_URL}?alias=player&searchQuery=1/2015-2099/${leagueId}&filterQuery=${season}/${leagueId}/all/all/${teamId}&orderBy=points&orderByDescending=true&take=1&filterBy=Season,League,Team&callback=externalStatisticsCallback&skip=-1&language=de`;
+  const mappings = loadMappings();
+  const key = `${season}-${leagueId}-${teamId}`;
 
-  const raw = await fetchJson(url);
-
-  if (!raw.filters) {
-    throw new Error("Keine Filter im Player-Response gefunden");
+  if (!mappings[key]) {
+    throw new Error(`❌ Kein Mapping für ${key} gefunden – bitte in data/mappings.json ergänzen`);
   }
 
-  console.log("🔎 Gefundene Filter:");
-  for (const f of raw.filters) {
-    console.log(`   - alias=${f.alias}, title=${f.title}`);
-    if (f.entries) {
-      console.log("     entries:", f.entries.map(e => `${e.name} (${e.alias})`).join(", "));
-    }
-  }
-
-  const regionFilter = raw.filters.find(f => f.alias.toLowerCase() === "region");
-  const phaseFilter  = raw.filters.find(f => f.alias.toLowerCase() === "phase");
-
-  if (!regionFilter || !phaseFilter) {
-    throw new Error("Region oder Phase nicht im Filter vorhanden");
-  }
-
-  const region = regionFilter.entries[0]; // meist nur CH
-
-  // 2. Alle Phasen ausprobieren
-  for (const phase of phaseFilter.entries) {
-    const testQuery = `${season}/${leagueId}/${region.alias}/${phase.alias}/${teamId}`;
-    const testUrl = `${BASE_URL}?alias=player&searchQuery=1/2015-2099/${leagueId}&filterQuery=${testQuery}&orderBy=points&orderByDescending=true&take=1&filterBy=Season,League,Region,Phase,Team&callback=externalStatisticsCallback&skip=-1&language=de`;
-
-    const testRaw = await fetchJson(testUrl);
-
-    if (testRaw.data && testRaw.data.length > 0) {
-      console.log(`✅ Kombination gefunden für ${season}: Region=${region.alias}, Phase=${phase.alias}`);
-      return { region: region.alias, group: phase.alias };
-    }
-  }
-
-  throw new Error(`Keine gültige Kombination für Team ${teamId}, Season ${season}`);
+  console.log(`⚡ Mapping genutzt für ${key}:`, mappings[key]);
+  return mappings[key];
 }
 
 // 📥 Holt Player-Stats
