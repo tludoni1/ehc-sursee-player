@@ -1,0 +1,16 @@
+{
+  "season": 2025,
+  "team": "1. Mannschaft",
+  "league": 10,
+  "players": [
+    {
+      "rank": "Keine Spieler gefunden!",
+      "games": null,
+      "goals": null,
+      "assists": null,
+      "points": null,
+      "pointsPerGame": null,
+      "penaltyMinutes": null
+    }
+  ]
+}
