@@ -195,7 +195,7 @@ function renderTable(players, config) {
 }
 
 // ==========================
-// Klick-Sortierung
+// Klick-Sortierung (fix: asc/desc toggle)
 // ==========================
 function enableSorting(container, players, config) {
   const table = container.querySelector("#ehc-player-table");
@@ -205,19 +205,24 @@ function enableSorting(container, players, config) {
   headers.forEach((th) => {
     th.addEventListener("click", () => {
       const key = th.dataset.key;
-      const asc = th.dataset.asc === "true" ? false : true;
-      th.dataset.asc = asc;
+      const currentAsc = th.dataset.asc === "true"; // bisherigen Zustand lesen
+      const newAsc = !currentAsc;                   // umschalten
+      th.dataset.asc = newAsc;                      // neuen Zustand speichern
 
       players.sort((a, b) => {
         const va = a[key], vb = b[key];
         let cmp = 0;
-        if (typeof va === "number" && typeof vb === "number") cmp = va - vb;
-        else cmp = String(va).localeCompare(String(vb));
-        return asc ? cmp : -cmp;
+        if (typeof va === "number" && typeof vb === "number") {
+          cmp = va - vb;
+        } else {
+          cmp = String(va).localeCompare(String(vb));
+        }
+        return newAsc ? cmp : -cmp;
       });
 
+      // Tabelle neu rendern & Events neu binden
       container.innerHTML = renderTable(players, config);
-      enableSorting(container, players, config); // Rebind events
+      enableSorting(container, players, config);
     });
   });
 }
