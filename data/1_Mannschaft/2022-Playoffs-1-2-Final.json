@@ -1,0 +1,206 @@
+{
+  "season": 2022,
+  "phase": "Playoffs 1/2 Final",
+  "team": "1 Mannschaft",
+  "league": 10,
+  "players": [
+    {
+      "rank": "1",
+      "name": "Augstburger Severin",
+      "position": "Stürmer",
+      "games": 3,
+      "goals": 1,
+      "assists": 1,
+      "points": 2,
+      "pointsPerGame": 0.67,
+      "penaltyMinutes": 4
+    },
+    {
+      "rank": "2",
+      "name": "Schmerda Michael",
+      "position": "Stürmer",
+      "games": 3,
+      "goals": 1,
+      "assists": 1,
+      "points": 2,
+      "pointsPerGame": 0.67,
+      "penaltyMinutes": 2
+    },
+    {
+      "rank": "3",
+      "name": "Wyss David",
+      "position": "Stürmer",
+      "games": 3,
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "pointsPerGame": 0.33,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "4",
+      "name": "Zürcher Marco",
+      "position": "Stürmer",
+      "games": 3,
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "pointsPerGame": 0.33,
+      "penaltyMinutes": 2
+    },
+    {
+      "rank": "5",
+      "name": "Iliev Michal",
+      "position": "Stürmer",
+      "games": 3,
+      "goals": 0,
+      "assists": 1,
+      "points": 1,
+      "pointsPerGame": 0.33,
+      "penaltyMinutes": 6
+    },
+    {
+      "rank": "6",
+      "name": "Salzmann Philippe",
+      "position": "Stürmer",
+      "games": 2,
+      "goals": 0,
+      "assists": 1,
+      "points": 1,
+      "pointsPerGame": 0.5,
+      "penaltyMinutes": 2
+    },
+    {
+      "rank": "7",
+      "name": "Arnold Remo",
+      "position": "Stürmer",
+      "games": 3,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "8",
+      "name": "Bättig Nicolai",
+      "position": "Verteidiger",
+      "games": 3,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 4
+    },
+    {
+      "rank": "9",
+      "name": "Bosshard Alex",
+      "position": "Verteidiger",
+      "games": 3,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "10",
+      "name": "Costa Elia",
+      "position": "Stürmer",
+      "games": 3,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "11",
+      "name": "Durdek Pascal",
+      "position": "Stürmer",
+      "games": 3,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "12",
+      "name": "Emmenegger Raphael",
+      "position": "Stürmer",
+      "games": 3,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 12
+    },
+    {
+      "rank": "13",
+      "name": "Felder Jan",
+      "position": "Verteidiger",
+      "games": 3,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 2
+    },
+    {
+      "rank": "14",
+      "name": "Kiser Yannick",
+      "position": "Stürmer",
+      "games": 3,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 4
+    },
+    {
+      "rank": "15",
+      "name": "Macho Tim",
+      "position": "Stürmer",
+      "games": 3,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "16",
+      "name": "Mathys Patrick",
+      "position": "Verteidiger",
+      "games": 3,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "17",
+      "name": "Schnyder Hans",
+      "position": "Stürmer",
+      "games": 3,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "18",
+      "name": "Zubler Cédric",
+      "position": "Verteidiger",
+      "games": 3,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 4
+    }
+  ]
+}

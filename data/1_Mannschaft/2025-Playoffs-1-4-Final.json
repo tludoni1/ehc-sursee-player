@@ -1,0 +1,206 @@
+{
+  "season": 2025,
+  "phase": "Playoffs 1/4 Final",
+  "team": "1 Mannschaft",
+  "league": 10,
+  "players": [
+    {
+      "rank": "1",
+      "name": "Gogolka Jaromir",
+      "position": "Stürmer",
+      "games": 2,
+      "goals": 2,
+      "assists": 1,
+      "points": 3,
+      "pointsPerGame": 1.5,
+      "penaltyMinutes": 14
+    },
+    {
+      "rank": "2",
+      "name": "Schnyder Hans",
+      "position": "Stürmer",
+      "games": 2,
+      "goals": 1,
+      "assists": 1,
+      "points": 2,
+      "pointsPerGame": 1,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "3",
+      "name": "Zürcher Marco",
+      "position": "Stürmer",
+      "games": 2,
+      "goals": 1,
+      "assists": 1,
+      "points": 2,
+      "pointsPerGame": 1,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "4",
+      "name": "Felder Jan",
+      "position": "Verteidiger",
+      "games": 1,
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "pointsPerGame": 1,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "5",
+      "name": "Emmenegger Raphael",
+      "position": "Stürmer",
+      "games": 2,
+      "goals": 0,
+      "assists": 1,
+      "points": 1,
+      "pointsPerGame": 0.5,
+      "penaltyMinutes": 4
+    },
+    {
+      "rank": "6",
+      "name": "Kiser Yannick",
+      "position": "Stürmer",
+      "games": 2,
+      "goals": 0,
+      "assists": 1,
+      "points": 1,
+      "pointsPerGame": 0.5,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "7",
+      "name": "Menekse Melih",
+      "position": "Stürmer",
+      "games": 2,
+      "goals": 0,
+      "assists": 1,
+      "points": 1,
+      "pointsPerGame": 0.5,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "8",
+      "name": "Bosshard Alex",
+      "position": "Verteidiger",
+      "games": 2,
+      "goals": 0,
+      "assists": 1,
+      "points": 1,
+      "pointsPerGame": 0.5,
+      "penaltyMinutes": 2
+    },
+    {
+      "rank": "9",
+      "name": "Salzmann Philippe",
+      "position": "Stürmer",
+      "games": 2,
+      "goals": 0,
+      "assists": 1,
+      "points": 1,
+      "pointsPerGame": 0.5,
+      "penaltyMinutes": 2
+    },
+    {
+      "rank": "10",
+      "name": "Arnold Remo",
+      "position": "Stürmer",
+      "games": 2,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 2
+    },
+    {
+      "rank": "11",
+      "name": "Bättig Nicolai",
+      "position": "Verteidiger",
+      "games": 2,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "12",
+      "name": "Eugster Toni",
+      "position": "Stürmer",
+      "games": 2,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 2
+    },
+    {
+      "rank": "13",
+      "name": "Hinterberger Janik",
+      "position": "Stürmer",
+      "games": 2,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "14",
+      "name": "Macho Tim",
+      "position": "Stürmer",
+      "games": 2,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "15",
+      "name": "Matter Luca-Paolo",
+      "position": "Stürmer",
+      "games": 2,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 2
+    },
+    {
+      "rank": "16",
+      "name": "Poli Michele Moreno",
+      "position": "Verteidiger",
+      "games": 2,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "17",
+      "name": "Stoffel Ramon",
+      "position": "Stürmer",
+      "games": 2,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 6
+    },
+    {
+      "rank": "18",
+      "name": "Wechsler Enrico",
+      "position": "Verteidiger",
+      "games": 2,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 0
+    }
+  ]
+}

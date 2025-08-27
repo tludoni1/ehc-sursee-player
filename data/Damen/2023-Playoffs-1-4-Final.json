@@ -1,0 +1,140 @@
+{
+  "season": 2023,
+  "phase": "Playoffs 1/4 Final",
+  "team": "Damen",
+  "league": 43,
+  "players": [
+    {
+      "rank": "1",
+      "name": "Heiz Aline",
+      "position": "Stürmer",
+      "games": 2,
+      "goals": 3,
+      "assists": 0,
+      "points": 3,
+      "pointsPerGame": 1.5,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "2",
+      "name": "Lanz Stéphanie",
+      "position": "Stürmer",
+      "games": 2,
+      "goals": 2,
+      "assists": 0,
+      "points": 2,
+      "pointsPerGame": 1,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "3",
+      "name": "Birnstiel Luana",
+      "position": "Stürmer",
+      "games": 2,
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "pointsPerGame": 0.5,
+      "penaltyMinutes": 2
+    },
+    {
+      "rank": "4",
+      "name": "Bazzell Jennifer",
+      "position": "Stürmer",
+      "games": 2,
+      "goals": 0,
+      "assists": 1,
+      "points": 1,
+      "pointsPerGame": 0.5,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "5",
+      "name": "Bregy Corin",
+      "position": "Stürmer",
+      "games": 2,
+      "goals": 0,
+      "assists": 1,
+      "points": 1,
+      "pointsPerGame": 0.5,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "6",
+      "name": "Hänggi Stefanie",
+      "position": "Verteidiger",
+      "games": 2,
+      "goals": 0,
+      "assists": 1,
+      "points": 1,
+      "pointsPerGame": 0.5,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "7",
+      "name": "Wuttke Selina",
+      "position": "Verteidiger",
+      "games": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "8",
+      "name": "Bühler Svenia",
+      "position": "Stürmer",
+      "games": 2,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 2
+    },
+    {
+      "rank": "9",
+      "name": "Buser Nathalie",
+      "position": "Verteidiger",
+      "games": 2,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 2
+    },
+    {
+      "rank": "10",
+      "name": "Habegger Janina",
+      "position": "Stürmer",
+      "games": 2,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "11",
+      "name": "Matter Sarah",
+      "position": "Stürmer",
+      "games": 2,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "12",
+      "name": "Nienaber Marie",
+      "position": "Verteidiger",
+      "games": 2,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 4
+    }
+  ]
+}

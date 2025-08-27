@@ -1,0 +1,184 @@
+{
+  "season": 2018,
+  "phase": "Playoffs 1/8 Final",
+  "team": "1 Mannschaft",
+  "league": 10,
+  "players": [
+    {
+      "rank": "1",
+      "name": "Schmerda Michael",
+      "position": "Stürmer",
+      "games": 3,
+      "goals": 2,
+      "assists": 3,
+      "points": 5,
+      "pointsPerGame": 1.67,
+      "penaltyMinutes": 2
+    },
+    {
+      "rank": "2",
+      "name": "Schnyder Hans",
+      "position": "Stürmer",
+      "games": 3,
+      "goals": 1,
+      "assists": 3,
+      "points": 4,
+      "pointsPerGame": 1.33,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "3",
+      "name": "Presheva Kadri",
+      "position": "Stürmer",
+      "games": 3,
+      "goals": 1,
+      "assists": 2,
+      "points": 3,
+      "pointsPerGame": 1,
+      "penaltyMinutes": 6
+    },
+    {
+      "rank": "4",
+      "name": "Dvorsky Martin",
+      "position": "Stürmer",
+      "games": 3,
+      "goals": 1,
+      "assists": 1,
+      "points": 2,
+      "pointsPerGame": 0.67,
+      "penaltyMinutes": 2
+    },
+    {
+      "rank": "5",
+      "name": "Macho Tim",
+      "position": "Stürmer",
+      "games": 3,
+      "goals": 1,
+      "assists": 1,
+      "points": 2,
+      "pointsPerGame": 0.67,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "6",
+      "name": "Martschini Luca",
+      "position": "Stürmer",
+      "games": 3,
+      "goals": 1,
+      "assists": 1,
+      "points": 2,
+      "pointsPerGame": 0.67,
+      "penaltyMinutes": 2
+    },
+    {
+      "rank": "7",
+      "name": "Kiser Yannick",
+      "position": "Stürmer",
+      "games": 3,
+      "goals": 1,
+      "assists": 1,
+      "points": 2,
+      "pointsPerGame": 0.67,
+      "penaltyMinutes": 8
+    },
+    {
+      "rank": "8",
+      "name": "Matter Luca-Paolo",
+      "position": "Stürmer",
+      "games": 3,
+      "goals": 1,
+      "assists": 1,
+      "points": 2,
+      "pointsPerGame": 0.67,
+      "penaltyMinutes": 4
+    },
+    {
+      "rank": "9",
+      "name": "Müller Thomas",
+      "position": "Verteidiger",
+      "games": 2,
+      "goals": 0,
+      "assists": 2,
+      "points": 2,
+      "pointsPerGame": 1,
+      "penaltyMinutes": 2
+    },
+    {
+      "rank": "10",
+      "name": "Zürcher Marco",
+      "position": "Stürmer",
+      "games": 3,
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "pointsPerGame": 0.33,
+      "penaltyMinutes": 2
+    },
+    {
+      "rank": "11",
+      "name": "Roth Bernhard",
+      "position": "Stürmer",
+      "games": 2,
+      "goals": 0,
+      "assists": 1,
+      "points": 1,
+      "pointsPerGame": 0.5,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "12",
+      "name": "Koalick André",
+      "position": "Verteidiger",
+      "games": 3,
+      "goals": 0,
+      "assists": 1,
+      "points": 1,
+      "pointsPerGame": 0.33,
+      "penaltyMinutes": 4
+    },
+    {
+      "rank": "13",
+      "name": "Kiser Kevin",
+      "position": "Verteidiger",
+      "games": 3,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "14",
+      "name": "Mathys Patrick",
+      "position": "Verteidiger",
+      "games": 3,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "15",
+      "name": "Trutmann Michael",
+      "position": "Verteidiger",
+      "games": 3,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 2
+    },
+    {
+      "rank": "16",
+      "name": "Wyss Philipp",
+      "position": "Stürmer",
+      "games": 3,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 4
+    }
+  ]
+}

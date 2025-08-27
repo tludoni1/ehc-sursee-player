@@ -1,0 +1,239 @@
+{
+  "season": 2022,
+  "phase": "Regular Season",
+  "team": "1 Mannschaft",
+  "league": 10,
+  "players": [
+    {
+      "rank": "1",
+      "name": "Schmerda Michael",
+      "position": "Stürmer",
+      "games": 14,
+      "goals": 15,
+      "assists": 17,
+      "points": 32,
+      "pointsPerGame": 2.29,
+      "penaltyMinutes": 10
+    },
+    {
+      "rank": "2",
+      "name": "Wyss David",
+      "position": "Stürmer",
+      "games": 11,
+      "goals": 14,
+      "assists": 15,
+      "points": 29,
+      "pointsPerGame": 2.64,
+      "penaltyMinutes": 4
+    },
+    {
+      "rank": "3",
+      "name": "Zürcher Marco",
+      "position": "Stürmer",
+      "games": 14,
+      "goals": 14,
+      "assists": 10,
+      "points": 24,
+      "pointsPerGame": 1.71,
+      "penaltyMinutes": 10
+    },
+    {
+      "rank": "4",
+      "name": "Kiser Yannick",
+      "position": "Stürmer",
+      "games": 11,
+      "goals": 7,
+      "assists": 17,
+      "points": 24,
+      "pointsPerGame": 2.18,
+      "penaltyMinutes": 8
+    },
+    {
+      "rank": "5",
+      "name": "Schnyder Hans",
+      "position": "Stürmer",
+      "games": 14,
+      "goals": 10,
+      "assists": 12,
+      "points": 22,
+      "pointsPerGame": 1.57,
+      "penaltyMinutes": 4
+    },
+    {
+      "rank": "6",
+      "name": "Emmenegger Raphael",
+      "position": "Stürmer",
+      "games": 14,
+      "goals": 6,
+      "assists": 14,
+      "points": 20,
+      "pointsPerGame": 1.43,
+      "penaltyMinutes": 12
+    },
+    {
+      "rank": "7",
+      "name": "Salzmann Philippe",
+      "position": "Stürmer",
+      "games": 14,
+      "goals": 5,
+      "assists": 9,
+      "points": 14,
+      "pointsPerGame": 1,
+      "penaltyMinutes": 10
+    },
+    {
+      "rank": "8",
+      "name": "Zubler Cédric",
+      "position": "Verteidiger",
+      "games": 12,
+      "goals": 5,
+      "assists": 6,
+      "points": 11,
+      "pointsPerGame": 0.92,
+      "penaltyMinutes": 6
+    },
+    {
+      "rank": "9",
+      "name": "Iliev Michal",
+      "position": "Stürmer",
+      "games": 13,
+      "goals": 2,
+      "assists": 9,
+      "points": 11,
+      "pointsPerGame": 0.85,
+      "penaltyMinutes": 6
+    },
+    {
+      "rank": "10",
+      "name": "Felder Jan",
+      "position": "Verteidiger",
+      "games": 14,
+      "goals": 1,
+      "assists": 10,
+      "points": 11,
+      "pointsPerGame": 0.79,
+      "penaltyMinutes": 8
+    },
+    {
+      "rank": "11",
+      "name": "Arnold Remo",
+      "position": "Stürmer",
+      "games": 13,
+      "goals": 6,
+      "assists": 2,
+      "points": 8,
+      "pointsPerGame": 0.62,
+      "penaltyMinutes": 4
+    },
+    {
+      "rank": "12",
+      "name": "Augstburger Severin",
+      "position": "Stürmer",
+      "games": 7,
+      "goals": 4,
+      "assists": 4,
+      "points": 8,
+      "pointsPerGame": 1.14,
+      "penaltyMinutes": 12
+    },
+    {
+      "rank": "13",
+      "name": "Bosshard Alex",
+      "position": "Verteidiger",
+      "games": 12,
+      "goals": 1,
+      "assists": 6,
+      "points": 7,
+      "pointsPerGame": 0.58,
+      "penaltyMinutes": 4
+    },
+    {
+      "rank": "14",
+      "name": "Mathys Patrick",
+      "position": "Verteidiger",
+      "games": 14,
+      "goals": 2,
+      "assists": 1,
+      "points": 3,
+      "pointsPerGame": 0.21,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "15",
+      "name": "Durdek Pascal",
+      "position": "Stürmer",
+      "games": 8,
+      "goals": 0,
+      "assists": 2,
+      "points": 2,
+      "pointsPerGame": 0.25,
+      "penaltyMinutes": 2
+    },
+    {
+      "rank": "16",
+      "name": "Macho Tim",
+      "position": "Stürmer",
+      "games": 13,
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "pointsPerGame": 0.08,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "17",
+      "name": "Costa Elia",
+      "position": "Stürmer",
+      "games": 2,
+      "goals": 0,
+      "assists": 1,
+      "points": 1,
+      "pointsPerGame": 0.5,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "18",
+      "name": "Meyer Cyril",
+      "position": "Verteidiger",
+      "games": 3,
+      "goals": 0,
+      "assists": 1,
+      "points": 1,
+      "pointsPerGame": 0.33,
+      "penaltyMinutes": 4
+    },
+    {
+      "rank": "19",
+      "name": "Hinterberger Janik",
+      "position": "Stürmer",
+      "games": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "20",
+      "name": "Otz Renato",
+      "position": "Stürmer",
+      "games": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "21",
+      "name": "Bättig Nicolai",
+      "position": "Verteidiger",
+      "games": 14,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 0
+    }
+  ]
+}

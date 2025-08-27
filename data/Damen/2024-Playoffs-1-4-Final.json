@@ -1,0 +1,173 @@
+{
+  "season": 2024,
+  "phase": "Playoffs 1/4 Final",
+  "team": "Damen",
+  "league": 43,
+  "players": [
+    {
+      "rank": "1",
+      "name": "Nyffeler Sheila",
+      "position": "Stürmer",
+      "games": 1,
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "pointsPerGame": 1,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "2",
+      "name": "Lanz Stéphanie",
+      "position": "Stürmer",
+      "games": 2,
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "pointsPerGame": 0.5,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "3",
+      "name": "Bazzell Jennifer",
+      "position": "Stürmer",
+      "games": 2,
+      "goals": 0,
+      "assists": 1,
+      "points": 1,
+      "pointsPerGame": 0.5,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "4",
+      "name": "Bolinger Vanessa",
+      "position": "Stürmer",
+      "games": 2,
+      "goals": 0,
+      "assists": 1,
+      "points": 1,
+      "pointsPerGame": 0.5,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "5",
+      "name": "Hofstetter Andrea",
+      "position": "Verteidiger",
+      "games": 2,
+      "goals": 0,
+      "assists": 1,
+      "points": 1,
+      "pointsPerGame": 0.5,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "6",
+      "name": "Nienaber Marie",
+      "position": "Verteidiger",
+      "games": 2,
+      "goals": 0,
+      "assists": 1,
+      "points": 1,
+      "pointsPerGame": 0.5,
+      "penaltyMinutes": 2
+    },
+    {
+      "rank": "7",
+      "name": "Birnstiel Luana",
+      "position": "Stürmer",
+      "games": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 4
+    },
+    {
+      "rank": "8",
+      "name": "Anliker Riana",
+      "position": "Verteidiger",
+      "games": 2,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "9",
+      "name": "Bregy Corin",
+      "position": "Verteidiger",
+      "games": 2,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "10",
+      "name": "Gehrig Stefanie",
+      "position": "Stürmer",
+      "games": 2,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "11",
+      "name": "Hänggi Stefanie",
+      "position": "Verteidiger",
+      "games": 2,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "12",
+      "name": "Matter Sarah",
+      "position": "Stürmer",
+      "games": 2,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "13",
+      "name": "Simpson Emma",
+      "position": "Stürmer",
+      "games": 2,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 2
+    },
+    {
+      "rank": "14",
+      "name": "Troxler Stefanie",
+      "position": "Stürmer",
+      "games": 2,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "15",
+      "name": "Wunderlin Alina",
+      "position": "Verteidiger",
+      "games": 2,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 0
+    }
+  ]
+}

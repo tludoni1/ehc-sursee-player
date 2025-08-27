@@ -1,0 +1,206 @@
+{
+  "season": 2022,
+  "phase": "Playoffs 1/4 Final",
+  "team": "1 Mannschaft",
+  "league": 10,
+  "players": [
+    {
+      "rank": "1",
+      "name": "Wyss David",
+      "position": "Stürmer",
+      "games": 3,
+      "goals": 3,
+      "assists": 6,
+      "points": 9,
+      "pointsPerGame": 3,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "2",
+      "name": "Schnyder Hans",
+      "position": "Stürmer",
+      "games": 3,
+      "goals": 2,
+      "assists": 7,
+      "points": 9,
+      "pointsPerGame": 3,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "3",
+      "name": "Zubler Cédric",
+      "position": "Verteidiger",
+      "games": 3,
+      "goals": 4,
+      "assists": 3,
+      "points": 7,
+      "pointsPerGame": 2.33,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "4",
+      "name": "Schmerda Michael",
+      "position": "Stürmer",
+      "games": 3,
+      "goals": 2,
+      "assists": 5,
+      "points": 7,
+      "pointsPerGame": 2.33,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "5",
+      "name": "Zürcher Marco",
+      "position": "Stürmer",
+      "games": 3,
+      "goals": 3,
+      "assists": 3,
+      "points": 6,
+      "pointsPerGame": 2,
+      "penaltyMinutes": 2
+    },
+    {
+      "rank": "6",
+      "name": "Kiser Yannick",
+      "position": "Stürmer",
+      "games": 3,
+      "goals": 3,
+      "assists": 2,
+      "points": 5,
+      "pointsPerGame": 1.67,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "7",
+      "name": "Augstburger Severin",
+      "position": "Stürmer",
+      "games": 3,
+      "goals": 3,
+      "assists": 2,
+      "points": 5,
+      "pointsPerGame": 1.67,
+      "penaltyMinutes": 2
+    },
+    {
+      "rank": "8",
+      "name": "Bosshard Alex",
+      "position": "Verteidiger",
+      "games": 3,
+      "goals": 2,
+      "assists": 0,
+      "points": 2,
+      "pointsPerGame": 0.67,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "9",
+      "name": "Iliev Michal",
+      "position": "Stürmer",
+      "games": 3,
+      "goals": 1,
+      "assists": 1,
+      "points": 2,
+      "pointsPerGame": 0.67,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "10",
+      "name": "Emmenegger Raphael",
+      "position": "Stürmer",
+      "games": 3,
+      "goals": 1,
+      "assists": 1,
+      "points": 2,
+      "pointsPerGame": 0.67,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "11",
+      "name": "Mathys Patrick",
+      "position": "Verteidiger",
+      "games": 3,
+      "goals": 0,
+      "assists": 2,
+      "points": 2,
+      "pointsPerGame": 0.67,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "12",
+      "name": "Felder Jan",
+      "position": "Verteidiger",
+      "games": 1,
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "pointsPerGame": 1,
+      "penaltyMinutes": 4
+    },
+    {
+      "rank": "13",
+      "name": "Costa Elia",
+      "position": "Stürmer",
+      "games": 3,
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "pointsPerGame": 0.33,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "14",
+      "name": "Macho Tim",
+      "position": "Stürmer",
+      "games": 3,
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "pointsPerGame": 0.33,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "15",
+      "name": "Arnold Remo",
+      "position": "Stürmer",
+      "games": 3,
+      "goals": 0,
+      "assists": 1,
+      "points": 1,
+      "pointsPerGame": 0.33,
+      "penaltyMinutes": 2
+    },
+    {
+      "rank": "16",
+      "name": "Durdek Pascal",
+      "position": "Stürmer",
+      "games": 2,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "17",
+      "name": "Otz Renato",
+      "position": "Stürmer",
+      "games": 2,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "18",
+      "name": "Bättig Nicolai",
+      "position": "Verteidiger",
+      "games": 3,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 0
+    }
+  ]
+}

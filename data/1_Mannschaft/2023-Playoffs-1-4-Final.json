@@ -1,0 +1,195 @@
+{
+  "season": 2023,
+  "phase": "Playoffs 1/4 Final",
+  "team": "1 Mannschaft",
+  "league": 10,
+  "players": [
+    {
+      "rank": "1",
+      "name": "Schmerda Michael",
+      "position": "Stürmer",
+      "games": 3,
+      "goals": 3,
+      "assists": 0,
+      "points": 3,
+      "pointsPerGame": 1,
+      "penaltyMinutes": 2
+    },
+    {
+      "rank": "2",
+      "name": "Schnyder Hans",
+      "position": "Stürmer",
+      "games": 3,
+      "goals": 2,
+      "assists": 1,
+      "points": 3,
+      "pointsPerGame": 1,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "3",
+      "name": "Keller Andrin",
+      "position": "Stürmer",
+      "games": 3,
+      "goals": 1,
+      "assists": 2,
+      "points": 3,
+      "pointsPerGame": 1,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "4",
+      "name": "Felder Jan",
+      "position": "Verteidiger",
+      "games": 3,
+      "goals": 2,
+      "assists": 0,
+      "points": 2,
+      "pointsPerGame": 0.67,
+      "penaltyMinutes": 8
+    },
+    {
+      "rank": "5",
+      "name": "Mathys Patrick",
+      "position": "Verteidiger",
+      "games": 3,
+      "goals": 0,
+      "assists": 2,
+      "points": 2,
+      "pointsPerGame": 0.67,
+      "penaltyMinutes": 2
+    },
+    {
+      "rank": "6",
+      "name": "Meyer Alain",
+      "position": "Verteidiger",
+      "games": 3,
+      "goals": 0,
+      "assists": 2,
+      "points": 2,
+      "pointsPerGame": 0.67,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "7",
+      "name": "Zürcher Marco",
+      "position": "Stürmer",
+      "games": 3,
+      "goals": 0,
+      "assists": 1,
+      "points": 1,
+      "pointsPerGame": 0.33,
+      "penaltyMinutes": 6
+    },
+    {
+      "rank": "8",
+      "name": "Emmenegger Raphael",
+      "position": "Stürmer",
+      "games": 3,
+      "goals": 0,
+      "assists": 1,
+      "points": 1,
+      "pointsPerGame": 0.33,
+      "penaltyMinutes": 2
+    },
+    {
+      "rank": "9",
+      "name": "Bosshard Alex",
+      "position": "Verteidiger",
+      "games": 2,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 2
+    },
+    {
+      "rank": "10",
+      "name": "Schindler Michael",
+      "position": "Stürmer",
+      "games": 2,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "11",
+      "name": "Arnold Remo",
+      "position": "Stürmer",
+      "games": 3,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "12",
+      "name": "Augstburger Joel",
+      "position": "Stürmer",
+      "games": 3,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 4
+    },
+    {
+      "rank": "13",
+      "name": "Bättig Nicolai",
+      "position": "Verteidiger",
+      "games": 3,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 2
+    },
+    {
+      "rank": "14",
+      "name": "Iliev Michal",
+      "position": "Stürmer",
+      "games": 3,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 4
+    },
+    {
+      "rank": "15",
+      "name": "Kiser Yannick",
+      "position": "Stürmer",
+      "games": 3,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "16",
+      "name": "Otz Renato",
+      "position": "Stürmer",
+      "games": 3,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "17",
+      "name": "Salzmann Philippe",
+      "position": "Stürmer",
+      "games": 3,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 2
+    }
+  ]
+}

@@ -1,0 +1,151 @@
+{
+  "season": 2018,
+  "phase": "Promotion Games",
+  "team": "Damen",
+  "league": 101,
+  "players": [
+    {
+      "rank": "1",
+      "name": "Arneitz Carina",
+      "position": "Stürmer",
+      "games": 1,
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "pointsPerGame": 1,
+      "penaltyMinutes": 2
+    },
+    {
+      "rank": "2",
+      "name": "Duss Pia",
+      "position": "Torhüter",
+      "games": 1,
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "pointsPerGame": 1,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "3",
+      "name": "Hänggi Stefanie",
+      "position": "Verteidiger",
+      "games": 1,
+      "goals": 0,
+      "assists": 1,
+      "points": 1,
+      "pointsPerGame": 1,
+      "penaltyMinutes": 4
+    },
+    {
+      "rank": "4",
+      "name": "Anliker Riana",
+      "position": "Verteidiger",
+      "games": 1,
+      "goals": 0,
+      "assists": 1,
+      "points": 1,
+      "pointsPerGame": 1,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "5",
+      "name": "Barmettler Jennifer",
+      "position": "Stürmer",
+      "games": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 2
+    },
+    {
+      "rank": "6",
+      "name": "Bevc Delia",
+      "position": "Verteidiger",
+      "games": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "7",
+      "name": "Greger Stefanie",
+      "position": "Stürmer",
+      "games": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 2
+    },
+    {
+      "rank": "8",
+      "name": "Hofstetter Andrea",
+      "position": "Verteidiger",
+      "games": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "9",
+      "name": "Lanz Stéphanie",
+      "position": "Stürmer",
+      "games": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "10",
+      "name": "Rüegger Désirée",
+      "position": "Stürmer",
+      "games": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "11",
+      "name": "Schär Tamara",
+      "position": "Stürmer",
+      "games": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "12",
+      "name": "Steiger Daniela",
+      "position": "Verteidiger",
+      "games": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "13",
+      "name": "Studer Corinne",
+      "position": "Verteidiger",
+      "games": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 2
+    }
+  ]
+}

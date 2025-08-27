@@ -1,0 +1,195 @@
+{
+  "season": 2019,
+  "phase": "Relegation Games",
+  "team": "1 Mannschaft",
+  "league": 10,
+  "players": [
+    {
+      "rank": "1",
+      "name": "Schmerda Michael",
+      "position": "Stürmer",
+      "games": 6,
+      "goals": 7,
+      "assists": 5,
+      "points": 12,
+      "pointsPerGame": 2,
+      "penaltyMinutes": 22
+    },
+    {
+      "rank": "2",
+      "name": "Kiser Yannick",
+      "position": "Stürmer",
+      "games": 6,
+      "goals": 2,
+      "assists": 8,
+      "points": 10,
+      "pointsPerGame": 1.67,
+      "penaltyMinutes": 8
+    },
+    {
+      "rank": "3",
+      "name": "Zürcher Marco",
+      "position": "Stürmer",
+      "games": 6,
+      "goals": 4,
+      "assists": 3,
+      "points": 7,
+      "pointsPerGame": 1.17,
+      "penaltyMinutes": 2
+    },
+    {
+      "rank": "4",
+      "name": "Salzmann Philippe",
+      "position": "Stürmer",
+      "games": 6,
+      "goals": 1,
+      "assists": 5,
+      "points": 6,
+      "pointsPerGame": 1,
+      "penaltyMinutes": 2
+    },
+    {
+      "rank": "5",
+      "name": "Schnyder Hans",
+      "position": "Stürmer",
+      "games": 6,
+      "goals": 2,
+      "assists": 2,
+      "points": 4,
+      "pointsPerGame": 0.67,
+      "penaltyMinutes": 6
+    },
+    {
+      "rank": "6",
+      "name": "Meier Pascal",
+      "position": "Stürmer",
+      "games": 5,
+      "goals": 1,
+      "assists": 3,
+      "points": 4,
+      "pointsPerGame": 0.8,
+      "penaltyMinutes": 2
+    },
+    {
+      "rank": "7",
+      "name": "Jud Oliver",
+      "position": "Stürmer",
+      "games": 6,
+      "goals": 2,
+      "assists": 1,
+      "points": 3,
+      "pointsPerGame": 0.5,
+      "penaltyMinutes": 6
+    },
+    {
+      "rank": "8",
+      "name": "Blindenbacher Louis",
+      "position": "Stürmer",
+      "games": 4,
+      "goals": 2,
+      "assists": 1,
+      "points": 3,
+      "pointsPerGame": 0.75,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "9",
+      "name": "Koalick André",
+      "position": "Verteidiger",
+      "games": 5,
+      "goals": 1,
+      "assists": 2,
+      "points": 3,
+      "pointsPerGame": 0.6,
+      "penaltyMinutes": 6
+    },
+    {
+      "rank": "10",
+      "name": "Mathys Patrick",
+      "position": "Verteidiger",
+      "games": 6,
+      "goals": 1,
+      "assists": 2,
+      "points": 3,
+      "pointsPerGame": 0.5,
+      "penaltyMinutes": 4
+    },
+    {
+      "rank": "11",
+      "name": "Odermatt Tim",
+      "position": "Stürmer",
+      "games": 1,
+      "goals": 2,
+      "assists": 0,
+      "points": 2,
+      "pointsPerGame": 2,
+      "penaltyMinutes": 2
+    },
+    {
+      "rank": "12",
+      "name": "Wyss Philipp",
+      "position": "Stürmer",
+      "games": 6,
+      "goals": 1,
+      "assists": 1,
+      "points": 2,
+      "pointsPerGame": 0.33,
+      "penaltyMinutes": 4
+    },
+    {
+      "rank": "13",
+      "name": "Augstburger Severin",
+      "position": "Stürmer",
+      "games": 1,
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "pointsPerGame": 1,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "14",
+      "name": "Dvorsky Martin",
+      "position": "Stürmer",
+      "games": 5,
+      "goals": 0,
+      "assists": 1,
+      "points": 1,
+      "pointsPerGame": 0.2,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "15",
+      "name": "Roth Bernhard",
+      "position": "Stürmer",
+      "games": 5,
+      "goals": 0,
+      "assists": 1,
+      "points": 1,
+      "pointsPerGame": 0.2,
+      "penaltyMinutes": 2
+    },
+    {
+      "rank": "16",
+      "name": "Bosshard Alex",
+      "position": "Verteidiger",
+      "games": 2,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 4
+    },
+    {
+      "rank": "17",
+      "name": "Kühni Dario",
+      "position": "Verteidiger",
+      "games": 5,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 0
+    }
+  ]
+}

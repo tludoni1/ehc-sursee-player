@@ -1,0 +1,195 @@
+{
+  "season": 2016,
+  "phase": "Aufstiegsspiele",
+  "team": "1 Mannschaft",
+  "league": 18,
+  "players": [
+    {
+      "rank": "1",
+      "name": "Roth Bernhard",
+      "position": "Stürmer",
+      "games": 2,
+      "goals": 5,
+      "assists": 0,
+      "points": 5,
+      "pointsPerGame": 2.5,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "2",
+      "name": "Iliev Michal",
+      "position": "Stürmer",
+      "games": 2,
+      "goals": 1,
+      "assists": 3,
+      "points": 4,
+      "pointsPerGame": 2,
+      "penaltyMinutes": 2
+    },
+    {
+      "rank": "3",
+      "name": "Distel Tim",
+      "position": "Verteidiger",
+      "games": 2,
+      "goals": 1,
+      "assists": 2,
+      "points": 3,
+      "pointsPerGame": 1.5,
+      "penaltyMinutes": 6
+    },
+    {
+      "rank": "4",
+      "name": "Kiser Yannick",
+      "position": "Stürmer",
+      "games": 1,
+      "goals": 0,
+      "assists": 3,
+      "points": 3,
+      "pointsPerGame": 3,
+      "penaltyMinutes": 2
+    },
+    {
+      "rank": "5",
+      "name": "Koalick André",
+      "position": "Verteidiger",
+      "games": 2,
+      "goals": 2,
+      "assists": 0,
+      "points": 2,
+      "pointsPerGame": 1,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "6",
+      "name": "Kronenberg Severin",
+      "position": "Stürmer",
+      "games": 2,
+      "goals": 0,
+      "assists": 2,
+      "points": 2,
+      "pointsPerGame": 1,
+      "penaltyMinutes": 27
+    },
+    {
+      "rank": "7",
+      "name": "Habisreutinger Bruno",
+      "position": "Verteidiger",
+      "games": 1,
+      "goals": 0,
+      "assists": 1,
+      "points": 1,
+      "pointsPerGame": 1,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "8",
+      "name": "Martschini Luca",
+      "position": "Stürmer",
+      "games": 2,
+      "goals": 0,
+      "assists": 1,
+      "points": 1,
+      "pointsPerGame": 0.5,
+      "penaltyMinutes": 4
+    },
+    {
+      "rank": "9",
+      "name": "Oberson Armin",
+      "position": "Stürmer",
+      "games": 2,
+      "goals": 0,
+      "assists": 1,
+      "points": 1,
+      "pointsPerGame": 0.5,
+      "penaltyMinutes": 2
+    },
+    {
+      "rank": "10",
+      "name": "Matter Luca-Paolo",
+      "position": "Stürmer",
+      "games": 1,
+      "goals": 0,
+      "assists": 1,
+      "points": 1,
+      "pointsPerGame": 1,
+      "penaltyMinutes": 2
+    },
+    {
+      "rank": "11",
+      "name": "Schnyder Hans",
+      "position": "Stürmer",
+      "games": 1,
+      "goals": 0,
+      "assists": 1,
+      "points": 1,
+      "pointsPerGame": 1,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "12",
+      "name": "Faden Matthias",
+      "position": "Stürmer",
+      "games": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "13",
+      "name": "Macho Tim",
+      "position": "Stürmer",
+      "games": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "14",
+      "name": "Müller Jan",
+      "position": "Stürmer",
+      "games": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "15",
+      "name": "Taiana Andreas",
+      "position": "Verteidiger",
+      "games": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "16",
+      "name": "Kiser Kevin",
+      "position": "Verteidiger",
+      "games": 2,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 2
+    },
+    {
+      "rank": "17",
+      "name": "Novi Mario",
+      "position": "Verteidiger",
+      "games": 2,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 0
+    }
+  ]
+}
