@@ -3,6 +3,9 @@ name: Fetch Player Data
 on:
   workflow_dispatch: # erlaubt manuelles Starten im GitHub Web-UI
 
+permissions:
+  contents: write
+
 jobs:
   fetch:
     runs-on: ubuntu-latest
