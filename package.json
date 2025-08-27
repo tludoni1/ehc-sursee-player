@@ -3,14 +3,10 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "fetch": "node scripts/fetch_players.js"
+    "fetch": "node scripts/fetch_players.js",
+    "debug:standings": "node scripts/debug_standings.js"
   },
   "dependencies": {
     "node-fetch": "^3.3.2"
   }
-}
-
-"scripts": {
-  "fetch": "node scripts/fetch_players.js",
-  "debug:standings": "node scripts/debug_standings.js"
 }
