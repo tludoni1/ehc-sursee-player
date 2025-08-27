@@ -46,8 +46,8 @@ async function fetchJson(url) {
 
 // 🔍 Region + Phase dynamisch bestimmen
 async function findRegionAndPhase(season, leagueId, teamId) {
-  // 1. Basis-Request: nur Season + League, Rest = all
-  const url = `${BASE_URL}?alias=player&searchQuery=1/2015-2099/${leagueId}&filterQuery=${season}/${leagueId}/all/all/all&orderBy=points&orderByDescending=true&take=1&filterBy=Season,League&callback=externalStatisticsCallback&skip=-1&language=de`;
+  // 👉 WICHTIG: Basis-Request mit TeamId
+  const url = `${BASE_URL}?alias=player&searchQuery=1/2015-2099/${leagueId}&filterQuery=${season}/${leagueId}/all/all/${teamId}&orderBy=points&orderByDescending=true&take=1&filterBy=Season,League,Team&callback=externalStatisticsCallback&skip=-1&language=de`;
 
   const raw = await fetchJson(url);
 
@@ -70,7 +70,7 @@ async function findRegionAndPhase(season, leagueId, teamId) {
     throw new Error("Region oder Phase nicht im Filter vorhanden");
   }
 
-  const region = regionFilter.entries[0]; // meist nur "CH"
+  const region = regionFilter.entries[0]; // meist nur CH
 
   // 2. Alle Phasen ausprobieren
   for (const phase of phaseFilter.entries) {
