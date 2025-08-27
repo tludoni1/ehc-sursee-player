@@ -78,11 +78,19 @@ async function fetchTeamSeason(season) {
 
   const raw = await fetchJson(url);
 
-  if (!raw.data || !Array.isArray(raw.data)) {
-    throw new Error("Player API hat kein gültiges data-Array zurückgegeben.");
+    let table = null;
+
+  if (Array.isArray(raw.data)) {
+    table = raw.data;
+  } else if (Array.isArray(raw.rows)) {
+    table = raw.rows;
   }
 
-  const players = raw.data.map((p) => ({
+  if (!table) {
+    throw new Error("Player API hat weder data noch rows mit Spielerinformationen zurückgegeben.");
+  }
+
+  const players = table.map((p) => ({
     rank: p[0],
     name: p[1],
     position: p[3],
@@ -93,6 +101,7 @@ async function fetchTeamSeason(season) {
     pointsPerGame: parseFloat(p[8]),
     penaltyMinutes: parseInt(p[9]),
   }));
+
 
   const out = {
     season,
