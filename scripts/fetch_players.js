@@ -55,6 +55,8 @@ async function findRegionAndPhase(season, leagueId, teamId) {
     throw new Error("Keine Filter im Player-Response gefunden");
   }
 
+console.log("🔎 Verfügbare Filter:", raw.filters.map(f => f.alias));
+  
   const regionFilter = raw.filters.find(f => f.alias === "Region");
   const phaseFilter  = raw.filters.find(f => f.alias === "Phase");
 
