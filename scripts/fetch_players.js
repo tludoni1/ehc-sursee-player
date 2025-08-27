@@ -10,16 +10,15 @@ const TEAM = {
 
 const SEASONS = [2022, 2023, 2024, 2025];
 const BASE_URL = "https://data.sihf.ch/Statistic/api/cms/cache300";
-const MAPPING_FILE = path.join("data", "mappings.json");
 
-// universeller JSON/JSONP-Parser
+// JSON/JSONP-Parser
 function stripAnyJsonCallback(text) {
   const start = text.indexOf("(");
   const end = text.lastIndexOf(")");
   if (start !== -1 && end !== -1) {
     return text.substring(start + 1, end);
   }
-  return text; // plain JSON
+  return text;
 }
 
 async function fetchJson(url) {
@@ -45,20 +44,7 @@ async function fetchJson(url) {
   }
 }
 
-// Mapping laden / speichern
-function loadMappings() {
-  if (fs.existsSync(MAPPING_FILE)) {
-    return JSON.parse(fs.readFileSync(MAPPING_FILE, "utf-8"));
-  }
-  return {};
-}
-
-function saveMappings(mappings) {
-  fs.mkdirSync(path.dirname(MAPPING_FILE), { recursive: true });
-  fs.writeFileSync(MAPPING_FILE, JSON.stringify(mappings, null, 2), "utf-8");
-}
-
-// Region + Phase dynamisch ermitteln oder aus Mapping laden
+// 🔍 Region + Phase dynamisch bestimmen
 async function findRegionAndPhase(season, leagueId, teamId) {
   // 1. Basis-Request: nur Season + League, Rest = all
   const url = `${BASE_URL}?alias=player&searchQuery=1/2015-2099/${leagueId}&filterQuery=${season}/${leagueId}/all/all/all&orderBy=points&orderByDescending=true&take=1&filterBy=Season,League&callback=externalStatisticsCallback&skip=-1&language=de`;
@@ -79,15 +65,14 @@ async function findRegionAndPhase(season, leagueId, teamId) {
 
   const regionFilter = raw.filters.find(f => f.alias.toLowerCase() === "region");
   const phaseFilter  = raw.filters.find(f => f.alias.toLowerCase() === "phase");
-  const teamFilter   = raw.filters.find(f => f.alias.toLowerCase().includes("team"));
 
-  if (!regionFilter || !phaseFilter || !teamFilter) {
-    throw new Error("Region, Phase oder Team nicht im Filter vorhanden");
+  if (!regionFilter || !phaseFilter) {
+    throw new Error("Region oder Phase nicht im Filter vorhanden");
   }
 
-  // 2. Wir wissen jetzt, welche Aliases existieren
-  const region = regionFilter.entries[0]; // meistens nur CH
+  const region = regionFilter.entries[0]; // meist nur "CH"
 
+  // 2. Alle Phasen ausprobieren
   for (const phase of phaseFilter.entries) {
     const testQuery = `${season}/${leagueId}/${region.alias}/${phase.alias}/${teamId}`;
     const testUrl = `${BASE_URL}?alias=player&searchQuery=1/2015-2099/${leagueId}&filterQuery=${testQuery}&orderBy=points&orderByDescending=true&take=1&filterBy=Season,League,Region,Phase,Team&callback=externalStatisticsCallback&skip=-1&language=de`;
@@ -103,38 +88,7 @@ async function findRegionAndPhase(season, leagueId, teamId) {
   throw new Error(`Keine gültige Kombination für Team ${teamId}, Season ${season}`);
 }
 
-
-  // Basis-Request mit all/all/Team → liefert alle Phasen
-  const url = `${BASE_URL}?alias=player&searchQuery=1/2015-2099/${leagueId}&filterQuery=${season}/${leagueId}/all/all/${teamId}&orderBy=points&orderByDescending=true&take=1&filterBy=Season,League,Team&callback=externalStatisticsCallback&skip=-1&language=de`;
-  const raw = await fetchJson(url);
-
-  const regionFilter = raw.filters?.find(f => f.alias.toLowerCase() === "region");
-  const phaseFilter  = raw.filters?.find(f => f.alias.toLowerCase() === "phase");
-
-  if (!regionFilter || !phaseFilter) {
-    throw new Error("Region oder Phase nicht im Filter vorhanden");
-  }
-
-  const region = regionFilter.entries[0]; // meistens nur "CH"
-
-  for (const phase of phaseFilter.entries) {
-    const testQuery = `${season}/${leagueId}/${region.alias}/${phase.alias}/${teamId}`;
-    const testUrl = `${BASE_URL}?alias=player&searchQuery=1/2015-2099/${leagueId}&filterQuery=${testQuery}&orderBy=points&orderByDescending=true&take=1&filterBy=Season,League,Region,Phase,Team&callback=externalStatisticsCallback&skip=-1&language=de`;
-
-    const testRaw = await fetchJson(testUrl);
-
-    if (testRaw.data && testRaw.data.length > 0) {
-      console.log(`✅ Kombination gefunden für ${key}: Region=${region.alias}, Phase=${phase.alias}`);
-      mappings[key] = { region: region.alias, group: phase.alias };
-      saveMappings(mappings);
-      return mappings[key];
-    }
-  }
-
-  throw new Error(`Keine gültige Kombination für Team ${teamId}, Season ${season}`);
-}
-
-// Holt Player-Stats
+// 📥 Holt Player-Stats
 async function fetchTeamSeason(season) {
   const { leagueId, teamId, name } = TEAM;
   const { region, group } = await findRegionAndPhase(season, leagueId, teamId);
@@ -179,7 +133,7 @@ async function fetchTeamSeason(season) {
   console.log(`✅ Gespeichert: ${outFile} (${players.length} Spieler)`);
 }
 
-// Main Loop
+// ▶️ Main Loop
 async function main() {
   for (const season of SEASONS) {
     try {
