@@ -1,4 +1,3 @@
-// scripts/fetch_players.js
 import fs from "fs";
 import path from "path";
 import fetch from "node-fetch";
@@ -9,7 +8,6 @@ const TEAM = {
   name: "Senioren D"
 };
 
-// Test nur für Senioren mit festen IDs
 const GROUPS = {
   2022: { region: 1, group: 3567 },
   2023: { region: 1, group: 3867 },
@@ -20,14 +18,15 @@ const GROUPS = {
 const SEASONS = [2022, 2023, 2024, 2025];
 const BASE_URL = "https://data.sihf.ch/Statistic/api/cms/cache300";
 
-// Hilfsfunktion: Callback entfernen
+// Parser für JSONP mit externalStatisticsCallback
 function stripJsonCallback(text) {
-  const start = text.indexOf("(");
+  const marker = "externalStatisticsCallback(";
+  const start = text.indexOf(marker);
   const end = text.lastIndexOf(")");
   if (start === -1 || end === -1) {
-    throw new Error("Antwort hat kein JSONP-Format: " + text.substring(0, 100));
+    throw new Error("Kein Callback gefunden: " + text.substring(0, 100));
   }
-  return text.substring(start + 1, end);
+  return text.substring(start + marker.length, end);
 }
 
 async function fetchJson(url) {
@@ -42,12 +41,6 @@ async function fetchJson(url) {
   });
 
   const text = await res.text();
-
-  // Debug: ersten Zeichen ausgeben
-  if (text.startsWith("/**/") || text.startsWith("<")) {
-    throw new Error("API returned non-JSON: " + text.substring(0, 120) + " ...\nURL: " + fullUrl);
-  }
-
   return JSON.parse(stripJsonCallback(text));
 }
 
@@ -59,7 +52,7 @@ async function fetchTeamSeason(season) {
 
   const url = `${BASE_URL}?alias=player&searchQuery=1/2015-2099/3,10,18,19,33,35,36,38,37,39,40,41,43,101,44,45,46,104&filterQuery=${filterQuery}&orderBy=points&orderByDescending=true&take=200&filterBy=Season,League,Region,Phase,Team,Position,Licence&callback=externalStatisticsCallback&skip=-1&language=de`;
 
-  console.log(`➡️  Fetching: ${season} | ${url}`);
+  console.log(`➡️  Fetching: ${season}`);
 
   const data = await fetchJson(url);
 
