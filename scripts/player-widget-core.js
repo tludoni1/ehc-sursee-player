@@ -1,11 +1,15 @@
-// Farben-Sets (anpassbar)
+// ==========================
+// Farben (anpassbar)
+// ==========================
 const COLORS = {
   1: { header: "#D71920", text: "#000", line: "#ccc", bg: "#fff", hover: "#f5f5f5" },
   2: { header: "#333", text: "#000", line: "#ddd", bg: "#fff", hover: "#eee" },
   3: { header: "#fff", text: "#fff", line: "#D71920", bg: "#D71920", hover: "#A21318" }
 };
 
+// ==========================
 // Team-Mapping für Kürzel
+// ==========================
 const TEAM_MAP = {
   "1T": "1 Mannschaft",
   "2T": "2 Mannschaft",
@@ -13,7 +17,9 @@ const TEAM_MAP = {
   "S": "Senioren"
 };
 
-// Hauptfunktion – vom Loader aufgerufen
+// ==========================
+// Einstiegspunkt vom Loader
+// ==========================
 window.EHCPlayerWidgetCore = async function (config) {
   const container = config.el;
   container.innerHTML = `<div style="font-family:${config.font};">⏳ Lade Daten...</div>`;
@@ -22,7 +28,10 @@ window.EHCPlayerWidgetCore = async function (config) {
     const mappings = await fetchMappings();
 
     // Seasons bestimmen
-    const allSeasons = [...new Set(Object.keys(mappings).map((k) => k.split("-")[0]))];
+    const allSeasons = [...new Set(
+      Object.keys(mappings[TEAM_MAP[config.team.split(",")[0].trim()] || config.team.split(",")[0]])
+        .map((k) => k.split("-")[0])
+    )];
     const seasons = resolveSeasons(config.season, allSeasons);
 
     // Teams bestimmen
@@ -44,11 +53,13 @@ window.EHCPlayerWidgetCore = async function (config) {
     container.innerHTML = renderTable(players, config);
   } catch (err) {
     container.innerHTML = `<div style="color:red;font-family:${config.font}">❌ Fehler: ${err.message}</div>`;
+    console.error(err);
   }
 };
 
-// --- Hilfsfunktionen ---
-
+// ==========================
+// Hilfsfunktionen
+// ==========================
 async function fetchMappings() {
   const res = await fetch("https://tludoni1.github.io/ehc-sursee-player/data/mappings.json?v=" + Date.now());
   if (!res.ok) throw new Error("Konnte mappings.json nicht laden");
@@ -61,33 +72,45 @@ function resolveSeasons(param, allSeasons) {
   return param.split(",").map((s) => s.trim());
 }
 
+// --------------------------
+// NEU: versteht mappings.json Struktur
+// --------------------------
 async function loadSeasonData(mappings, teamName, season, phase) {
-  // Alle Einträge für Saison+Team finden
-  const entries = Object.values(mappings).filter(
-    (m) => m.season === parseInt(season) && m.team === teamName
-  );
-
-  if (entries.length === 0) {
-    console.warn(`⚠️ Keine Mapping-Einträge für ${teamName} ${season}`);
+  const teamMap = mappings[teamName];
+  if (!teamMap) {
+    console.warn(`⚠️ Kein Mapping für Team ${teamName}`);
     return { season, team: teamName, league: "", players: [] };
   }
 
-  // Phasen-Filter anwenden
-  let filtered = entries;
-  if (phase === "regular") {
-    filtered = entries.filter((e) => e.phase.toLowerCase().includes("regular"));
-  } else if (phase === "playoffs") {
-    filtered = entries.filter((e) => !e.phase.toLowerCase().includes("regular"));
+  // Keys für diese Saison holen (z. B. "2025", "2025-P1")
+  const seasonEntries = Object.entries(teamMap).filter(([key]) =>
+    key.startsWith(season.toString())
+  );
+
+  if (seasonEntries.length === 0) {
+    console.warn(`⚠️ Keine Einträge für ${teamName} ${season}`);
+    return { season, team: teamName, league: "", players: [] };
   }
 
-  // Alle passenden Files laden
+  // Phase-Filter anwenden
+  let filtered = seasonEntries;
+  if (phase === "regular") {
+    filtered = seasonEntries.filter(([_, v]) =>
+      v.phase.toLowerCase().includes("regular")
+    );
+  } else if (phase === "playoffs") {
+    filtered = seasonEntries.filter(([_, v]) =>
+      !v.phase.toLowerCase().includes("regular")
+    );
+  }
+
   let allData = [];
-  for (const entry of filtered) {
+  for (const [key, entry] of filtered) {
     const safePhase = entry.phase
       .replace(/\s+/g, "-")
       .replace(/\//g, "-")
       .replace(/[^\w\-]/g, "");
-    const file = `${entry.season}-${safePhase}.json`;
+    const file = `${season}-${safePhase}.json`;
 
     const url = `https://tludoni1.github.io/ehc-sursee-player/data/${teamName.replace(/\s+/g, "_")}/${file}?v=${Date.now()}`;
 
