@@ -3,17 +3,16 @@ import path from "path";
 import fetch from "node-fetch";
 
 const SEASON = 2025;   // kannst du anpassen
-const LEAGUE = 37;     // z.B. Senioren D = 37
+const LEAGUE = 37;     // Senioren D
 const BASE_URL = "https://data.sihf.ch/Statistic/api/cms/cache300";
 
-// universeller Parser: klappt für JSONP und plain JSON
 function stripAnyJsonCallback(text) {
   const start = text.indexOf("(");
   const end = text.lastIndexOf(")");
   if (start !== -1 && end !== -1) {
     return text.substring(start + 1, end);
   }
-  return text; // falls reines JSON ohne Callback
+  return text; // plain JSON
 }
 
 async function fetchJson(url) {
@@ -28,10 +27,17 @@ async function fetchJson(url) {
   });
 
   const text = await res.text();
+
+  // 👉 Debug: zeig die ersten 300 Zeichen im Log
+  console.log("🔎 API Antwort (erste 300 Zeichen):", text.substring(0, 300));
+
   try {
-    return JSON.parse(stripAnyJsonCallback(text));
+    if (text.includes("(") && text.includes(")")) {
+      return JSON.parse(stripAnyJsonCallback(text));
+    }
+    return JSON.parse(text);
   } catch (err) {
-    throw new Error("❌ Fehler beim Parsen der Antwort:\n" + text.substring(0, 200));
+    throw new Error("❌ Fehler beim Parsen – Antwort war kein valides JSON/JSONP.");
   }
 }
 
@@ -42,7 +48,6 @@ async function main() {
 
   const data = await fetchJson(url);
 
-  // Ordner vorbereiten
   const outDir = path.join("data", "debug");
   fs.mkdirSync(outDir, { recursive: true });
 
