@@ -15,10 +15,10 @@ const BASE_URL = "https://data.sihf.ch/Statistic/api/cms/cache300";
 function stripAnyJsonCallback(text) {
   const start = text.indexOf("(");
   const end = text.lastIndexOf(")");
-  if (start === -1 || end === -1) {
-    throw new Error("Kein JSONP-Format erkannt: " + text.substring(0, 100));
+  if (start !== -1 && end !== -1) {
+    return text.substring(start + 1, end);
   }
-  return text.substring(start + 1, end);
+  return text; // plain JSON
 }
 
 async function fetchJson(url) {
@@ -35,58 +35,66 @@ async function fetchJson(url) {
   const text = await res.text();
 
   try {
-    // Wenn JSONP (enthält Klammern), Callback rausstrippen
     if (text.includes("(") && text.includes(")")) {
       return JSON.parse(stripAnyJsonCallback(text));
     }
-    // sonst plain JSON
     return JSON.parse(text);
   } catch (err) {
-    throw new Error("Fehler beim Parsen der Antwort: " + text.substring(0, 120));
+    throw new Error("Fehler beim Parsen der Antwort: " + text.substring(0, 200));
   }
 }
 
-// 🔍 Holt dynamisch Region + Group IDs für Team/Saison
-async function fetchGroupInfo(season, leagueId, teamId) {
-  const url = `${BASE_URL}?alias=standings&searchQuery=${season}/${leagueId}/&filterQuery=${season}/${leagueId}/&language=de`;
+// 🔍 sucht dynamisch die richtige Region+Phase-Kombination für ein Team
+async function findRegionAndPhase(season, leagueId, teamId) {
+  // Basis-Request (liefert Filterstruktur zurück)
+  const url = `${BASE_URL}?alias=player&searchQuery=1/2015-2099/${leagueId}&filterQuery=${season}/${leagueId}/all/all/${teamId}&orderBy=points&orderByDescending=true&take=1&filterBy=Season,League,Team&callback=externalStatisticsCallback&skip=-1&language=de`;
 
   const raw = await fetchJson(url);
 
-  if (!raw.data || !Array.isArray(raw.data)) {
-    throw new Error("Standings API hat kein gültiges data-Array zurückgegeben.");
+  if (!raw.filters) {
+    throw new Error("Keine Filter im Player-Response gefunden");
   }
 
-  for (const region of raw.data) {
-    const regionId = region.Id;
-    for (const group of region.Groups || []) {
-      const groupId = group.Id;
-      const team = (group.Teams || []).find((t) => t.Id === teamId);
-      if (team) {
-        console.log(`🔎 Gefunden: season ${season} -> region ${regionId}, group ${groupId}`);
-        return { region: regionId, group: groupId };
+  const regionFilter = raw.filters.find(f => f.alias === "Region");
+  const phaseFilter  = raw.filters.find(f => f.alias === "Phase");
+
+  if (!regionFilter || !phaseFilter) {
+    throw new Error("Region oder Phase nicht im Filter vorhanden");
+  }
+
+  for (const region of regionFilter.entries) {
+    for (const phase of phaseFilter.entries) {
+      const testQuery = `${season}/${leagueId}/${region.alias}/${phase.alias}/${teamId}`;
+      const testUrl = `${BASE_URL}?alias=player&searchQuery=1/2015-2099/${leagueId}&filterQuery=${testQuery}&orderBy=points&orderByDescending=true&take=1&filterBy=Season,League,Region,Phase,Team&callback=externalStatisticsCallback&skip=-1&language=de`;
+
+      const testRaw = await fetchJson(testUrl);
+
+      if (testRaw.data && testRaw.data.length > 0) {
+        console.log(`✅ Kombination gefunden für ${season}: Region=${region.alias}, Phase=${phase.alias}`);
+        return { region: region.alias, group: phase.alias };
       }
     }
   }
 
-  throw new Error(`Keine Region/Group für Team ${teamId} in Season ${season} gefunden`);
+  throw new Error(`Keine gültige Kombination für Team ${teamId}, Season ${season}`);
 }
 
-// Holt Player-Stats
+// Holt Player-Stats für eine Saison
 async function fetchTeamSeason(season) {
   const { leagueId, teamId, name } = TEAM;
 
-  const { region, group } = await fetchGroupInfo(season, leagueId, teamId);
+  const { region, group } = await findRegionAndPhase(season, leagueId, teamId);
 
   const filterQuery = `${season}/${leagueId}/${region}/${group}/${teamId}`;
 
-  const url = `${BASE_URL}?alias=player&searchQuery=1/2015-2099/3,10,18,19,33,35,36,38,37,39,40,41,43,101,44,45,46,104&filterQuery=${filterQuery}&orderBy=points&orderByDescending=true&take=200&filterBy=Season,League,Region,Phase,Team,Position,Licence&callback=externalStatisticsCallback&skip=-1&language=de`;
+  const url = `${BASE_URL}?alias=player&searchQuery=1/2015-2099/${leagueId}&filterQuery=${filterQuery}&orderBy=points&orderByDescending=true&take=200&filterBy=Season,League,Region,Phase,Team,Position,Licence&callback=externalStatisticsCallback&skip=-1&language=de`;
 
   console.log(`➡️  Fetching stats: ${season}`);
 
   const raw = await fetchJson(url);
 
   if (!raw.data || !Array.isArray(raw.data)) {
-    throw new Error("Player API hat kein gültiges data-Array zurückgegeben. Schlüssel: " + Object.keys(raw));
+    throw new Error("Player API hat kein gültiges data-Array zurückgegeben.");
   }
 
   const players = raw.data.map((p) => ({
@@ -117,6 +125,7 @@ async function fetchTeamSeason(season) {
   console.log(`✅ Gespeichert: ${outFile} (${players.length} Spieler)`);
 }
 
+// Main Loop
 async function main() {
   for (const season of SEASONS) {
     try {
