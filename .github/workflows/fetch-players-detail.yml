@@ -12,6 +12,9 @@ on:
       - "scripts/fetch_players_detail.js"
       - ".github/workflows/fetch-players-detail.yml"
 
+permissions:
+  contents: write   # 👈 NEU: erlaubt Push ins Repo
+
 jobs:
   fetch:
     runs-on: ubuntu-latest
