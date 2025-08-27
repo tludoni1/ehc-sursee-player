@@ -57,9 +57,13 @@ async function fetchTeamSeason(season) {
 
   const raw = await fetchJson(url);
 
-  if (!raw.data || !Array.isArray(raw.data)) {
+    if (!raw.data || !Array.isArray(raw.data)) {
     throw new Error("API hat kein gültiges data-Array zurückgegeben. Schlüssel: " + Object.keys(raw));
   }
+
+  // 👉 Debug-Ausgabe: zeigt die echten Feldnamen des ersten Spielers
+  console.log(`🔎 Beispiel für ${season}:`, raw.data[0]);
+
 
   const players = raw.data.map((p) => ({
     id: p.PlayerId,
