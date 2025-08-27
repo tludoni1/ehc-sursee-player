@@ -8,7 +8,7 @@ const TEAM = {
   name: "Senioren D"
 };
 
-const SEASONS = [2022, 2023, 2024, 2025];
+const SEASONS = [2025];
 const BASE_URL = "https://data.sihf.ch/Statistic/api/cms/cache300";
 const MAPPING_FILE = path.join("data", "mappings.json");
 
