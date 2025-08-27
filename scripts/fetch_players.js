@@ -60,13 +60,49 @@ function saveMappings(mappings) {
 
 // Region + Phase dynamisch ermitteln oder aus Mapping laden
 async function findRegionAndPhase(season, leagueId, teamId) {
-  const mappings = loadMappings();
-  const key = `${season}-${leagueId}-${teamId}`;
+  // 1. Basis-Request: nur Season + League, Rest = all
+  const url = `${BASE_URL}?alias=player&searchQuery=1/2015-2099/${leagueId}&filterQuery=${season}/${leagueId}/all/all/all&orderBy=points&orderByDescending=true&take=1&filterBy=Season,League&callback=externalStatisticsCallback&skip=-1&language=de`;
 
-  if (mappings[key]) {
-    console.log(`⚡ Mapping gefunden für ${key}:`, mappings[key]);
-    return mappings[key];
+  const raw = await fetchJson(url);
+
+  if (!raw.filters) {
+    throw new Error("Keine Filter im Player-Response gefunden");
   }
+
+  console.log("🔎 Gefundene Filter:");
+  for (const f of raw.filters) {
+    console.log(`   - alias=${f.alias}, title=${f.title}`);
+    if (f.entries) {
+      console.log("     entries:", f.entries.map(e => `${e.name} (${e.alias})`).join(", "));
+    }
+  }
+
+  const regionFilter = raw.filters.find(f => f.alias.toLowerCase() === "region");
+  const phaseFilter  = raw.filters.find(f => f.alias.toLowerCase() === "phase");
+  const teamFilter   = raw.filters.find(f => f.alias.toLowerCase().includes("team"));
+
+  if (!regionFilter || !phaseFilter || !teamFilter) {
+    throw new Error("Region, Phase oder Team nicht im Filter vorhanden");
+  }
+
+  // 2. Wir wissen jetzt, welche Aliases existieren
+  const region = regionFilter.entries[0]; // meistens nur CH
+
+  for (const phase of phaseFilter.entries) {
+    const testQuery = `${season}/${leagueId}/${region.alias}/${phase.alias}/${teamId}`;
+    const testUrl = `${BASE_URL}?alias=player&searchQuery=1/2015-2099/${leagueId}&filterQuery=${testQuery}&orderBy=points&orderByDescending=true&take=1&filterBy=Season,League,Region,Phase,Team&callback=externalStatisticsCallback&skip=-1&language=de`;
+
+    const testRaw = await fetchJson(testUrl);
+
+    if (testRaw.data && testRaw.data.length > 0) {
+      console.log(`✅ Kombination gefunden für ${season}: Region=${region.alias}, Phase=${phase.alias}`);
+      return { region: region.alias, group: phase.alias };
+    }
+  }
+
+  throw new Error(`Keine gültige Kombination für Team ${teamId}, Season ${season}`);
+}
+
 
   // Basis-Request mit all/all/Team → liefert alle Phasen
   const url = `${BASE_URL}?alias=player&searchQuery=1/2015-2099/${leagueId}&filterQuery=${season}/${leagueId}/all/all/${teamId}&orderBy=points&orderByDescending=true&take=1&filterBy=Season,League,Team&callback=externalStatisticsCallback&skip=-1&language=de`;
