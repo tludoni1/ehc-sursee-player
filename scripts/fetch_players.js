@@ -11,18 +11,16 @@ const TEAM = {
 const SEASONS = [2022, 2023, 2024, 2025];
 const BASE_URL = "https://data.sihf.ch/Statistic/api/cms/cache300";
 
-// Parser für JSONP mit externalStatisticsCallback
-function stripJsonCallback(text) {
-  const marker = "externalStatisticsCallback(";
-  const start = text.indexOf(marker);
+// 🔧 universeller Parser: klappt für JSONP (egal welcher Callback) und reines JSON
+function stripAnyJsonCallback(text) {
+  const start = text.indexOf("(");
   const end = text.lastIndexOf(")");
   if (start === -1 || end === -1) {
-    throw new Error("Kein Callback gefunden: " + text.substring(0, 100));
+    throw new Error("Kein JSONP-Format erkannt: " + text.substring(0, 100));
   }
-  return text.substring(start + marker.length, end);
+  return text.substring(start + 1, end);
 }
 
-// fetchJson kann JSONP oder pures JSON verarbeiten
 async function fetchJson(url) {
   const cacheBuster = `v=${Date.now()}`;
   const fullUrl = url + (url.includes("?") ? "&" : "?") + cacheBuster;
@@ -36,11 +34,16 @@ async function fetchJson(url) {
 
   const text = await res.text();
 
-  if (text.includes("externalStatisticsCallback(")) {
-    return JSON.parse(stripJsonCallback(text));
+  try {
+    // Wenn JSONP (enthält Klammern), Callback rausstrippen
+    if (text.includes("(") && text.includes(")")) {
+      return JSON.parse(stripAnyJsonCallback(text));
+    }
+    // sonst plain JSON
+    return JSON.parse(text);
+  } catch (err) {
+    throw new Error("Fehler beim Parsen der Antwort: " + text.substring(0, 120));
   }
-
-  return JSON.parse(text);
 }
 
 // 🔍 Holt dynamisch Region + Group IDs für Team/Saison
