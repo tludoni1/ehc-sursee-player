@@ -1,6 +1,69 @@
 {
-  "2022-37-105810": { "region": 1, "group": 3567 },
-  "2023-37-105810": { "region": 1, "group": 3867 },
-  "2024-37-105810": { "region": 1, "group": 4297 },
-  "2025-37-105810": { "region": 1, "group": 4659 }
+  "Senioren": {
+    "2022": { "leagueId": 37, "teamId": 105810, "region": 1, "group": 3567, "phase": "Regular Season Gruppe 2" },
+    "2023": { "leagueId": 37, "teamId": 105810, "region": 1, "group": 3867, "phase": "Regular Season Gruppe 2" },
+    "2024": { "leagueId": 37, "teamId": 105810, "region": 1, "group": 4297, "phase": "Regular Season Gruppe 2" },
+    "2025": { "leagueId": 37, "teamId": 105810, "region": 1, "group": 4659, "phase": "Regular Season Gruppe 2" }
+  },
+  "1 Mannschaft": {
+    "2015": { "leagueId": 18, "teamId": 103941, "region": 2, "group": 1615, "phase": "Regular Season" },
+
+    "2016": { "leagueId": 18, "teamId": 103941, "region": 2, "group": 1871, "phase": "Regular Season" },
+    "2016-P1": { "leagueId": 18, "teamId": 103941, "region": 2, "group": 2037, "phase": "Aufstiegsspiele" },
+
+    "2017": { "leagueId": 18, "teamId": 103941, "region": 2, "group": 2175, "phase": "Regular Season" },
+    "2017-P1": { "leagueId": 18, "teamId": 103941, "region": 2, "group": 2303, "phase": "Aufstiegsspiele" },
+
+    "2018": { "leagueId": 10, "teamId": 103941, "region": 2, "group": 2395, "phase": "Regular Season" },
+    "2018-P1": { "leagueId": 10, "teamId": 103941, "region": 2, "group": 2640, "phase": "Playoffs 1/8 Final" },
+    "2018-P2": { "leagueId": 10, "teamId": 103941, "region": 2, "group": 2641, "phase": "Playoffs 1/4 Final" },
+
+    "2019": { "leagueId": 10, "teamId": 103941, "region": 2, "group": 2742, "phase": "Regular Season" },
+    "2019-P1": { "leagueId": 10, "teamId": 103941, "region": 2, "group": 2952, "phase": "Relegation Games" },
+
+    "2020": { "leagueId": 10, "teamId": 103941, "region": 2, "group": 3040, "phase": "Regular Season" },
+    "2020-P1": { "leagueId": 10, "teamId": 103941, "region": 2, "group": 3219, "phase": "Playoffs 1/8 Final" },
+
+    "2021": { "leagueId": 10, "teamId": 103941, "region": 2, "group": 3409, "phase": "Regular Season" },
+
+    "2022": { "leagueId": 10, "teamId": 103941, "region": 2, "group": 3580, "phase": "Regular Season" },
+    "2022-P1": { "leagueId": 10, "teamId": 103941, "region": 2, "group": 3694, "phase": "Playoffs 1/8 Final" },
+    "2022-P2": { "leagueId": 10, "teamId": 103941, "region": 2, "group": 3722, "phase": "Playoffs 1/4 Final" },
+    "2022-P3": { "leagueId": 10, "teamId": 103941, "region": 2, "group": 3742, "phase": "Playoffs 1/2 Final" },
+
+    "2023": { "leagueId": 10, "teamId": 103941, "region": 2, "group": 3834, "phase": "Regular Season" },
+    "2023-P1": { "leagueId": 10, "teamId": 103941, "region": 2, "group": 4064, "phase": "Playoffs 1/8 Final" },
+    "2023-P2": { "leagueId": 10, "teamId": 103941, "region": 2, "group": 4069, "phase": "Playoffs 1/4 Final" },
+
+    "2024": { "leagueId": 10, "teamId": 103941, "region": 2, "group": 4268, "phase": "Regular Season" },
+    "2024-P1": { "leagueId": 10, "teamId": 103941, "region": 2, "group": 4453, "phase": "Playoffs 1/8 Final" },
+
+    "2025": { "leagueId": 10, "teamId": 103941, "region": 2, "group": 4628, "phase": "Regular Season" },
+    "2025-P1": { "leagueId": 10, "teamId": 103941, "region": 2, "group": 4807, "phase": "Playoffs 1/4 Final" }
+  },
+  "Damen": {
+    "2018": { "leagueId": 101, "teamId": 103700, "region": 1, "group": 2433, "phase": "Regular Season" },
+    "2018-P1": { "leagueId": 101, "teamId": 103700, "region": 1, "group": 2579, "phase": "Masterround" },
+    "2018-P2": { "leagueId": 101, "teamId": 103700, "region": 1, "group": 2590, "phase": "Promotion Games" },
+
+    "2019": { "leagueId": 43, "teamId": 103700, "region": 1, "group": 2768, "phase": "Regular Season" },
+    "2019-P1": { "leagueId": 43, "teamId": 103700, "region": 1, "group": 3014, "phase": "Playoffs 1/4 Final" },
+
+    "2020": { "leagueId": 43, "teamId": 103700, "region": 1, "group": 3043, "phase": "Regular Season" },
+    "2020-P1": { "leagueId": 43, "teamId": 103700, "region": 1, "group": 3242, "phase": "Playoffs 1/4 Final" },
+
+    "2021": { "leagueId": 43, "teamId": 103700, "region": 1, "group": 3413, "phase": "Regular Season" },
+
+    "2022": { "leagueId": 43, "teamId": 103700, "region": 1, "group": 3574, "phase": "Regular Season" },
+    "2022-P1": { "leagueId": 43, "teamId": 103700, "region": 1, "group": 3700, "phase": "Playoffs 1/4 Final" },
+
+    "2023": { "leagueId": 43, "teamId": 103700, "region": 1, "group": 3845, "phase": "Regular Season" },
+    "2023-P1": { "leagueId": 43, "teamId": 103700, "region": 1, "group": 4089, "phase": "Playoffs 1/4 Final" },
+
+    "2024": { "leagueId": 43, "teamId": 103700, "region": 1, "group": 4262, "phase": "Regular Season" },
+    "2024-P1": { "leagueId": 43, "teamId": 103700, "region": 1, "group": 4404, "phase": "Playoffs 1/4 Final" },
+
+    "2025": { "leagueId": 43, "teamId": 103700, "region": 1, "group": 4601, "phase": "Regular Season" },
+    "2025-P1": { "leagueId": 43, "teamId": 103700, "region": 1, "group": 4708, "phase": "Playoffs 1/4 Final" }
+  }
 }
