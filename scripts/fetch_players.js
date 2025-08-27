@@ -18,6 +18,32 @@ const GROUPS = {
 const SEASONS = [2022, 2023, 2024, 2025];
 const BASE_URL = "https://data.sihf.ch/Statistic/api/cms/cache300";
 
+// Gruppen und Regionen ID Ausfindig machen
+async function fetchGroupInfo(season, leagueId, teamId) {
+  const url = `${BASE_URL}?alias=standings&searchQuery=${season}/${leagueId}/&filterQuery=${season}/${leagueId}/&language=de&callback=externalStatisticsCallback`;
+
+  const raw = await fetchJson(url);
+
+  if (!raw.data || !Array.isArray(raw.data)) {
+    throw new Error("Standings API hat kein gültiges data-Array zurückgegeben.");
+  }
+
+  // raw.data ist verschachtelt: Region -> Group -> Teams
+  for (const region of raw.data) {
+    const regionId = region.Id;
+    for (const group of region.Groups || []) {
+      const groupId = group.Id;
+      const team = (group.Teams || []).find((t) => t.Id === teamId);
+      if (team) {
+        return { region: regionId, group: groupId };
+      }
+    }
+  }
+
+  throw new Error(`Keine Region/Group für Team ${teamId} in Season ${season} gefunden`);
+}
+
+
 function stripJsonCallback(text) {
   const marker = "externalStatisticsCallback(";
   const start = text.indexOf(marker);
@@ -45,7 +71,11 @@ async function fetchJson(url) {
 
 async function fetchTeamSeason(season) {
   const { leagueId, teamId, name } = TEAM;
-  const { region, group } = GROUPS[season];
+  // vorher:
+  // const { region, group } = GROUPS[season];
+
+  // jetzt dynamisch:
+  const { region, group } = await fetchGroupInfo(season, leagueId, teamId);
 
   const filterQuery = `${season}/${leagueId}/${region}/${group}/${teamId}`;
 
