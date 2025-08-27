@@ -13,7 +13,10 @@
       "assists": 0,
       "points": 1,
       "pointsPerGame": 1,
-      "penaltyMinutes": 0
+      "penaltyMinutes": 0,
+      "id": 305712,
+      "jerseyNumber": 21,
+      "ageGroup": 1997
     },
     {
       "rank": "2",
@@ -24,7 +27,10 @@
       "assists": 0,
       "points": 1,
       "pointsPerGame": 0.5,
-      "penaltyMinutes": 0
+      "penaltyMinutes": 0,
+      "id": 143013,
+      "jerseyNumber": 8,
+      "ageGroup": 1987
     },
     {
       "rank": "3",
@@ -35,7 +41,10 @@
       "assists": 1,
       "points": 1,
       "pointsPerGame": 0.5,
-      "penaltyMinutes": 0
+      "penaltyMinutes": 0,
+      "id": 151361,
+      "jerseyNumber": 10,
+      "ageGroup": 1984
     },
     {
       "rank": "4",
@@ -46,7 +55,10 @@
       "assists": 1,
       "points": 1,
       "pointsPerGame": 0.5,
-      "penaltyMinutes": 0
+      "penaltyMinutes": 0,
+      "id": 306752,
+      "jerseyNumber": 25,
+      "ageGroup": 1998
     },
     {
       "rank": "5",
@@ -57,7 +69,10 @@
       "assists": 1,
       "points": 1,
       "pointsPerGame": 0.5,
-      "penaltyMinutes": 0
+      "penaltyMinutes": 0,
+      "id": 309000,
+      "jerseyNumber": 15,
+      "ageGroup": 1996
     },
     {
       "rank": "6",
@@ -68,7 +83,10 @@
       "assists": 1,
       "points": 1,
       "pointsPerGame": 0.5,
-      "penaltyMinutes": 2
+      "penaltyMinutes": 2,
+      "id": 302062,
+      "jerseyNumber": 23,
+      "ageGroup": 1995
     },
     {
       "rank": "7",
@@ -90,7 +108,10 @@
       "assists": 0,
       "points": 0,
       "pointsPerGame": 0,
-      "penaltyMinutes": 0
+      "penaltyMinutes": 0,
+      "id": 112529,
+      "jerseyNumber": 11,
+      "ageGroup": 1987
     },
     {
       "rank": "9",
@@ -101,7 +122,10 @@
       "assists": 0,
       "points": 0,
       "pointsPerGame": 0,
-      "penaltyMinutes": 0
+      "penaltyMinutes": 0,
+      "id": 315762,
+      "jerseyNumber": 18,
+      "ageGroup": 2000
     },
     {
       "rank": "10",
@@ -112,7 +136,10 @@
       "assists": 0,
       "points": 0,
       "pointsPerGame": 0,
-      "penaltyMinutes": 0
+      "penaltyMinutes": 0,
+      "id": 343924,
+      "jerseyNumber": 17,
+      "ageGroup": 2006
     },
     {
       "rank": "11",
@@ -123,7 +150,10 @@
       "assists": 0,
       "points": 0,
       "pointsPerGame": 0,
-      "penaltyMinutes": 0
+      "penaltyMinutes": 0,
+      "id": 151362,
+      "jerseyNumber": 9,
+      "ageGroup": 1986
     },
     {
       "rank": "12",
@@ -134,7 +164,10 @@
       "assists": 0,
       "points": 0,
       "pointsPerGame": 0,
-      "penaltyMinutes": 0
+      "penaltyMinutes": 0,
+      "id": 315136,
+      "jerseyNumber": 13,
+      "ageGroup": 2004
     },
     {
       "rank": "13",
@@ -145,7 +178,10 @@
       "assists": 0,
       "points": 0,
       "pointsPerGame": 0,
-      "penaltyMinutes": 2
+      "penaltyMinutes": 2,
+      "id": 344349,
+      "jerseyNumber": 5,
+      "ageGroup": 2001
     },
     {
       "rank": "14",
@@ -156,7 +192,10 @@
       "assists": 0,
       "points": 0,
       "pointsPerGame": 0,
-      "penaltyMinutes": 0
+      "penaltyMinutes": 0,
+      "id": 306525,
+      "jerseyNumber": 19,
+      "ageGroup": 1994
     },
     {
       "rank": "15",
@@ -167,7 +206,10 @@
       "assists": 0,
       "points": 0,
       "pointsPerGame": 0,
-      "penaltyMinutes": 0
+      "penaltyMinutes": 0,
+      "id": 321973,
+      "jerseyNumber": 6,
+      "ageGroup": 2005
     }
   ]
 }
