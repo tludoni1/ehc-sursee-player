@@ -195,19 +195,34 @@ function renderTable(players, config) {
 }
 
 // ==========================
-// Klick-Sortierung (fix: asc/desc toggle)
+// Klick-Sortierung mit Asc/Desc Toggle + ▲▼ Indikator
 // ==========================
 function enableSorting(container, players, config) {
   const table = container.querySelector("#ehc-player-table");
   if (!table) return;
 
+  // Sortierzustand pro Spalte merken
+  if (!container.sortState) container.sortState = {};
+
   const headers = table.querySelectorAll("th[data-key]");
   headers.forEach((th) => {
+    th.style.cursor = "pointer";
+
+    // Vorhandene Sortier-Indikatoren zurücksetzen
+    th.innerHTML = th.innerHTML.replace(/ ▲| ▼/g, "");
+
+    const key = th.dataset.key;
+    if (container.sortState[key] !== undefined) {
+      th.innerHTML += container.sortState[key] ? " ▲" : " ▼";
+    }
+
     th.addEventListener("click", () => {
       const key = th.dataset.key;
-      const currentAsc = th.dataset.asc === "true"; // bisherigen Zustand lesen
-      const newAsc = !currentAsc;                   // umschalten
-      th.dataset.asc = newAsc;                      // neuen Zustand speichern
+
+      // Toggle oder Default auf asc
+      const currentAsc = container.sortState[key] === true;
+      const newAsc = !currentAsc;
+      container.sortState = { [key]: newAsc }; // nur eine Spalte aktiv merken
 
       players.sort((a, b) => {
         const va = a[key], vb = b[key];
@@ -220,8 +235,10 @@ function enableSorting(container, players, config) {
         return newAsc ? cmp : -cmp;
       });
 
-      // Tabelle neu rendern & Events neu binden
+      // Tabelle neu rendern
       container.innerHTML = renderTable(players, config);
+
+      // Neu binden, Zustand bleibt in container.sortState
       enableSorting(container, players, config);
     });
   });
