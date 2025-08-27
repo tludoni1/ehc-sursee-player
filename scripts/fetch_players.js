@@ -8,13 +8,6 @@ const TEAM = {
   name: "Senioren D"
 };
 
-const GROUPS = {
-  2022: { region: 1, group: 3567 },
-  2023: { region: 1, group: 3867 },
-  2024: { region: 1, group: 4297 },
-  2025: { region: 1, group: 4659 },
-};
-
 const SEASONS = [2022, 2023, 2024, 2025];
 const BASE_URL = "https://data.sihf.ch/Statistic/api/cms/cache300";
 
