@@ -4,13 +4,246 @@
   "league": 37,
   "players": [
     {
-      "rank": "Keine Spieler gefunden!",
-      "games": null,
-      "goals": null,
-      "assists": null,
-      "points": null,
-      "pointsPerGame": null,
-      "penaltyMinutes": null
+      "rank": "1",
+      "name": "Wyss Philipp",
+      "position": "Stürmer",
+      "games": 5,
+      "goals": 17,
+      "assists": 5,
+      "points": 22,
+      "pointsPerGame": 4.4,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "2",
+      "name": "Dörig Nicolas",
+      "position": "Stürmer",
+      "games": 6,
+      "goals": 7,
+      "assists": 7,
+      "points": 14,
+      "pointsPerGame": 2.33,
+      "penaltyMinutes": 2
+    },
+    {
+      "rank": "3",
+      "name": "Püntener Sven",
+      "position": "Stürmer",
+      "games": 7,
+      "goals": 3,
+      "assists": 8,
+      "points": 11,
+      "pointsPerGame": 1.57,
+      "penaltyMinutes": 2
+    },
+    {
+      "rank": "4",
+      "name": "Koalick André",
+      "position": "Verteidiger",
+      "games": 5,
+      "goals": 5,
+      "assists": 5,
+      "points": 10,
+      "pointsPerGame": 2,
+      "penaltyMinutes": 8
+    },
+    {
+      "rank": "5",
+      "name": "Nussbaumer Luca",
+      "position": "Stürmer",
+      "games": 4,
+      "goals": 2,
+      "assists": 7,
+      "points": 9,
+      "pointsPerGame": 2.25,
+      "penaltyMinutes": 4
+    },
+    {
+      "rank": "6",
+      "name": "Grüter Christian",
+      "position": "Stürmer",
+      "games": 1,
+      "goals": 4,
+      "assists": 0,
+      "points": 4,
+      "pointsPerGame": 4,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "7",
+      "name": "Grüter Andreas",
+      "position": "Stürmer",
+      "games": 5,
+      "goals": 1,
+      "assists": 3,
+      "points": 4,
+      "pointsPerGame": 0.8,
+      "penaltyMinutes": 4
+    },
+    {
+      "rank": "8",
+      "name": "Arnold Sandro",
+      "position": "Stürmer",
+      "games": 3,
+      "goals": 3,
+      "assists": 0,
+      "points": 3,
+      "pointsPerGame": 1,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "9",
+      "name": "Kaufmann Guido",
+      "position": "-",
+      "games": 6,
+      "goals": 1,
+      "assists": 2,
+      "points": 3,
+      "pointsPerGame": 0.5,
+      "penaltyMinutes": 6
+    },
+    {
+      "rank": "10",
+      "name": "Schifferle Zeno",
+      "position": "Verteidiger",
+      "games": 6,
+      "goals": 1,
+      "assists": 2,
+      "points": 3,
+      "pointsPerGame": 0.5,
+      "penaltyMinutes": 8
+    },
+    {
+      "rank": "11",
+      "name": "Häkli Markus",
+      "position": "Stürmer",
+      "games": 5,
+      "goals": 1,
+      "assists": 1,
+      "points": 2,
+      "pointsPerGame": 0.4,
+      "penaltyMinutes": 6
+    },
+    {
+      "rank": "12",
+      "name": "Lenzin Armin",
+      "position": "Stürmer",
+      "games": 6,
+      "goals": 1,
+      "assists": 1,
+      "points": 2,
+      "pointsPerGame": 0.33,
+      "penaltyMinutes": 2
+    },
+    {
+      "rank": "13",
+      "name": "Iten Christian",
+      "position": "Verteidiger",
+      "games": 7,
+      "goals": 1,
+      "assists": 1,
+      "points": 2,
+      "pointsPerGame": 0.29,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "14",
+      "name": "Burri Reto",
+      "position": "Verteidiger",
+      "games": 2,
+      "goals": 0,
+      "assists": 2,
+      "points": 2,
+      "pointsPerGame": 1,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "15",
+      "name": "Vogel Thomas",
+      "position": "Stürmer",
+      "games": 3,
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "pointsPerGame": 0.33,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "16",
+      "name": "Delb Daniel",
+      "position": "Stürmer",
+      "games": 4,
+      "goals": 0,
+      "assists": 1,
+      "points": 1,
+      "pointsPerGame": 0.25,
+      "penaltyMinutes": 2
+    },
+    {
+      "rank": "17",
+      "name": "Löhrer Rico",
+      "position": "Verteidiger",
+      "games": 3,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 0
+    },
+    {
+      "rank": "18",
+      "name": "Brechbühl Thomas",
+      "position": "Verteidiger",
+      "games": 5,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 2
+    },
+    {
+      "rank": "19",
+      "name": "Kaiser Markus",
+      "position": "Stürmer",
+      "games": 5,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 2
+    },
+    {
+      "rank": "20",
+      "name": "Renggli René",
+      "position": "Verteidiger",
+      "games": 5,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 2
+    },
+    {
+      "rank": "21",
+      "name": "Klatt Rouven",
+      "position": "Stürmer",
+      "games": 6,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 4
+    },
+    {
+      "rank": "22",
+      "name": "Nietlispach Thomas",
+      "position": "Torhüter",
+      "games": 6,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 0
     }
   ]
 }
