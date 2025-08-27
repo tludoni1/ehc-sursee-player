@@ -2,13 +2,6 @@ import fs from "fs";
 import path from "path";
 import fetch from "node-fetch";
 
-const TEAM = {
-  leagueId: 37,
-  teamId: 105810,
-  name: "Senioren D"
-};
-
-const SEASONS = [2022, 2023, 2024, 2025];
 const BASE_URL = "https://data.sihf.ch/Statistic/api/cms/cache300";
 const MAPPING_FILE = path.join("data", "mappings.json");
 
@@ -29,8 +22,8 @@ async function fetchJson(url) {
   const res = await fetch(fullUrl, {
     headers: {
       "User-Agent": "Mozilla/5.0",
-      "Referer": "https://www.sihf.ch/",
-    },
+      "Referer": "https://www.sihf.ch/"
+    }
   });
 
   const text = await res.text();
@@ -44,20 +37,24 @@ function loadMappings() {
   throw new Error("Keine mappings.json gefunden!");
 }
 
-async function fetchTeamSeason(season, mappings) {
-  const { leagueId, teamId, name } = TEAM;
-  const key = `${season}-${leagueId}-${teamId}`;
+// Hilfsfunktion: Phase-Name → Dateiname
+function sanitizePhase(phase) {
+  return phase
+    .replace(/\s+/g, "-")     // Leerzeichen → Bindestrich
+    .replace(/\//g, "-")      // Schrägstriche → Bindestrich
+    .replace(/[^\w\-]/g, ""); // Sonderzeichen entfernen
+}
 
-  if (!mappings[key]) {
-    throw new Error(`Kein Mapping für ${key} in mappings.json`);
-  }
+async function fetchTeamSeason(teamName, seasonKey, entry) {
+  const { leagueId, teamId, region, group, phase } = entry;
 
-  const { region, group } = mappings[key];
+  // Saisonnummer aus dem Key extrahieren (z.B. "2025-P1" → "2025")
+  const season = parseInt(seasonKey.substring(0, 4), 10);
+
   const filterQuery = `${season}/${leagueId}/${region}/${group}/${teamId}`;
-
   const url = `${BASE_URL}?alias=player&searchQuery=1/2015-2099/3,10,18,19,33,35,36,38,37,39,40,41,43,101,44,45,46,104&filterQuery=${filterQuery}&orderBy=points&orderByDescending=true&take=200&filterBy=Season,League,Region,Phase,Team,Position,Licence&callback=externalStatisticsCallback&skip=-1&language=de`;
 
-  console.log(`➡️  Fetching: ${season}`);
+  console.log(`➡️  Fetching: ${teamName} ${seasonKey} (${phase})`);
 
   const raw = await fetchJson(url);
 
@@ -77,20 +74,23 @@ async function fetchTeamSeason(season, mappings) {
     assists: parseInt(p[6]),
     points: parseInt(p[7]),
     pointsPerGame: parseFloat(p[8]),
-    penaltyMinutes: parseInt(p[9]),
+    penaltyMinutes: parseInt(p[9])
   }));
 
   const out = {
     season,
-    team: name,
+    phase,
+    team: teamName,
     league: leagueId,
-    players,
+    players
   };
 
-  const outDir = path.join("data", "senioren");
+  const outDir = path.join("data", teamName.replace(/\s+/g, "_"));
   fs.mkdirSync(outDir, { recursive: true });
 
-  const outFile = path.join(outDir, `${season}.json`);
+  const phasePart = sanitizePhase(phase);
+  const outFile = path.join(outDir, `${season}-${phasePart}.json`);
+
   fs.writeFileSync(outFile, JSON.stringify(out, null, 2), "utf-8");
 
   console.log(`✅ Gespeichert: ${outFile} (${players.length} Spieler)`);
@@ -99,11 +99,13 @@ async function fetchTeamSeason(season, mappings) {
 async function main() {
   const mappings = loadMappings();
 
-  for (const season of SEASONS) {
-    try {
-      await fetchTeamSeason(season, mappings);
-    } catch (err) {
-      console.error(`❌ Fehler bei senioren ${season}:`, err.message);
+  for (const [teamName, seasons] of Object.entries(mappings)) {
+    for (const [seasonKey, entry] of Object.entries(seasons)) {
+      try {
+        await fetchTeamSeason(teamName, seasonKey, entry);
+      } catch (err) {
+        console.error(`❌ Fehler bei ${teamName} ${seasonKey}:`, err.message);
+      }
     }
   }
 }
