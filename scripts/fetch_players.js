@@ -46,8 +46,8 @@ async function fetchJson(url) {
 
 // 🔍 sucht dynamisch die richtige Region+Phase-Kombination für ein Team
 async function findRegionAndPhase(season, leagueId, teamId) {
-  // Basis-Request (liefert Filterstruktur zurück)
-  const url = `${BASE_URL}?alias=player&searchQuery=1/2015-2099/${leagueId}&filterQuery=${season}/${leagueId}/all/all/${teamId}&orderBy=points&orderByDescending=true&take=1&filterBy=Season,League,Team&callback=externalStatisticsCallback&skip=-1&language=de`;
+  // 1. Basis-Request NUR mit Season + League
+  const url = `${BASE_URL}?alias=player&searchQuery=1/2015-2099/${leagueId}&filterQuery=${season}/${leagueId}/all/all/all&orderBy=points&orderByDescending=true&take=1&filterBy=Season,League&callback=externalStatisticsCallback&skip=-1&language=de`;
 
   const raw = await fetchJson(url);
 
@@ -55,15 +55,17 @@ async function findRegionAndPhase(season, leagueId, teamId) {
     throw new Error("Keine Filter im Player-Response gefunden");
   }
 
-console.log("🔎 Verfügbare Filter:", raw.filters.map(f => f.alias));
-  
-  const regionFilter = raw.filters.find(f => f.alias === "Region");
-  const phaseFilter  = raw.filters.find(f => f.alias === "Phase");
+  console.log("🔎 Verfügbare Filter:", raw.filters.map(f => f.alias));
 
-  if (!regionFilter || !phaseFilter) {
-    throw new Error("Region oder Phase nicht im Filter vorhanden");
+  const regionFilter = raw.filters.find(f => f.alias.toLowerCase() === "region");
+  const phaseFilter  = raw.filters.find(f => f.alias.toLowerCase() === "phase");
+  const teamFilter   = raw.filters.find(f => f.alias.toLowerCase().includes("team"));
+
+  if (!regionFilter || !phaseFilter || !teamFilter) {
+    throw new Error("Region, Phase oder Team nicht im Filter vorhanden");
   }
 
+  // 2. Über alle Region × Phase Kombinationen iterieren
   for (const region of regionFilter.entries) {
     for (const phase of phaseFilter.entries) {
       const testQuery = `${season}/${leagueId}/${region.alias}/${phase.alias}/${teamId}`;
