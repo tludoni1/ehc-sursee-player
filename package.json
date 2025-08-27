@@ -9,3 +9,8 @@
     "node-fetch": "^3.3.2"
   }
 }
+
+"scripts": {
+  "fetch": "node scripts/fetch_players.js",
+  "debug:standings": "node scripts/debug_standings.js"
+}
