@@ -1,0 +1,10 @@
+{
+  "name": "ehc-sursee-player",
+  "type": "module",
+  "scripts": {
+    "fetch": "node scripts/fetch_players.js"
+  },
+  "dependencies": {
+    "node-fetch": "^3.3.2"
+  }
+}
