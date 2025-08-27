@@ -1,3 +1,4 @@
+// scripts/fetch_players.js
 import fs from "fs";
 import path from "path";
 import fetch from "node-fetch";
@@ -54,9 +55,13 @@ async function fetchTeamSeason(season) {
 
   console.log(`➡️  Fetching: ${season}`);
 
-  const data = await fetchJson(url);
+  const raw = await fetchJson(url);
 
-  const players = data.map((p) => ({
+  if (!raw.data || !Array.isArray(raw.data)) {
+    throw new Error("API hat kein gültiges data-Array zurückgegeben. Schlüssel: " + Object.keys(raw));
+  }
+
+  const players = raw.data.map((p) => ({
     id: p.PlayerId,
     name: `${p.FirstName} ${p.LastName}`,
     position: p.Position,
