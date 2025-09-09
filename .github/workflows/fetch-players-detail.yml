@@ -1,16 +1,9 @@
 name: Fetch Players Detail
 
 on:
-  workflow_dispatch:
-    inputs:
-      games:
-        description: "Anzahl Spiele pro Saison (Zahl oder 'all')"
-        required: false
-        default: "3"
-  push:
-    paths:
-      - "scripts/fetch_players_detail.js"
-      - ".github/workflows/fetch-players-detail.yml"
+  workflow_dispatch: # manuell starten
+  schedule:
+    - cron: "0 3 * * *" # optional: täglich um 03:00 Uhr
 
 jobs:
   fetch:
@@ -29,17 +22,14 @@ jobs:
         run: npm install
 
       - name: Run fetch_players_detail.js
-        run: |
-          if [ "${{ github.event.inputs.games }}" = "" ]; then
-            npm run fetch:detail
-          else
-            node scripts/fetch_players_detail.js --games=${{ github.event.inputs.games }}
-          fi
+        run: node scripts/fetch_players_detail.js
 
       - name: Commit and Push Results
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git config --global user.name "github-actions"
-          git config --global user.email "github-actions@github.com"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add data/
-          git commit -m "Update player detail data [ci skip]" || echo "No changes to commit"
+          git commit -m "Update player detail data [skip ci]" || echo "No changes to commit"
           git push
