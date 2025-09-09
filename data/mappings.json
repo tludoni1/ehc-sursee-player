@@ -65,7 +65,7 @@
 
     "2025": { "leagueId": 43, "teamId": 103700, "region": 1, "group": 4601, "phase": "Regular Season" },
     "2025-P1": { "leagueId": 43, "teamId": 103700, "region": 1, "group": 4708, "phase": "Playoffs 1/4 Final" }
-  }
+  },
   "2 Mannschaft": {
   "2015": { "leagueId": 19, "teamId": 104319, "region": 2, "group": 1616, "phase": "Regular Season" },
 
