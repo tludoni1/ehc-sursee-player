@@ -1,10 +1,19 @@
-name: Debug Fetch Players Detail
+name: Fetch Players Detail
 
 on:
-  workflow_dispatch: # nur manuell starten
+  workflow_dispatch:
+    inputs:
+      games:
+        description: "Anzahl Spiele pro Saison (Zahl oder 'all')"
+        required: false
+        default: "3"
+  push:
+    paths:
+      - "scripts/fetch_players_detail.js"
+      - ".github/workflows/fetch-players-detail.yml"
 
 jobs:
-  debug-fetch:
+  fetch:
     runs-on: ubuntu-latest
 
     steps:
@@ -19,11 +28,18 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Run Debug Fetch Players Detail
-        run: node scripts/fetch_players_detail.js
+      - name: Run fetch_players_detail.js
+        run: |
+          if [ "${{ github.event.inputs.games }}" = "" ]; then
+            npm run fetch:detail
+          else
+            node scripts/fetch_players_detail.js --games=${{ github.event.inputs.games }}
+          fi
 
-      - name: Upload Debug Output
-        uses: actions/upload-artifact@v4
-        with:
-          name: debug-players-output
-          path: data/debug-players.json
+      - name: Commit and Push Results
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add data/
+          git commit -m "Update player detail data [ci skip]" || echo "No changes to commit"
+          git push
