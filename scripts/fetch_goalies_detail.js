@@ -3,7 +3,7 @@ import path from "path";
 import fetch from "node-fetch";
 
 const BASE_URL = "https://data.sihf.ch/Statistic/api/cms/cache300";
-const MAPPING_FILE = path.join("data", "mappings_goalies.json");
+const MAPPING_FILE = path.join("data", "mappings.json");
 
 function stripJsonCallback(text) {
   const marker = "externalStatisticsCallback(";
@@ -46,7 +46,7 @@ function loadMappings() {
   if (fs.existsSync(MAPPING_FILE)) {
     return JSON.parse(fs.readFileSync(MAPPING_FILE, "utf-8"));
   }
-  throw new Error("Keine mappings_goalies.json gefunden!");
+  throw new Error("Keine mappings.json gefunden!");
 }
 
 function sanitizePhase(phase) {
