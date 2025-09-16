@@ -103,7 +103,7 @@ async function fetchTeamSeasonGoalies(teamName, seasonKey, entry) {
     };
   }
 
-  const outDir = path.join("data_goalies", teamName.replace(/\s+/g, "_"));
+  const outDir = path.join("data", teamName.replace(/\s+/g, "_"), "Goaltenders");
   fs.mkdirSync(outDir, { recursive: true });
 
   const phasePart = sanitizePhase(phase);
