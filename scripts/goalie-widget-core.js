@@ -149,57 +149,51 @@ function mergeGoalies(acc, seasonData, teamName, showleague) {
         gamesPlayed: 0,
         firstKeeper: 0,
         goalsAgainst: 0,
-        secondsPlayedTotal: 0, // interne Summe in Sekunden
+        secondsPlayedTotal: 0, // Hilfswert in Sekunden
         penaltyMinutes: 0,
         goals: 0,
-        assists: 0,
-        league: showleague ? (LEAGUE_MAP[seasonData.league] || seasonData.league || "Mix") : undefined
+        assists: 0
       };
       acc.push(goalie);
     }
 
-    // Summieren
     goalie.gamesPlayed += g.gamesPlayed || 0;
     goalie.firstKeeper += g.firstKeeper || 0;
     goalie.goalsAgainst += g.goalsAgainst || 0;
-    goalie.penaltyMinutes += g.penaltyMinutes || 0;
+
+    // Sekunden umwandeln ("661:27" → Sekunden)
+    if (g.secondsPlayed) {
+      const parts = g.secondsPlayed.split(":").map(Number);
+      let secs = 0;
+      if (parts.length === 2) secs = parts[0] * 60 + parts[1];
+      else if (parts.length === 3) secs = parts[0] * 3600 + parts[1] * 60 + parts[2];
+      goalie.secondsPlayedTotal += secs;
+    }
+
+    goalie.penaltyMinutes += g.penaltyInMinutes || 0;
     goalie.goals += g.goals || 0;
     goalie.assists += g.assists || 0;
 
-    // Sekunden aus "mm:ss" oder "hh:mm:ss" String parsen
-    if (g.secondsPlayed) {
-      const parts = g.secondsPlayed.split(":").map((p) => parseInt(p, 10));
-      let sec = 0;
-      if (parts.length === 2) sec = parts[0] * 60 + parts[1];
-      if (parts.length === 3) sec = parts[0] * 3600 + parts[1] * 60 + parts[2];
-      goalie.secondsPlayedTotal += sec;
-    }
+    if (showleague) goalie.league = LEAGUE_MAP[seasonData.league] || seasonData.league || "Mix";
   }
 
-  // Nach dem Loop GAA und formatiertes MIP berechnen
-  acc.forEach((goalie) => {
-    if (goalie.secondsPlayedTotal > 0) {
-      goalie.goalsAgainstAverage = (goalie.goalsAgainst * 3600) / goalie.secondsPlayedTotal;
-      const totalSec = goalie.secondsPlayedTotal;
-      const hours = Math.floor(totalSec / 3600);
-      const minutes = Math.floor((totalSec % 3600) / 60);
-      const seconds = totalSec % 60;
-      if (hours > 0) {
-        goalie.secondsPlayed = `${hours}:${minutes.toString().padStart(2, "0")}:${seconds
-          .toString()
-          .padStart(2, "0")}`;
-      } else {
-        goalie.secondsPlayed = `${minutes}:${seconds.toString().padStart(2, "0")}`;
-      }
-    } else {
-      goalie.goalsAgainstAverage = 0;
-      goalie.secondsPlayed = "0:00";
-    }
-  });
+  // Nachträglich Goals Against Average & formatiertes Zeitfeld berechnen
+  for (const g of acc) {
+    g.goalsAgainstAverage = g.secondsPlayedTotal > 0
+      ? (g.goalsAgainst * 3600) / g.secondsPlayedTotal
+      : 0;
+
+    // Formatierte Minuten (hh:mm:ss)
+    const h = Math.floor(g.secondsPlayedTotal / 3600);
+    const m = Math.floor((g.secondsPlayedTotal % 3600) / 60);
+    const s = g.secondsPlayedTotal % 60;
+    g.secondsPlayed = h > 0
+      ? `${h}:${m.toString().padStart(2,"0")}:${s.toString().padStart(2,"0")}`
+      : `${m}:${s.toString().padStart(2,"0")}`;
+  }
 
   return acc;
 }
-
 
 // ==========================
 // Tabelle rendern
