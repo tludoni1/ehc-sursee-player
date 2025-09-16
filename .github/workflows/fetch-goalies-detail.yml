@@ -1,0 +1,33 @@
+name: Fetch Goalies Detail (One-Time)
+
+on:
+  workflow_dispatch: # nur manuell starten
+
+jobs:
+  fetch-goalies:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run fetch_goalies_detail.js
+        run: node scripts/fetch_goalies_detail.js
+
+      - name: Commit and Push Results
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/
+          git commit -m "Initial goalie data [skip ci]" || echo "No changes to commit"
+          git push
