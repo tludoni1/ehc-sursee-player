@@ -19,7 +19,6 @@
         showleague: el.dataset.showleague === "true",
         season: el.dataset.season || "current",
         phase: el.dataset.phase || "all",
-        template: el.dataset.template || "compact",
         columns: {
           gamesPlayed: el.dataset.colGamesPlayed !== "false",
           firstKeeper: el.dataset.colFirstKeeper !== "false",
