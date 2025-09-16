@@ -1,0 +1,22 @@
+{
+  "season": 2024,
+  "phase": "Regular Season",
+  "team": "2 Mannschaft",
+  "league": 19,
+  "goalies": [
+    {
+      "rank": "Keine Spieler gefunden!",
+      "team": "",
+      "gamesPlayed": null,
+      "firstKeeper": null,
+      "goalsAgainst": null,
+      "goalsAgainstAverage": null,
+      "penaltyMinutes": null,
+      "goals": null,
+      "assists": null,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    }
+  ]
+}

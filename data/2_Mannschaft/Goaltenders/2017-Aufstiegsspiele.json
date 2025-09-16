@@ -1,0 +1,40 @@
+{
+  "season": 2017,
+  "phase": "Aufstiegsspiele",
+  "team": "2 Mannschaft",
+  "league": 19,
+  "goalies": [
+    {
+      "rank": "1",
+      "name": "Husmann Martin",
+      "team": "EHC Sursee",
+      "gamesPlayed": 2,
+      "firstKeeper": 2,
+      "goalsAgainst": 12,
+      "goalsAgainstAverage": 6,
+      "secondsPlayed": "120:00",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    },
+    {
+      "rank": "",
+      "name": "Burkhardt Roman",
+      "team": "EHC Sursee",
+      "gamesPlayed": 1,
+      "firstKeeper": 1,
+      "goalsAgainst": 11,
+      "goalsAgainstAverage": 11,
+      "secondsPlayed": "60:00",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    }
+  ]
+}

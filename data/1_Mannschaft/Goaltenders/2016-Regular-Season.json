@@ -1,0 +1,56 @@
+{
+  "season": 2016,
+  "phase": "Regular Season",
+  "team": "1 Mannschaft",
+  "league": 18,
+  "goalies": [
+    {
+      "rank": "1",
+      "name": "Nietlispach Thomas",
+      "team": "EHC Sursee",
+      "gamesPlayed": 17,
+      "firstKeeper": 17,
+      "goalsAgainst": 51,
+      "goalsAgainstAverage": 3.02,
+      "secondsPlayed": "1013:49",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    },
+    {
+      "rank": "",
+      "name": "Wigger Sven",
+      "team": "EHC Sursee",
+      "gamesPlayed": 1,
+      "firstKeeper": 0,
+      "goalsAgainst": 1,
+      "goalsAgainstAverage": 2.4,
+      "secondsPlayed": "25:00",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    },
+    {
+      "rank": "",
+      "name": "Burkhardt Roman",
+      "team": "EHC Sursee",
+      "gamesPlayed": 3,
+      "firstKeeper": 3,
+      "goalsAgainst": 9,
+      "goalsAgainstAverage": 3,
+      "secondsPlayed": "180:00",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    }
+  ]
+}

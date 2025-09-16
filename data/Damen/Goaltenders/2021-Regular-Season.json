@@ -1,0 +1,40 @@
+{
+  "season": 2021,
+  "phase": "Regular Season",
+  "team": "Damen",
+  "league": 43,
+  "goalies": [
+    {
+      "rank": "1",
+      "name": "Landis Melina",
+      "team": "EHC Sursee",
+      "gamesPlayed": 3,
+      "firstKeeper": 3,
+      "goalsAgainst": 10,
+      "goalsAgainstAverage": 3.33,
+      "secondsPlayed": "180:00",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    },
+    {
+      "rank": "",
+      "name": "Käppeli Michèle",
+      "team": "EHC Sursee",
+      "gamesPlayed": 1,
+      "firstKeeper": 1,
+      "goalsAgainst": 0,
+      "goalsAgainstAverage": 0,
+      "secondsPlayed": "60:00",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    }
+  ]
+}

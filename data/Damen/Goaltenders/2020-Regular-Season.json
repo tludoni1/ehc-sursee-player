@@ -1,0 +1,56 @@
+{
+  "season": 2020,
+  "phase": "Regular Season",
+  "team": "Damen",
+  "league": 43,
+  "goalies": [
+    {
+      "rank": "1",
+      "name": "Landis Melina",
+      "team": "EHC Sursee",
+      "gamesPlayed": 15,
+      "firstKeeper": 15,
+      "goalsAgainst": 29,
+      "goalsAgainstAverage": 2.17,
+      "secondsPlayed": "801:49",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    },
+    {
+      "rank": "",
+      "name": "Krebs Luzia",
+      "team": "EHC Sursee",
+      "gamesPlayed": 4,
+      "firstKeeper": 2,
+      "goalsAgainst": 7,
+      "goalsAgainstAverage": 2.76,
+      "secondsPlayed": "152:14",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    },
+    {
+      "rank": "",
+      "name": "Wallimann Aline",
+      "team": "EHC Sursee",
+      "gamesPlayed": 3,
+      "firstKeeper": 1,
+      "goalsAgainst": 7,
+      "goalsAgainstAverage": 3.49,
+      "secondsPlayed": "120:11",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    }
+  ]
+}

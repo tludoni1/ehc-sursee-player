@@ -1,0 +1,40 @@
+{
+  "season": 2023,
+  "phase": "Regular Season",
+  "team": "1 Mannschaft",
+  "league": 10,
+  "goalies": [
+    {
+      "rank": "1",
+      "name": "Wigger Sven",
+      "team": "EHC Sursee",
+      "gamesPlayed": 12,
+      "firstKeeper": 11,
+      "goalsAgainst": 29,
+      "goalsAgainstAverage": 2.58,
+      "secondsPlayed": "674:12",
+      "penaltyMinutes": 2,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    },
+    {
+      "rank": "",
+      "name": "Pavlicko Alex",
+      "team": "EHC Sursee",
+      "gamesPlayed": 7,
+      "firstKeeper": 7,
+      "goalsAgainst": 35,
+      "goalsAgainstAverage": 5.03,
+      "secondsPlayed": "417:07",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    }
+  ]
+}

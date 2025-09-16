@@ -1,0 +1,40 @@
+{
+  "season": 2023,
+  "phase": "Regular Season Gruppe 2",
+  "team": "Senioren",
+  "league": 37,
+  "goalies": [
+    {
+      "rank": "1",
+      "name": "Häfliger Pascal",
+      "team": "EHC Sursee",
+      "gamesPlayed": 8,
+      "firstKeeper": 6,
+      "goalsAgainst": 47,
+      "goalsAgainstAverage": 7.45,
+      "secondsPlayed": "378:34",
+      "penaltyMinutes": 4,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    },
+    {
+      "rank": "",
+      "name": "Nietlispach Thomas",
+      "team": "EHC Sursee",
+      "gamesPlayed": 6,
+      "firstKeeper": 4,
+      "goalsAgainst": 21,
+      "goalsAgainstAverage": 5.69,
+      "secondsPlayed": "221:26",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "season": 2021,
+  "phase": "Regular Season",
+  "team": "2 Mannschaft",
+  "league": 19,
+  "goalies": [
+    {
+      "rank": "1",
+      "name": "Burkhardt Roman",
+      "team": "EHC Sursee",
+      "gamesPlayed": 2,
+      "firstKeeper": 2,
+      "goalsAgainst": 8,
+      "goalsAgainstAverage": 4,
+      "secondsPlayed": "120:00",
+      "penaltyMinutes": 2,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    }
+  ]
+}

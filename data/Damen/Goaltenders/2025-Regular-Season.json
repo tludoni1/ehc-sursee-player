@@ -1,0 +1,56 @@
+{
+  "season": 2025,
+  "phase": "Regular Season",
+  "team": "Damen",
+  "league": 43,
+  "goalies": [
+    {
+      "rank": "1",
+      "name": "Erismann Aniki",
+      "team": "EHC Sursee",
+      "gamesPlayed": 9,
+      "firstKeeper": 9,
+      "goalsAgainst": 22,
+      "goalsAgainstAverage": 2.73,
+      "secondsPlayed": "483:49",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    },
+    {
+      "rank": "2",
+      "name": "Widmer Enya",
+      "team": "EHC Sursee",
+      "gamesPlayed": 9,
+      "firstKeeper": 8,
+      "goalsAgainst": 28,
+      "goalsAgainstAverage": 3.29,
+      "secondsPlayed": "510:32",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    },
+    {
+      "rank": "",
+      "name": "Camenzind Valentina",
+      "team": "EHC Sursee",
+      "gamesPlayed": 3,
+      "firstKeeper": 1,
+      "goalsAgainst": 4,
+      "goalsAgainstAverage": 2.56,
+      "secondsPlayed": "93:45",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    }
+  ]
+}

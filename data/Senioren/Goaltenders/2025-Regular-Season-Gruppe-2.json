@@ -1,0 +1,56 @@
+{
+  "season": 2025,
+  "phase": "Regular Season Gruppe 2",
+  "team": "Senioren",
+  "league": 37,
+  "goalies": [
+    {
+      "rank": "1",
+      "name": "Häfliger Pascal",
+      "team": "EHC Sursee",
+      "gamesPlayed": 12,
+      "firstKeeper": 7,
+      "goalsAgainst": 89,
+      "goalsAgainstAverage": 9.6,
+      "secondsPlayed": "556:07",
+      "penaltyMinutes": 2,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    },
+    {
+      "rank": "",
+      "name": "Nietlispach Thomas",
+      "team": "EHC Sursee",
+      "gamesPlayed": 6,
+      "firstKeeper": 4,
+      "goalsAgainst": 29,
+      "goalsAgainstAverage": 12.11,
+      "secondsPlayed": "143:44",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    },
+    {
+      "rank": "",
+      "name": "Brechbühl Thomas",
+      "team": "EHC Sursee",
+      "gamesPlayed": 1,
+      "firstKeeper": 1,
+      "goalsAgainst": 6,
+      "goalsAgainstAverage": 18,
+      "secondsPlayed": "20:00",
+      "penaltyMinutes": 4,
+      "goals": 1,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    }
+  ]
+}

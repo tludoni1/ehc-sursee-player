@@ -1,0 +1,40 @@
+{
+  "season": 2024,
+  "phase": "Regular Season",
+  "team": "Damen",
+  "league": 43,
+  "goalies": [
+    {
+      "rank": "1",
+      "name": "Erismann Aniki",
+      "team": "EHC Sursee",
+      "gamesPlayed": 12,
+      "firstKeeper": 10,
+      "goalsAgainst": 45,
+      "goalsAgainstAverage": 4.34,
+      "secondsPlayed": "621:33",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    },
+    {
+      "rank": "2",
+      "name": "Widmer Enya",
+      "team": "EHC Sursee",
+      "gamesPlayed": 10,
+      "firstKeeper": 8,
+      "goalsAgainst": 39,
+      "goalsAgainstAverage": 5.04,
+      "secondsPlayed": "464:20",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    }
+  ]
+}

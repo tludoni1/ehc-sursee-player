@@ -1,0 +1,56 @@
+{
+  "season": 2017,
+  "phase": "Regular Season",
+  "team": "1 Mannschaft",
+  "league": 18,
+  "goalies": [
+    {
+      "rank": "1",
+      "name": "Nietlispach Thomas",
+      "team": "EHC Sursee",
+      "gamesPlayed": 12,
+      "firstKeeper": 12,
+      "goalsAgainst": 26,
+      "goalsAgainstAverage": 2.36,
+      "secondsPlayed": "661:27",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 1,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    },
+    {
+      "rank": "",
+      "name": "Kratzer Florian",
+      "team": "EHC Sursee",
+      "gamesPlayed": 7,
+      "firstKeeper": 6,
+      "goalsAgainst": 28,
+      "goalsAgainstAverage": 4.55,
+      "secondsPlayed": "369:17",
+      "penaltyMinutes": 2,
+      "goals": 0,
+      "assists": 1,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    },
+    {
+      "rank": "",
+      "name": "Pavlicko Alex",
+      "team": "EHC Sursee",
+      "gamesPlayed": 1,
+      "firstKeeper": 0,
+      "goalsAgainst": 2,
+      "goalsAgainstAverage": 11.43,
+      "secondsPlayed": "10:30",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    }
+  ]
+}

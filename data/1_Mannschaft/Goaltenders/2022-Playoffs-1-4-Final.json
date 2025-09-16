@@ -1,0 +1,40 @@
+{
+  "season": 2022,
+  "phase": "Playoffs 1/4 Final",
+  "team": "1 Mannschaft",
+  "league": 10,
+  "goalies": [
+    {
+      "rank": "1",
+      "name": "Wigger Sven",
+      "team": "EHC Sursee",
+      "gamesPlayed": 2,
+      "firstKeeper": 2,
+      "goalsAgainst": 4,
+      "goalsAgainstAverage": 2,
+      "secondsPlayed": "120:00",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    },
+    {
+      "rank": "",
+      "name": "Felder Marcel",
+      "team": "EHC Sursee",
+      "gamesPlayed": 1,
+      "firstKeeper": 1,
+      "goalsAgainst": 1,
+      "goalsAgainstAverage": 1,
+      "secondsPlayed": "60:00",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    }
+  ]
+}

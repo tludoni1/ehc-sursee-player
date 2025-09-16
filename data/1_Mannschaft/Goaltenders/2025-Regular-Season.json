@@ -1,0 +1,72 @@
+{
+  "season": 2025,
+  "phase": "Regular Season",
+  "team": "1 Mannschaft",
+  "league": 10,
+  "goalies": [
+    {
+      "rank": "1",
+      "name": "Joller Yves",
+      "team": "EHC Sursee",
+      "gamesPlayed": 13,
+      "firstKeeper": 13,
+      "goalsAgainst": 32,
+      "goalsAgainstAverage": 2.51,
+      "secondsPlayed": "765:39",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    },
+    {
+      "rank": "",
+      "name": "Stucki Brian",
+      "team": "EHC Sursee",
+      "gamesPlayed": 2,
+      "firstKeeper": 2,
+      "goalsAgainst": 5,
+      "goalsAgainstAverage": 2.4,
+      "secondsPlayed": "125:00",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    },
+    {
+      "rank": "",
+      "name": "Ruch Florian",
+      "team": "EHC Sursee",
+      "gamesPlayed": 3,
+      "firstKeeper": 3,
+      "goalsAgainst": 14,
+      "goalsAgainstAverage": 4.47,
+      "secondsPlayed": "188:05",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 1,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    },
+    {
+      "rank": "",
+      "name": "Kuster Livio",
+      "team": "EHC Sursee",
+      "gamesPlayed": 1,
+      "firstKeeper": 0,
+      "goalsAgainst": 3,
+      "goalsAgainstAverage": 8.23,
+      "secondsPlayed": "21:52",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    }
+  ]
+}

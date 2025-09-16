@@ -1,0 +1,40 @@
+{
+  "season": 2015,
+  "phase": "Regular Season",
+  "team": "1 Mannschaft",
+  "league": 18,
+  "goalies": [
+    {
+      "rank": "1",
+      "name": "Nietlispach Thomas",
+      "team": "EHC Sursee",
+      "gamesPlayed": 15,
+      "firstKeeper": 15,
+      "goalsAgainst": 66,
+      "goalsAgainstAverage": 4.66,
+      "secondsPlayed": "850:36",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    },
+    {
+      "rank": "",
+      "name": "Burkhardt Roman",
+      "team": "EHC Sursee",
+      "gamesPlayed": 5,
+      "firstKeeper": 3,
+      "goalsAgainst": 21,
+      "goalsAgainstAverage": 5.16,
+      "secondsPlayed": "244:24",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    }
+  ]
+}

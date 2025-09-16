@@ -1,0 +1,40 @@
+{
+  "season": 2020,
+  "phase": "Regular Season",
+  "team": "1 Mannschaft",
+  "league": 10,
+  "goalies": [
+    {
+      "rank": "1",
+      "name": "Wigger Sven",
+      "team": "EHC Sursee",
+      "gamesPlayed": 11,
+      "firstKeeper": 10,
+      "goalsAgainst": 31,
+      "goalsAgainstAverage": 2.88,
+      "secondsPlayed": "645:14",
+      "penaltyMinutes": 2,
+      "goals": 0,
+      "assists": 1,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    },
+    {
+      "rank": "2",
+      "name": "Felder Marcel",
+      "team": "EHC Sursee",
+      "gamesPlayed": 8,
+      "firstKeeper": 8,
+      "goalsAgainst": 24,
+      "goalsAgainstAverage": 3.17,
+      "secondsPlayed": "454:26",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    }
+  ]
+}

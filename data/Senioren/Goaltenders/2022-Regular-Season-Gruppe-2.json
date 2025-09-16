@@ -1,0 +1,40 @@
+{
+  "season": 2022,
+  "phase": "Regular Season Gruppe 2",
+  "team": "Senioren",
+  "league": 37,
+  "goalies": [
+    {
+      "rank": "1",
+      "name": "Häfliger Pascal",
+      "team": "EHC Sursee",
+      "gamesPlayed": 6,
+      "firstKeeper": 6,
+      "goalsAgainst": 41,
+      "goalsAgainstAverage": 9.17,
+      "secondsPlayed": "268:20",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    },
+    {
+      "rank": "",
+      "name": "Nietlispach Thomas",
+      "team": "EHC Sursee",
+      "gamesPlayed": 4,
+      "firstKeeper": 1,
+      "goalsAgainst": 18,
+      "goalsAgainstAverage": 7.12,
+      "secondsPlayed": "151:40",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    }
+  ]
+}

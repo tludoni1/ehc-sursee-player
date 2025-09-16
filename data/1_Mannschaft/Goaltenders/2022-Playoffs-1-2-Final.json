@@ -1,0 +1,24 @@
+{
+  "season": 2022,
+  "phase": "Playoffs 1/2 Final",
+  "team": "1 Mannschaft",
+  "league": 10,
+  "goalies": [
+    {
+      "rank": "1",
+      "name": "Wigger Sven",
+      "team": "EHC Sursee",
+      "gamesPlayed": 3,
+      "firstKeeper": 3,
+      "goalsAgainst": 11,
+      "goalsAgainstAverage": 3.68,
+      "secondsPlayed": "179:32",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    }
+  ]
+}

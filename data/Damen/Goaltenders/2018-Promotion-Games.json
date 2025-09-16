@@ -1,0 +1,24 @@
+{
+  "season": 2018,
+  "phase": "Promotion Games",
+  "team": "Damen",
+  "league": 101,
+  "goalies": [
+    {
+      "rank": "1",
+      "name": "Landis Melina",
+      "team": "EHC Sursee",
+      "gamesPlayed": 1,
+      "firstKeeper": 1,
+      "goalsAgainst": 1,
+      "goalsAgainstAverage": 1,
+      "secondsPlayed": "60:00",
+      "penaltyMinutes": 2,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    }
+  ]
+}

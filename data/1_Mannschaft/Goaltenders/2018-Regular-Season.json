@@ -1,0 +1,72 @@
+{
+  "season": 2018,
+  "phase": "Regular Season",
+  "team": "1 Mannschaft",
+  "league": 10,
+  "goalies": [
+    {
+      "rank": "1",
+      "name": "Nietlispach Thomas",
+      "team": "EHC Sursee",
+      "gamesPlayed": 11,
+      "firstKeeper": 10,
+      "goalsAgainst": 53,
+      "goalsAgainstAverage": 5.85,
+      "secondsPlayed": "543:15",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    },
+    {
+      "rank": "",
+      "name": "Felder Marcel",
+      "team": "EHC Sursee",
+      "gamesPlayed": 7,
+      "firstKeeper": 5,
+      "goalsAgainst": 27,
+      "goalsAgainstAverage": 4.57,
+      "secondsPlayed": "354:18",
+      "penaltyMinutes": 2,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    },
+    {
+      "rank": "",
+      "name": "Pavlicko Alex",
+      "team": "EHC Sursee",
+      "gamesPlayed": 2,
+      "firstKeeper": 1,
+      "goalsAgainst": 7,
+      "goalsAgainstAverage": 5.86,
+      "secondsPlayed": "71:43",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    },
+    {
+      "rank": "",
+      "name": "Kratzer Florian",
+      "team": "EHC Sursee",
+      "gamesPlayed": 1,
+      "firstKeeper": 1,
+      "goalsAgainst": 6,
+      "goalsAgainstAverage": 6.13,
+      "secondsPlayed": "58:43",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    }
+  ]
+}

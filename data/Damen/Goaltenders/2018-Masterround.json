@@ -1,0 +1,24 @@
+{
+  "season": 2018,
+  "phase": "Masterround",
+  "team": "Damen",
+  "league": 101,
+  "goalies": [
+    {
+      "rank": "1",
+      "name": "Landis Melina",
+      "team": "EHC Sursee",
+      "gamesPlayed": 3,
+      "firstKeeper": 3,
+      "goalsAgainst": 3,
+      "goalsAgainstAverage": 1,
+      "secondsPlayed": "180:00",
+      "penaltyMinutes": 4,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    }
+  ]
+}

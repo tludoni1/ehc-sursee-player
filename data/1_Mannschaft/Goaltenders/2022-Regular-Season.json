@@ -1,0 +1,56 @@
+{
+  "season": 2022,
+  "phase": "Regular Season",
+  "team": "1 Mannschaft",
+  "league": 10,
+  "goalies": [
+    {
+      "rank": "1",
+      "name": "Wigger Sven",
+      "team": "EHC Sursee",
+      "gamesPlayed": 10,
+      "firstKeeper": 10,
+      "goalsAgainst": 26,
+      "goalsAgainstAverage": 2.59,
+      "secondsPlayed": "601:48",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    },
+    {
+      "rank": "",
+      "name": "Pavlicko Alex",
+      "team": "EHC Sursee",
+      "gamesPlayed": 1,
+      "firstKeeper": 1,
+      "goalsAgainst": 2,
+      "goalsAgainstAverage": 1.85,
+      "secondsPlayed": "65:00",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    },
+    {
+      "rank": "",
+      "name": "Felder Marcel",
+      "team": "EHC Sursee",
+      "gamesPlayed": 3,
+      "firstKeeper": 3,
+      "goalsAgainst": 10,
+      "goalsAgainstAverage": 3.35,
+      "secondsPlayed": "179:17",
+      "penaltyMinutes": 2,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    }
+  ]
+}

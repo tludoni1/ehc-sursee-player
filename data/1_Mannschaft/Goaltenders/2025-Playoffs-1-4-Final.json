@@ -1,0 +1,40 @@
+{
+  "season": 2025,
+  "phase": "Playoffs 1/4 Final",
+  "team": "1 Mannschaft",
+  "league": 10,
+  "goalies": [
+    {
+      "rank": "1",
+      "name": "Joller Yves",
+      "team": "EHC Sursee",
+      "gamesPlayed": 2,
+      "firstKeeper": 2,
+      "goalsAgainst": 12,
+      "goalsAgainstAverage": 6.54,
+      "secondsPlayed": "110:09",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    },
+    {
+      "rank": "",
+      "name": "Ruch Florian",
+      "team": "EHC Sursee",
+      "gamesPlayed": 1,
+      "firstKeeper": 0,
+      "goalsAgainst": 1,
+      "goalsAgainstAverage": 6.53,
+      "secondsPlayed": "09:11",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    }
+  ]
+}

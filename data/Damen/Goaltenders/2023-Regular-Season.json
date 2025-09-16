@@ -1,0 +1,40 @@
+{
+  "season": 2023,
+  "phase": "Regular Season",
+  "team": "Damen",
+  "league": 43,
+  "goalies": [
+    {
+      "rank": "1",
+      "name": "Erismann Aniki",
+      "team": "EHC Sursee",
+      "gamesPlayed": 13,
+      "firstKeeper": 12,
+      "goalsAgainst": 60,
+      "goalsAgainstAverage": 4.8,
+      "secondsPlayed": "750:43",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    },
+    {
+      "rank": "",
+      "name": "Duss Pia",
+      "team": "EHC Sursee",
+      "gamesPlayed": 6,
+      "firstKeeper": 6,
+      "goalsAgainst": 12,
+      "goalsAgainstAverage": 2.19,
+      "secondsPlayed": "329:10",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    }
+  ]
+}

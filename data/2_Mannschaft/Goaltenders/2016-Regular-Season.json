@@ -1,0 +1,56 @@
+{
+  "season": 2016,
+  "phase": "Regular Season",
+  "team": "2 Mannschaft",
+  "league": 19,
+  "goalies": [
+    {
+      "rank": "1",
+      "name": "Husmann Martin",
+      "team": "EHC Sursee",
+      "gamesPlayed": 9,
+      "firstKeeper": 8,
+      "goalsAgainst": 20,
+      "goalsAgainstAverage": 2.38,
+      "secondsPlayed": "504:31",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 1,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    },
+    {
+      "rank": "",
+      "name": "Eggimann Stefan",
+      "team": "EHC Sursee",
+      "gamesPlayed": 5,
+      "firstKeeper": 5,
+      "goalsAgainst": 19,
+      "goalsAgainstAverage": 4,
+      "secondsPlayed": "285:00",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    },
+    {
+      "rank": "",
+      "name": "Burkhardt Roman",
+      "team": "EHC Sursee",
+      "gamesPlayed": 1,
+      "firstKeeper": 1,
+      "goalsAgainst": 5,
+      "goalsAgainstAverage": 5,
+      "secondsPlayed": "60:00",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "season": 2018,
+  "phase": "Regular Season",
+  "team": "2 Mannschaft",
+  "league": 19,
+  "goalies": [
+    {
+      "rank": "1",
+      "name": "Husmann Martin",
+      "team": "EHC Sursee",
+      "gamesPlayed": 9,
+      "firstKeeper": 9,
+      "goalsAgainst": 28,
+      "goalsAgainstAverage": 3.11,
+      "secondsPlayed": "540:00",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    },
+    {
+      "rank": "2",
+      "name": "Burkhardt Roman",
+      "team": "EHC Sursee",
+      "gamesPlayed": 9,
+      "firstKeeper": 9,
+      "goalsAgainst": 30,
+      "goalsAgainstAverage": 3.33,
+      "secondsPlayed": "540:00",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    }
+  ]
+}

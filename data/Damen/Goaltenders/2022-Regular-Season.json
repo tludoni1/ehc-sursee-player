@@ -1,0 +1,40 @@
+{
+  "season": 2022,
+  "phase": "Regular Season",
+  "team": "Damen",
+  "league": 43,
+  "goalies": [
+    {
+      "rank": "1",
+      "name": "Landis Melina",
+      "team": "EHC Sursee",
+      "gamesPlayed": 9,
+      "firstKeeper": 8,
+      "goalsAgainst": 24,
+      "goalsAgainstAverage": 3.1,
+      "secondsPlayed": "463:54",
+      "penaltyMinutes": 2,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    },
+    {
+      "rank": "2",
+      "name": "Keller Yara",
+      "team": "EHC Sursee",
+      "gamesPlayed": 12,
+      "firstKeeper": 10,
+      "goalsAgainst": 33,
+      "goalsAgainstAverage": 3.14,
+      "secondsPlayed": "631:28",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    }
+  ]
+}

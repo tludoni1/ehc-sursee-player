@@ -1,0 +1,24 @@
+{
+  "season": 2020,
+  "phase": "Playoffs 1/8 Final",
+  "team": "1 Mannschaft",
+  "league": 10,
+  "goalies": [
+    {
+      "rank": "1",
+      "name": "Wigger Sven",
+      "team": "EHC Sursee",
+      "gamesPlayed": 5,
+      "firstKeeper": 5,
+      "goalsAgainst": 20,
+      "goalsAgainstAverage": 4.01,
+      "secondsPlayed": "299:25",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    }
+  ]
+}

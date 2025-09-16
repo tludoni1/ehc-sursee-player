@@ -1,0 +1,56 @@
+{
+  "season": 2019,
+  "phase": "Relegation Games",
+  "team": "1 Mannschaft",
+  "league": 10,
+  "goalies": [
+    {
+      "rank": "1",
+      "name": "Felder Marcel",
+      "team": "EHC Sursee",
+      "gamesPlayed": 4,
+      "firstKeeper": 3,
+      "goalsAgainst": 7,
+      "goalsAgainstAverage": 2,
+      "secondsPlayed": "209:57",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    },
+    {
+      "rank": "",
+      "name": "Nietlispach Thomas",
+      "team": "EHC Sursee",
+      "gamesPlayed": 3,
+      "firstKeeper": 3,
+      "goalsAgainst": 7,
+      "goalsAgainstAverage": 2.89,
+      "secondsPlayed": "145:23",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    },
+    {
+      "rank": "",
+      "name": "Landis Melina",
+      "team": "EHC Sursee",
+      "gamesPlayed": 1,
+      "firstKeeper": 0,
+      "goalsAgainst": 1,
+      "goalsAgainstAverage": 7.32,
+      "secondsPlayed": "08:12",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    }
+  ]
+}

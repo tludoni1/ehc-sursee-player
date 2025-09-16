@@ -1,0 +1,40 @@
+{
+  "season": 2019,
+  "phase": "Regular Season",
+  "team": "1 Mannschaft",
+  "league": 10,
+  "goalies": [
+    {
+      "rank": "1",
+      "name": "Felder Marcel",
+      "team": "EHC Sursee",
+      "gamesPlayed": 13,
+      "firstKeeper": 12,
+      "goalsAgainst": 41,
+      "goalsAgainstAverage": 3.22,
+      "secondsPlayed": "763:01",
+      "penaltyMinutes": 2,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    },
+    {
+      "rank": "",
+      "name": "Nietlispach Thomas",
+      "team": "EHC Sursee",
+      "gamesPlayed": 6,
+      "firstKeeper": 6,
+      "goalsAgainst": 27,
+      "goalsAgainstAverage": 4.9,
+      "secondsPlayed": "330:29",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    }
+  ]
+}

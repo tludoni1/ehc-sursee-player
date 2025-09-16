@@ -1,0 +1,72 @@
+{
+  "season": 2018,
+  "phase": "Regular Season",
+  "team": "Damen",
+  "league": 101,
+  "goalies": [
+    {
+      "rank": "1",
+      "name": "Wallimann Aline",
+      "team": "EHC Sursee",
+      "gamesPlayed": 6,
+      "firstKeeper": 5,
+      "goalsAgainst": 8,
+      "goalsAgainstAverage": 1.45,
+      "secondsPlayed": "330:53",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    },
+    {
+      "rank": "",
+      "name": "Landis Melina",
+      "team": "EHC Sursee",
+      "gamesPlayed": 1,
+      "firstKeeper": 1,
+      "goalsAgainst": 0,
+      "goalsAgainstAverage": 0,
+      "secondsPlayed": "60:00",
+      "penaltyMinutes": 2,
+      "goals": 1,
+      "assists": 1,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    },
+    {
+      "rank": "",
+      "name": "Duss Pia",
+      "team": "EHC Sursee",
+      "gamesPlayed": 2,
+      "firstKeeper": 2,
+      "goalsAgainst": 2,
+      "goalsAgainstAverage": 1,
+      "secondsPlayed": "120:00",
+      "penaltyMinutes": 0,
+      "goals": 8,
+      "assists": 6,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    },
+    {
+      "rank": "",
+      "name": "Krebs Luzia",
+      "team": "EHC Sursee",
+      "gamesPlayed": 4,
+      "firstKeeper": 4,
+      "goalsAgainst": 5,
+      "goalsAgainstAverage": 1.43,
+      "secondsPlayed": "209:07",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    }
+  ]
+}
