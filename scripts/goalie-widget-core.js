@@ -41,7 +41,7 @@ const LEAGUE_MAP = {
 // ==========================
 window.EHCGoalieWidgetCore = async function (config) {
   const container = config.el;
-  container.innerHTML = `<div style="font-family:${config.font};">⏳ Lade Goalies...</div>`;
+  container.innerHTML = `<div style="font-family:${config.font};">⏳ Lade Goalie-Daten...</div>`;
 
   try {
     const mappings = await fetchMappings();
@@ -164,6 +164,7 @@ function mergeGoalies(acc, seasonData, teamName, showleague) {
     goalie.penaltyInMinutes += g.penaltyInMinutes || 0;
     goalie.goals += g.goals || 0;
     goalie.assists += g.assists || 0;
+    goalie.goalsAgainstAverage = goalie.goalsAgainst / (goalie.secondsPlayed / 3600 || 1);
     if (showleague) goalie.league = LEAGUE_MAP[seasonData.league] || seasonData.league || "Mix";
   }
   return acc;
@@ -179,15 +180,15 @@ function renderTable(goalies, config) {
     <table id="ehc-goalie-table" style="width:100%; border-collapse:collapse; font-size:14px;">
       <thead><tr style="background:${colors.bg}; color:${colors.header}; cursor:pointer;">`;
 
-  html += `<th data-key="name" style="text-align:left; padding:4px;">Goalie</th>`;
+  html += `<th data-key="name" style="text-align:left; padding:4px;">Torhüter</th>`;
   if (config.columns.gamesPlayed) html += `<th data-key="gamesPlayed" style="text-align:right; padding:4px;">GP</th>`;
   if (config.columns.firstKeeper) html += `<th data-key="firstKeeper" style="text-align:right; padding:4px;">GPI</th>`;
   if (config.columns.goalsAgainst) html += `<th data-key="goalsAgainst" style="text-align:right; padding:4px;">GA</th>`;
   if (config.columns.goalsAgainstAverage) html += `<th data-key="goalsAgainstAverage" style="text-align:right; padding:4px;">GAA</th>`;
-  if (config.columns.secondsPlayed) html += `<th data-key="secondsPlayed" style="text-align:right; padding:4px;">MIP</th>`;
+  if (config.columns.secondsPlayed) html += `<th data-key="secondsPlayed" style="text-align:right; padding:4px;">Minuten</th>`;
   if (config.columns.penaltyInMinutes) html += `<th data-key="penaltyInMinutes" style="text-align:right; padding:4px;">PIM</th>`;
-  if (config.columns.goals) html += `<th data-key="goals" style="text-align:right; padding:4px;">G</th>`;
-  if (config.columns.assists) html += `<th data-key="assists" style="text-align:right; padding:4px;">A</th>`;
+  if (config.columns.goals) html += `<th data-key="goals" style="text-align:right; padding:4px;">Tore</th>`;
+  if (config.columns.assists) html += `<th data-key="assists" style="text-align:right; padding:4px;">Assists</th>`;
   if (config.showleague) html += `<th data-key="league" style="text-align:left; padding:4px;">Liga</th>`;
 
   html += `</tr></thead><tbody>`;
@@ -198,8 +199,8 @@ function renderTable(goalies, config) {
       ${config.columns.gamesPlayed ? `<td style="text-align:right; padding:4px;">${g.gamesPlayed}</td>` : ""}
       ${config.columns.firstKeeper ? `<td style="text-align:right; padding:4px;">${g.firstKeeper}</td>` : ""}
       ${config.columns.goalsAgainst ? `<td style="text-align:right; padding:4px;">${g.goalsAgainst}</td>` : ""}
-      ${config.columns.goalsAgainstAverage ? `<td style="text-align:right; padding:4px;">${g.goalsAgainstAverage}</td>` : ""}
-      ${config.columns.secondsPlayed ? `<td style="text-align:right; padding:4px;">${g.secondsPlayed}</td>` : ""}
+      ${config.columns.goalsAgainstAverage ? `<td style="text-align:right; padding:4px;">${g.goalsAgainstAverage.toFixed(2)}</td>` : ""}
+      ${config.columns.secondsPlayed ? `<td style="text-align:right; padding:4px;">${(g.secondsPlayed/60).toFixed(0)}</td>` : ""}
       ${config.columns.penaltyInMinutes ? `<td style="text-align:right; padding:4px;">${g.penaltyInMinutes}</td>` : ""}
       ${config.columns.goals ? `<td style="text-align:right; padding:4px;">${g.goals}</td>` : ""}
       ${config.columns.assists ? `<td style="text-align:right; padding:4px;">${g.assists}</td>` : ""}
@@ -217,28 +218,36 @@ function renderTable(goalies, config) {
 function enableSorting(container, goalies, config) {
   const table = container.querySelector("#ehc-goalie-table");
   if (!table) return;
+
   if (!container.sortState) container.sortState = {};
 
   const headers = table.querySelectorAll("th[data-key]");
   headers.forEach((th) => {
     th.style.cursor = "pointer";
     th.innerHTML = th.innerHTML.replace(/ ▲| ▼/g, "");
+
     const key = th.dataset.key;
     if (container.sortState[key] !== undefined) {
       th.innerHTML += container.sortState[key] ? " ▲" : " ▼";
     }
 
     th.addEventListener("click", () => {
+      const key = th.dataset.key;
       const currentAsc = container.sortState[key] === true;
       const newAsc = !currentAsc;
       container.sortState = { [key]: newAsc };
+
       goalies.sort((a, b) => {
         const va = a[key], vb = b[key];
         let cmp = 0;
-        if (typeof va === "number" && typeof vb === "number") cmp = va - vb;
-        else cmp = String(va).localeCompare(String(vb));
+        if (typeof va === "number" && typeof vb === "number") {
+          cmp = va - vb;
+        } else {
+          cmp = String(va).localeCompare(String(vb));
+        }
         return newAsc ? cmp : -cmp;
       });
+
       container.innerHTML = renderTable(goalies, config);
       enableSorting(container, goalies, config);
     });
