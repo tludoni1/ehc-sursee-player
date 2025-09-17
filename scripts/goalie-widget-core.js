@@ -41,7 +41,7 @@ const LEAGUE_MAP = {
 // ==========================
 window.EHCGoalieWidgetCore = async function (config) {
   const container = config.el;
-  container.innerHTML = `<div style="font-family:${config.font};">⏳ Lade Goalie-Daten...</div>`;
+  container.innerHTML = `<div style="font-family:${config.font};">⏳ Lade Daten...</div>`;
 
   try {
     const mappings = await fetchMappings();
@@ -129,8 +129,8 @@ function mergePhaseData(datasets, season, teamName) {
         goalie.gamesPlayed += g.gamesPlayed || 0;
         goalie.firstKeeper += g.firstKeeper || 0;
         goalie.goalsAgainst += g.goalsAgainst || 0;
-        goalie.secondsPlayed += g.secondsPlayed || 0;
-        goalie.penaltyInMinutes += g.penaltyInMinutes || 0;
+        goalie.secondsPlayed = mergeTime(goalie.secondsPlayed, g.secondsPlayed);
+        goalie.penaltyMinutes += g.penaltyMinutes || 0;
         goalie.goals += g.goals || 0;
         goalie.assists += g.assists || 0;
       }
@@ -139,6 +139,39 @@ function mergePhaseData(datasets, season, teamName) {
   return merged;
 }
 
+// ==========================
+// Hilfsfunktionen: Spielzeit
+// ==========================
+function parseTimeToSeconds(timeStr) {
+  if (!timeStr) return 0;
+  const parts = timeStr.split(":").map(Number);
+  if (parts.length === 2) {
+    return parts[0] * 60 + parts[1];
+  } else if (parts.length === 3) {
+    return parts[0] * 3600 + parts[1] * 60 + parts[2];
+  }
+  return 0;
+}
+
+function formatSeconds(totalSeconds) {
+  const hours = Math.floor(totalSeconds / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = totalSeconds % 60;
+
+  if (hours > 0) {
+    return `${hours}:${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+  } else {
+    return `${minutes}:${String(seconds).padStart(2, "0")}`;
+  }
+}
+
+function mergeTime(existing, additional) {
+  return parseTimeToSeconds(existing) + parseTimeToSeconds(additional);
+}
+
+// ==========================
+// Merge & Berechnung Goalies
+// ==========================
 function mergeGoalies(acc, seasonData, teamName, showleague) {
   for (const g of seasonData.goalies) {
     let goalie = acc.find((x) => x.name === g.name);
@@ -149,7 +182,7 @@ function mergeGoalies(acc, seasonData, teamName, showleague) {
         gamesPlayed: 0,
         firstKeeper: 0,
         goalsAgainst: 0,
-        secondsPlayedTotal: 0, // Hilfswert in Sekunden
+        secondsPlayed: 0,
         penaltyMinutes: 0,
         goals: 0,
         assists: 0
@@ -160,37 +193,23 @@ function mergeGoalies(acc, seasonData, teamName, showleague) {
     goalie.gamesPlayed += g.gamesPlayed || 0;
     goalie.firstKeeper += g.firstKeeper || 0;
     goalie.goalsAgainst += g.goalsAgainst || 0;
-
-    // Sekunden umwandeln ("661:27" → Sekunden)
-    if (g.secondsPlayed) {
-      const parts = g.secondsPlayed.split(":").map(Number);
-      let secs = 0;
-      if (parts.length === 2) secs = parts[0] * 60 + parts[1];
-      else if (parts.length === 3) secs = parts[0] * 3600 + parts[1] * 60 + parts[2];
-      goalie.secondsPlayedTotal += secs;
-    }
-
-    goalie.penaltyMinutes += g.penaltyInMinutes || 0;
+    goalie.secondsPlayed += parseTimeToSeconds(g.secondsPlayed);
+    goalie.penaltyMinutes += g.penaltyMinutes || 0;
     goalie.goals += g.goals || 0;
     goalie.assists += g.assists || 0;
 
     if (showleague) goalie.league = LEAGUE_MAP[seasonData.league] || seasonData.league || "Mix";
   }
 
-  // Nachträglich Goals Against Average & formatiertes Zeitfeld berechnen
-  for (const g of acc) {
-    g.goalsAgainstAverage = g.secondsPlayedTotal > 0
-      ? (g.goalsAgainst * 3600) / g.secondsPlayedTotal
-      : 0;
-
-    // Formatierte Minuten (hh:mm:ss)
-    const h = Math.floor(g.secondsPlayedTotal / 3600);
-    const m = Math.floor((g.secondsPlayedTotal % 3600) / 60);
-    const s = g.secondsPlayedTotal % 60;
-    g.secondsPlayed = h > 0
-      ? `${h}:${m.toString().padStart(2,"0")}:${s.toString().padStart(2,"0")}`
-      : `${m}:${s.toString().padStart(2,"0")}`;
-  }
+  acc.forEach((g) => {
+    if (g.secondsPlayed > 0) {
+      g.goalsAgainstAverage = (g.goalsAgainst * 3600) / g.secondsPlayed;
+      g.minutesFormatted = formatSeconds(g.secondsPlayed);
+    } else {
+      g.goalsAgainstAverage = 0;
+      g.minutesFormatted = "0:00";
+    }
+  });
 
   return acc;
 }
@@ -211,7 +230,7 @@ function renderTable(goalies, config) {
   if (config.columns.goalsAgainst) html += `<th data-key="goalsAgainst" style="text-align:right; padding:4px;">GA</th>`;
   if (config.columns.goalsAgainstAverage) html += `<th data-key="goalsAgainstAverage" style="text-align:right; padding:4px;">GAA</th>`;
   if (config.columns.secondsPlayed) html += `<th data-key="secondsPlayed" style="text-align:right; padding:4px;">Minuten</th>`;
-  if (config.columns.penaltyInMinutes) html += `<th data-key="penaltyInMinutes" style="text-align:right; padding:4px;">PIM</th>`;
+  if (config.columns.penaltyMinutes) html += `<th data-key="penaltyMinutes" style="text-align:right; padding:4px;">PIM</th>`;
   if (config.columns.goals) html += `<th data-key="goals" style="text-align:right; padding:4px;">Tore</th>`;
   if (config.columns.assists) html += `<th data-key="assists" style="text-align:right; padding:4px;">Assists</th>`;
   if (config.showleague) html += `<th data-key="league" style="text-align:left; padding:4px;">Liga</th>`;
@@ -225,8 +244,8 @@ function renderTable(goalies, config) {
       ${config.columns.firstKeeper ? `<td style="text-align:right; padding:4px;">${g.firstKeeper}</td>` : ""}
       ${config.columns.goalsAgainst ? `<td style="text-align:right; padding:4px;">${g.goalsAgainst}</td>` : ""}
       ${config.columns.goalsAgainstAverage ? `<td style="text-align:right; padding:4px;">${g.goalsAgainstAverage.toFixed(2)}</td>` : ""}
-      ${config.columns.secondsPlayed ? `<td style="text-align:right; padding:4px;">${(g.secondsPlayed/60).toFixed(0)}</td>` : ""}
-      ${config.columns.penaltyInMinutes ? `<td style="text-align:right; padding:4px;">${g.penaltyInMinutes}</td>` : ""}
+      ${config.columns.secondsPlayed ? `<td style="text-align:right; padding:4px;">${g.minutesFormatted}</td>` : ""}
+      ${config.columns.penaltyMinutes ? `<td style="text-align:right; padding:4px;">${g.penaltyMinutes}</td>` : ""}
       ${config.columns.goals ? `<td style="text-align:right; padding:4px;">${g.goals}</td>` : ""}
       ${config.columns.assists ? `<td style="text-align:right; padding:4px;">${g.assists}</td>` : ""}
       ${config.showleague ? `<td style="text-align:left; padding:4px;">${g.league || ""}</td>` : ""}
@@ -238,14 +257,13 @@ function renderTable(goalies, config) {
 }
 
 // ==========================
-// Klick-Sortierung
+// Klick-Sortierung mit Asc/Desc Toggle + ▲▼ Indikator
 // ==========================
 function enableSorting(container, goalies, config) {
   const table = container.querySelector("#ehc-goalie-table");
   if (!table) return;
 
   if (!container.sortState) container.sortState = {};
-
   const headers = table.querySelectorAll("th[data-key]");
   headers.forEach((th) => {
     th.style.cursor = "pointer";
@@ -257,7 +275,6 @@ function enableSorting(container, goalies, config) {
     }
 
     th.addEventListener("click", () => {
-      const key = th.dataset.key;
       const currentAsc = container.sortState[key] === true;
       const newAsc = !currentAsc;
       container.sortState = { [key]: newAsc };
@@ -265,11 +282,8 @@ function enableSorting(container, goalies, config) {
       goalies.sort((a, b) => {
         const va = a[key], vb = b[key];
         let cmp = 0;
-        if (typeof va === "number" && typeof vb === "number") {
-          cmp = va - vb;
-        } else {
-          cmp = String(va).localeCompare(String(vb));
-        }
+        if (typeof va === "number" && typeof vb === "number") cmp = va - vb;
+        else cmp = String(va).localeCompare(String(vb));
         return newAsc ? cmp : -cmp;
       });
 
