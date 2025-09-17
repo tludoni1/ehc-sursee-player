@@ -25,7 +25,7 @@
           goalsAgainst: el.dataset.colGoalsAgainst !== "false",
           goalsAgainstAverage: el.dataset.colGoalsAgainstAverage !== "false",
           secondsPlayed: el.dataset.colSecondsPlayed !== "false",
-          penaltyInMinutes: el.dataset.colPenaltyInMinutes !== "false",
+          penaltyMinutes: el.dataset.colPenaltyInMinutes !== "false",
           goals: el.dataset.colGoals !== "false",
           assists: el.dataset.colAssists !== "false"
         }
