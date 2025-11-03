@@ -35,14 +35,17 @@ jobs:
 
       - name: Run fetch_players_detail.js (nur aktuelle Saison)
         run: |
-          echo "🔄 Starte Abruf der aktuellen Saison..."
+          echo "🔄 Bestimme aktuelle SIHF-Saison..."
           YEAR=$(date +'%Y')
           MONTH=$(date +'%m')
-          if [ "$MONTH" -lt 8 ]; then
-            ((YEAR--))
+
+          # Saisonlogik: SIHF Saison läuft von August bis April -> ab August = nächstes Jahr
+          if [ "$MONTH" -ge 8 ]; then
+            ((YEAR++))
           fi
+
           echo "📅 Aktuelle Saison: $YEAR"
-          
+
           # Nur diese Saisonzeilen temporär in eine Datei extrahieren
           jq --arg y "$YEAR" 'with_entries(.value |= with_entries(select(.key | startswith($y))))' data/mappings.json > data/mappings_temp.json
           
@@ -63,5 +66,5 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add data/
-          git commit -m "🕚 Nightly Update Player Data [skip ci]" || echo "No changes to commit"
+          git commit -m "🕚 Nightly Update Player Data (Season $YEAR) [skip ci]" || echo "No changes to commit"
           git push
