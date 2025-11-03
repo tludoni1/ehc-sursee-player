@@ -47,7 +47,8 @@
     "2021": { "leagueId": 19, "teamId": 104319, "region": 2, "group": 3363, "phase": "Regular Season" },
     "2022": { "leagueId": 19, "teamId": 104319, "region": 2, "group": 3517, "phase": "Regular Season" },
     "2023": { "leagueId": 19, "teamId": 104319, "region": 2, "group": 3836, "phase": "Regular Season" },
-    "2024": { "leagueId": 19, "teamId": 104319, "region": 2, "group": 4654, "phase": "Regular Season" },
+    "2024": { "leagueId": 19, "teamId": 104319, "region": 2, "group": 4247, "phase": "Regular Season" },
+    "2025": { "leagueId": 19, "teamId": 104319, "region": 2, "group": 4654, "phase": "Regular Season" },
     "2026": { "leagueId": 19, "teamId": 104319, "region": 2, "group": 4963, "phase": "Regular Season" }
   },
   "Damen": {
