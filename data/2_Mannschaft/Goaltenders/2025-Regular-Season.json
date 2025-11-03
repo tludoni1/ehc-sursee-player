@@ -1,0 +1,56 @@
+{
+  "season": 2025,
+  "phase": "Regular Season",
+  "team": "2 Mannschaft",
+  "league": 19,
+  "goalies": [
+    {
+      "rank": "1",
+      "name": "Zemp Marc",
+      "team": "EHC Sursee",
+      "gamesPlayed": 7,
+      "firstKeeper": 5,
+      "goalsAgainst": 28,
+      "goalsAgainstAverage": 5.17,
+      "secondsPlayed": "324:51",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    },
+    {
+      "rank": "",
+      "name": "Burkhardt Roman",
+      "team": "EHC Sursee",
+      "gamesPlayed": 5,
+      "firstKeeper": 5,
+      "goalsAgainst": 26,
+      "goalsAgainstAverage": 5.48,
+      "secondsPlayed": "284:40",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    },
+    {
+      "rank": "",
+      "name": "Hofstetter Jari",
+      "team": "EHC Sursee",
+      "gamesPlayed": 3,
+      "firstKeeper": 2,
+      "goalsAgainst": 12,
+      "goalsAgainstAverage": 6.61,
+      "secondsPlayed": "108:59",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    }
+  ]
+}

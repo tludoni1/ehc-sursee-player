@@ -30,8 +30,8 @@
       "goalsAgainstAverage": 0,
       "secondsPlayed": "60:00",
       "penaltyMinutes": 2,
-      "goals": 0,
-      "assists": 0,
+      "goals": 1,
+      "assists": 1,
       "id": null,
       "jerseyNumber": null,
       "ageGroup": null
@@ -46,8 +46,8 @@
       "goalsAgainstAverage": 1,
       "secondsPlayed": "120:00",
       "penaltyMinutes": 0,
-      "goals": 0,
-      "assists": 0,
+      "goals": 8,
+      "assists": 6,
       "id": null,
       "jerseyNumber": null,
       "ageGroup": null
