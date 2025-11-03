@@ -26,12 +26,13 @@
       "phase": "Regular Season"
     }
   },
-  "2 Mannschaft": {  
+  "2 Mannschaft": {
     "2026": {
       "leagueId": 19,
       "teamId": 104319,
       "region": 2,
       "group": 4963,
       "phase": "Regular Season"
-    }}
+    }
+  }
 }
