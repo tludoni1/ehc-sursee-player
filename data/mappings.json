@@ -1,6 +1,37 @@
 {
-  "Senioren": {},
-  "1 Mannschaft": {},
-  "Damen": {},
-  "2 Mannschaft": {}
+  "Senioren": {
+    "2026": {
+      "leagueId": 37,
+      "teamId": 105810,
+      "region": 1,
+      "group": 4978,
+      "phase": "Regular Season Gruppe 2"
+    }
+  },
+  "1 Mannschaft": {
+    "2026": {
+      "leagueId": 10,
+      "teamId": 103941,
+      "region": 3,
+      "group": 5065,
+      "phase": "Regular Season"
+    }
+  },
+  "Damen": {
+    "2026": {
+      "leagueId": 43,
+      "teamId": 103700,
+      "region": 1,
+      "group": 4991,
+      "phase": "Regular Season"
+    }
+  },
+  "2 Mannschaft": {  
+    "2026": {
+      "leagueId": 19,
+      "teamId": 104319,
+      "region": 2,
+      "group": 4963,
+      "phase": "Regular Season"
+    }}
 }
