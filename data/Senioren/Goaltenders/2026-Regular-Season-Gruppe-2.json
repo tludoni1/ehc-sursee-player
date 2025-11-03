@@ -1,0 +1,24 @@
+{
+  "season": 2026,
+  "phase": "Regular Season Gruppe 2",
+  "team": "Senioren",
+  "league": 37,
+  "goalies": [
+    {
+      "rank": "1",
+      "name": "Häfliger Pascal",
+      "team": "EHC Sursee",
+      "gamesPlayed": 1,
+      "firstKeeper": 1,
+      "goalsAgainst": 7,
+      "goalsAgainstAverage": 7,
+      "secondsPlayed": "60:00",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    }
+  ]
+}

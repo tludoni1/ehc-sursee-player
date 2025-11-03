@@ -1,0 +1,56 @@
+{
+  "season": 2026,
+  "phase": "Regular Season",
+  "team": "Damen",
+  "league": 43,
+  "goalies": [
+    {
+      "rank": "1",
+      "name": "Widmer Enya",
+      "team": "EHC Sursee",
+      "gamesPlayed": 4,
+      "firstKeeper": 3,
+      "goalsAgainst": 13,
+      "goalsAgainstAverage": 3.94,
+      "secondsPlayed": "197:56",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    },
+    {
+      "rank": "",
+      "name": "Waltert Flurina",
+      "team": "EHC Sursee",
+      "gamesPlayed": 1,
+      "firstKeeper": 1,
+      "goalsAgainst": 1,
+      "goalsAgainstAverage": 1,
+      "secondsPlayed": "60:00",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    },
+    {
+      "rank": "",
+      "name": "Erismann Aniki",
+      "team": "EHC Sursee",
+      "gamesPlayed": 3,
+      "firstKeeper": 3,
+      "goalsAgainst": 10,
+      "goalsAgainstAverage": 3.76,
+      "secondsPlayed": "159:45",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    }
+  ]
+}
