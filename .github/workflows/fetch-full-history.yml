@@ -1,0 +1,59 @@
+name: Fetch Full History (Players + Goalies)
+
+on:
+  workflow_dispatch: # nur manuell startbar
+
+jobs:
+  fetch_full_history:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📦 Checkout repository
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: 📥 Install dependencies
+        run: npm install
+
+      - name: 🧩 Validate mappings.json
+        run: |
+          if [ ! -s data/mappings.json ]; then
+            echo "❌ mappings.json ist leer oder fehlt"
+            exit 1
+          fi
+          if [ "$(jq length data/mappings.json)" -eq 0 ]; then
+            echo "❌ mappings.json enthält keine Teams"
+            exit 1
+          fi
+          echo "✅ mappings.json hat Inhalte"
+
+      - name: 🏒 Fetch all PLAYER data (alle Saisons)
+        run: |
+          echo "🏒 Starte Abruf aller Spielerstatistiken..."
+          node scripts/fetch_players_detail.js
+          echo "✅ Spielerstatistiken abgeschlossen."
+
+      - name: 🥅 Fetch all GOALIE data (alle Saisons)
+        run: |
+          echo "🥅 Starte Abruf aller Torhüterstatistiken..."
+          node scripts/fetch_goalies_detail.js
+          echo "✅ Torhüterstatistiken abgeschlossen."
+
+      - name: 💾 Commit and Push updated JSON data
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          echo "🧮 Prüfe auf Änderungen..."
+          git add data/
+          git diff --cached --quiet && echo "ℹ️ Keine Änderungen gefunden." && exit 0
+
+          git commit -m "🗂️ Full Historical Data Update (Players + Goalies) [skip ci]"
+          git push
+          echo "✅ Änderungen erfolgreich gepusht."
