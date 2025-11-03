@@ -1,0 +1,70 @@
+name: Nightly Goalie Data Fetch
+
+on:
+  schedule:
+    - cron: "30 22 * * *" # läuft täglich um 23:30 Uhr Schweizer Zeit (22:30 UTC)
+  workflow_dispatch: # manuell startbar
+
+jobs:
+  fetch_goalies:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Check mappings.json
+        run: |
+          if [ ! -s data/mappings.json ]; then
+            echo "❌ mappings.json ist leer oder fehlt"
+            exit 1
+          fi
+          if [ "$(jq length data/mappings.json)" -eq 0 ]; then
+            echo "❌ mappings.json enthält keine Teams"
+            exit 1
+          fi
+          echo "✅ mappings.json hat Inhalte"
+
+      - name: Run fetch_goalies_detail.js (nur aktuelle Saison)
+        run: |
+          echo "🥅 Bestimme aktuelle SIHF-Saison..."
+          YEAR=$(date +'%Y')
+          MONTH=$(date +'%m')
+
+          # SIHF Saison läuft von August bis April → ab August = nächstes Jahr
+          if [ "$MONTH" -ge 8 ]; then
+            ((YEAR++))
+          fi
+
+          echo "📅 Aktuelle Saison: $YEAR"
+
+          # Nur aktuelle Saisonzeilen extrahieren
+          jq --arg y "$YEAR" 'with_entries(.value |= with_entries(select(.key | startswith($y))))' data/mappings.json > data/mappings_temp.json
+          
+          # Wenn keine passenden Einträge vorhanden → abbrechen
+          if [ "$(jq length data/mappings_temp.json)" -eq 0 ]; then
+            echo "⚠️ Keine Teams für Saison $YEAR gefunden, breche ab."
+            exit 0
+          fi
+
+          echo "✅ Starte Goalie-Datenabruf für Saison $YEAR..."
+          mv data/mappings_temp.json data/mappings.json
+          node scripts/fetch_goalies_detail.js
+
+      - name: Commit and Push updated goalie data
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/
+          git commit -m "🕚 Nightly Update Goalie Data (Season $YEAR) [skip ci]" || echo "No changes to commit"
+          git push
