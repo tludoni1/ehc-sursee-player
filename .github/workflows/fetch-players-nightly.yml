@@ -3,7 +3,7 @@ name: Nightly Player Data Fetch
 on:
   schedule:
     - cron: "30 22 * * *" # läuft täglich um 23:30 Uhr Schweiz-Zeit (22:30 UTC)
-  workflow_dispatch: # optional: manuell auslösbar
+  workflow_dispatch:
 
 jobs:
   fetch_players:
@@ -36,24 +36,25 @@ jobs:
       - name: Run fetch_players_detail.js (nur aktuelle Saison)
         run: |
           echo "🔄 Starte Abruf der aktuellen Saison..."
-          node -e '
-          import("./scripts/fetch_players_detail.js").then(async (mod) => {
-            const fs = await import("fs");
-            const path = await import("path");
-            const mappings = JSON.parse(fs.readFileSync("data/mappings.json", "utf-8"));
-            const now = new Date();
-            const year = now.getMonth() >= 7 ? now.getFullYear() : now.getFullYear() - 1; // Saisonlogik: ab August neue Saison
-            for (const [teamName, seasons] of Object.entries(mappings)) {
-              for (const [seasonKey, entry] of Object.entries(seasons)) {
-                if (seasonKey.startsWith(year.toString())) {
-                  console.log(`➡️  Aktualisiere ${teamName} ${seasonKey}`);
-                  await mod.default
-                    ? mod.default(teamName, seasonKey, entry)
-                    : mod.fetchTeamSeason(teamName, seasonKey, entry);
-                }
-              }
-            }
-          });'
+          YEAR=$(date +'%Y')
+          MONTH=$(date +'%m')
+          if [ "$MONTH" -lt 8 ]; then
+            ((YEAR--))
+          fi
+          echo "📅 Aktuelle Saison: $YEAR"
+          
+          # Nur diese Saisonzeilen temporär in eine Datei extrahieren
+          jq --arg y "$YEAR" 'with_entries(.value |= with_entries(select(.key | startswith($y))))' data/mappings.json > data/mappings_temp.json
+          
+          # Wenn keine passenden Einträge vorhanden → abbrechen
+          if [ "$(jq length data/mappings_temp.json)" -eq 0 ]; then
+            echo "⚠️ Keine Teams für Saison $YEAR gefunden, breche ab."
+            exit 0
+          fi
+
+          echo "✅ Starte Datenabruf für Saison $YEAR..."
+          mv data/mappings_temp.json data/mappings.json
+          node scripts/fetch_players_detail.js
 
       - name: Commit and Push updated data
         env:
