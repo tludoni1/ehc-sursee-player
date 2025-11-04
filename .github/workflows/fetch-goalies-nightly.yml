@@ -2,7 +2,7 @@ name: Nightly Goalie Data Fetch
 
 on:
   schedule:
-    - cron: "30 22 * * *" # läuft täglich um 23:30 Uhr Schweizer Zeit (22:30 UTC)
+    - cron: "45 22 * * *" # läuft täglich um 23:30 Uhr Schweizer Zeit (22:45 UTC)
   workflow_dispatch: # manuell startbar
 
 jobs:
@@ -56,8 +56,10 @@ jobs:
           fi
 
           echo "✅ Starte Goalie-Datenabruf für Saison $YEAR..."
-          mv data/mappings_temp.json data/mappings.json
-          node scripts/fetch_goalies_detail.js
+cp data/mappings.json data/mappings_backup.json
+mv data/mappings_temp.json data/mappings_filtered.json
+node scripts/fetch_players_detail.js --mappings data/mappings_filtered.json || true
+mv data/mappings_backup.json data/mappings.json
 
       - name: Commit and Push updated goalie data
         env:
@@ -66,5 +68,6 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add data/
+          git reset data/mappings.json
           git commit -m "🕚 Nightly Update Goalie Data (Season $YEAR) [skip ci]" || echo "No changes to commit"
           git push
