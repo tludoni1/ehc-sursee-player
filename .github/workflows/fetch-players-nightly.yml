@@ -21,58 +21,50 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Check mappings.json
+      - name: Determine current SIHF season
+        id: season
         run: |
-          if [ ! -s data/mappings.json ]; then
-            echo "❌ mappings.json ist leer oder fehlt"
-            exit 1
-          fi
-          if [ "$(jq length data/mappings.json)" -eq 0 ]; then
-            echo "❌ mappings.json enthält keine Teams"
-            exit 1
-          fi
-          echo "✅ mappings.json hat Inhalte"
-
-      - name: Run fetch_players_detail.js (nur aktuelle Saison)
-        run: |
-          echo "🔄 Bestimme aktuelle SIHF-Saison..."
           YEAR=$(date +'%Y')
           MONTH=$(date +'%m')
-
-          # Saisonlogik: SIHF Saison läuft von August bis April -> ab August = nächstes Jahr
           if [ "$MONTH" -ge 8 ]; then
             ((YEAR++))
           fi
-
           echo "📅 Aktuelle Saison: $YEAR"
+          echo "year=$YEAR" >> $GITHUB_OUTPUT
 
-          # Nur Teams mit dieser Saison extrahieren
+      - name: Generate fresh mappings for current season
+        run: |
+          YEAR=${{ steps.season.outputs.year }}
+          TARGET="data/mappings_${YEAR}.json"
+          echo "🆕 Erstelle frisches $TARGET aus mappings.json ..."
+
           jq --arg y "$YEAR" '
             to_entries
             | map({key: .key, value: ( .value | with_entries(select(.key | startswith($y))) )})
             | map(select(.value | length > 0))
             | from_entries
-          ' data/mappings.json > data/mappings_temp.json
-          
-          # Wenn keine passenden Einträge vorhanden → abbrechen
-          if [ "$(jq length data/mappings_temp.json)" -eq 0 ]; then
-            echo "⚠️ Keine Teams für Saison $YEAR gefunden, breche ab."
+          ' data/mappings.json > "$TARGET"
+
+          if [ "$(jq length "$TARGET")" -eq 0 ]; then
+            echo "⚠️ Keine Teams für Saison $YEAR gefunden – breche ab."
             exit 0
           fi
+          echo "✅ $TARGET erfolgreich erzeugt."
 
-          echo "✅ Starte Datenabruf für Saison $YEAR..."
-          cp data/mappings.json data/mappings_backup.json
-          mv data/mappings_temp.json data/mappings_filtered.json
-          node scripts/fetch_players_detail.js --mappings data/mappings_filtered.json || true
-          mv data/mappings_backup.json data/mappings.json
+      - name: Fetch current season player data
+        run: |
+          YEAR=${{ steps.season.outputs.year }}
+          echo "🚀 Starte Datenabruf für Saison $YEAR..."
+          node scripts/fetch_players_detail.js --mappings data/mappings_${YEAR}.json || true
 
-      - name: Commit and Push updated data
+      - name: Commit and push updated data
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          YEAR=${{ steps.season.outputs.year }}
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add data/
           git reset data/mappings.json
-          git commit -m "Nightly Update Player Data (Season $YEAR) [skip ci]" || echo "No changes to commit"
+          git commit -m "Nightly Player Data Update (Season $YEAR) [skip ci]" || echo "No changes to commit"
           git push
