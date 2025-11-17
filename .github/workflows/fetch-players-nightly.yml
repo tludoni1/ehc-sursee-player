@@ -46,8 +46,13 @@ jobs:
 
           echo "📅 Aktuelle Saison: $YEAR"
 
-          # Nur diese Saisonzeilen temporär in eine Datei extrahieren
-          jq --arg y "$YEAR" 'with_entries(.value |= with_entries(select(.key | startswith($y))))' data/mappings.json > data/mappings_temp.json
+          # Nur Teams mit dieser Saison extrahieren
+          jq --arg y "$YEAR" '
+            to_entries
+            | map({key: .key, value: ( .value | with_entries(select(.key | startswith($y))) )})
+            | map(select(.value | length > 0))
+            | from_entries
+          ' data/mappings.json > data/mappings_temp.json
           
           # Wenn keine passenden Einträge vorhanden → abbrechen
           if [ "$(jq length data/mappings_temp.json)" -eq 0 ]; then
