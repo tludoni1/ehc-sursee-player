@@ -3,7 +3,14 @@ import path from "path";
 import fetch from "node-fetch";
 
 const BASE_URL = "https://data.sihf.ch/Statistic/api/cms/cache300";
-const MAPPING_FILE = path.join("data", "mappings.json");
+
+// Ermöglicht die Übergabe eines benutzerdefinierten Mapping-Files per Parameter
+const args = process.argv.slice(2);
+const customMappingsIndex = args.indexOf("--mappings");
+const MAPPING_FILE =
+  customMappingsIndex !== -1
+    ? args[customMappingsIndex + 1]
+    : path.join("data", "mappings.json");
 
 function stripJsonCallback(text) {
   const marker = "externalStatisticsCallback(";
