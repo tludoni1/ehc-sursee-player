@@ -22,6 +22,22 @@
     },
     {
       "rank": "",
+      "name": "Widmer Enya",
+      "team": "EHC Sursee",
+      "gamesPlayed": 1,
+      "firstKeeper": 1,
+      "goalsAgainst": 3,
+      "goalsAgainstAverage": 3,
+      "secondsPlayed": "60:00",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    },
+    {
+      "rank": "",
       "name": "Hofstetter Jari",
       "team": "EHC Sursee",
       "gamesPlayed": 4,
