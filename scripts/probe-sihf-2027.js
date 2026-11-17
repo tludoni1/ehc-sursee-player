@@ -36,6 +36,9 @@ for (const alias of ["player", "goalkeeper"]) {
         dataRows: rows.length, identifiedTeamRows: matches,
         filters: raw.filters ?? raw.filter ?? raw.selectedFilters ?? null,
         sampleRowCellTypes: rows.length && Array.isArray(rows[0]) ? rows[0].map((v) => typeof v) : [],
+        selectedLeague: raw.filters?.find((f) => f.alias === "League")?.selected ?? null,
+        firstTeamCells: rows.slice(0, 3).map(row => Array.isArray(row) ? row[2] : null),
+        distinctTeamIds: [...new Set(rows.flatMap(row => Array.isArray(row) && row[2]?.id != null ? [String(row[2].id)] : []))].sort().slice(0, 50),
       }));
       if (!matches) missing++;
     } catch (error) {
