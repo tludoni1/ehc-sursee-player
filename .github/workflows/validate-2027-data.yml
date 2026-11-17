@@ -1,0 +1,56 @@
+name: Validate SIHF 2027 statistics (no data commits)
+
+on:
+  pull_request:
+    paths:
+      - "data/mappings.json"
+      - "scripts/fetch_players_detail.js"
+      - "scripts/fetch_goalies_detail.js"
+      - ".github/workflows/validate-2027-data.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install packages
+        run: npm install
+
+      - name: Check syntax
+        run: |
+          node --check scripts/fetch_players_detail.js
+          node --check scripts/fetch_goalies_detail.js
+
+      - name: Derive season 2027 mappings
+        run: |
+          jq '
+            with_entries(
+              .value |= with_entries(select(.key | startswith("2027")))
+            )
+            | with_entries(select(.value | length > 0))
+          ' data/mappings.json > data/mappings_2027.json
+          test "$(jq length data/mappings_2027.json)" -eq 4
+
+      - name: Test player endpoint for all four teams
+        run: node scripts/fetch_players_detail.js --mappings data/mappings_2027.json
+
+      - name: Test goalie endpoint for all four teams
+        run: node scripts/fetch_goalies_detail.js --mappings data/mappings_2027.json
+
+      - name: Inspect all generated 2027 datasets
+        run: |
+          for dir in "Senioren" "1_Mannschaft" "2_Mannschaft" "Damen"; do
+            jq -e '.season == 2027 and (.players | length > 0)' "data/$dir/2027-All-phases.json" >/dev/null
+            jq -e '.season == 2027 and (.goalies | length > 0)' "data/$dir/Goaltenders/2027-All-phases.json" >/dev/null
+          done
+          echo "All four teams returned non-empty player and goalie data; no changes pushed."
