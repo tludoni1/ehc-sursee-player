@@ -2,8 +2,15 @@ name: Nightly Goalie Data Fetch
 
 on:
   schedule:
-    - cron: "30 22 * * *" # läuft täglich um 23:30 Uhr Schweiz-Zeit (22:30 UTC)
+    - cron: "30 22 * * *" # 23:30 MEZ / 00:30 MESZ
   workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sihf-statistics-data-update
+  cancel-in-progress: false
 
 jobs:
   fetch_goalies:
@@ -46,8 +53,8 @@ jobs:
           ' data/mappings.json > "$TARGET"
 
           if [ "$(jq length "$TARGET")" -eq 0 ]; then
-            echo "⚠️ Keine Teams für Saison $YEAR gefunden – breche ab."
-            exit 0
+            echo "::error::Keine Saison-Mappings für $YEAR vorhanden"
+            exit 1
           fi
           echo "✅ $TARGET erfolgreich erzeugt."
 
@@ -55,7 +62,7 @@ jobs:
         run: |
           YEAR=${{ steps.season.outputs.year }}
           echo "🚀 Starte Datenabruf für Saison $YEAR..."
-          node scripts/fetch_goalies_detail.js --mappings data/mappings_${YEAR}.json || true
+          node scripts/fetch_goalies_detail.js --mappings data/mappings_${YEAR}.json
 
       - name: Commit and push updated data
         env:
@@ -67,4 +74,5 @@ jobs:
           git add data/
           git reset data/mappings.json
           git commit -m "Nightly Goalie Data Update (Season $YEAR) [skip ci]" || echo "No changes to commit"
-          git push
+          git pull --rebase origin main
+          git push origin HEAD:main
