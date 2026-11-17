@@ -1,0 +1,23 @@
+name: Probe new SIHF statistics endpoint (read only)
+
+on:
+  pull_request:
+    paths:
+      - "scripts/probe-sihf-2027.js"
+      - ".github/workflows/probe-new-sihf-api.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Probe league-wide player and goalie datasets for season 2027
+        run: node scripts/probe-sihf-2027.js
