@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
       - "data/mappings.json"
+      - "tests/**"
       - "scripts/fetch_players_detail.js"
       - "scripts/fetch_goalies_detail.js"
       - ".github/workflows/validate-2027-data.yml"
@@ -30,6 +31,9 @@ jobs:
         run: |
           node --check scripts/fetch_players_detail.js
           node --check scripts/fetch_goalies_detail.js
+
+      - name: Run historical and all-time regression tests
+        run: node --test tests/*.test.mjs
 
       - name: Derive season 2027 mappings
         run: |
