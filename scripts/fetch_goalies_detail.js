@@ -81,6 +81,10 @@ async function fetchTeamSeasonGoalies(teamName, seasonKey, entry) {
       throw new Error("API hat kein gültiges data-Array zurückgegeben");
     }
 
+    if (raw.data.some((p) => p[2] && typeof p[2] === "object" && p[2].id != null && String(p[2].id) !== String(teamId))) {
+      throw new Error("SIHF-Antwort enthaelt Daten eines anderen Teams");
+    }
+
     const goalies = raw.data.map((p) => ({
       rank: p[0],
       name: p[1],
