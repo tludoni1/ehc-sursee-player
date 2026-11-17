@@ -100,15 +100,13 @@ async function fetchTeamSeasonGoalies(teamName, seasonKey, entry) {
 
     out = { season, phase, team: teamName, league: leagueId, goalies };
   } catch (err) {
-    console.error(`❌ Fehler bei Goalies ${teamName} ${seasonKey}:`, err.message);
-    out = {
-      season,
-      phase,
-      team: teamName,
-      league: leagueId,
-      goalies: [],
-      note: "Fehler beim Abruf – Daten nicht verfügbar"
-    };
+    throw new Error(`Datenabruf für ${teamName} ${seasonKey} fehlgeschlagen: ${err.message}`);
+  }
+
+  // Kein vorhandenes JSON überschreiben, wenn die API keine Datensätze liefert.
+  // Insbesondere bei neuen Saisonfiltern ist ein leerer Erfolg nicht verlässlich.
+  if (!out.goalies.length) {
+    throw new Error(`Keine Torhüterdaten für ${teamName} ${seasonKey}; bestehende Dateien bleiben unverändert`);
   }
 
   const outDir = path.join("data", teamName.replace(/\s+/g, "_"), "Goaltenders");
@@ -124,6 +122,7 @@ async function fetchTeamSeasonGoalies(teamName, seasonKey, entry) {
 async function main() {
   const mappings = loadMappings();
 
+  let failures = 0;
   for (const [teamName, seasons] of Object.entries(mappings)) {
     for (const [seasonKey, entry] of Object.entries(seasons)) {
       const season = parseInt(seasonKey.substring(0, 4), 10);
@@ -132,9 +131,14 @@ async function main() {
         await fetchTeamSeasonGoalies(teamName, seasonKey, entry);
       } catch (err) {
         console.error(`❌ Unhandled Fehler bei Goalies ${teamName} ${seasonKey}:`, err.message);
+        failures++;
       }
     }
   }
+  if (failures > 0) {
+    console.error(`❌ ${failures} Datenabrufe fehlgeschlagen`);
+    process.exitCode = 1;
+  }
 }
 
-main();
+main().catch((err) => { console.error(err); process.exitCode = 1; });
