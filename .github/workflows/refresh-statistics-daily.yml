@@ -8,6 +8,7 @@ on:
       - "data/mappings.json"
       - "scripts/fetch_players_detail.js"
       - "scripts/fetch_goalies_detail.js"
+      - "scripts/discover-current-season.js"
   schedule:
     - cron: "30 22 * * *" # 23:30 MEZ / 00:30 MESZ
   workflow_dispatch:
@@ -31,7 +32,21 @@ jobs:
       - name: Install packages
         run: npm install
 
-      - name: Determine current season and mapping
+      # Preserve scheduled workflow activity even when the new season has
+      # not yet started and the SIHF provides no team games or statistics.
+      - name: Monthly activity heartbeat (independent of data availability)
+        shell: bash
+        run: |
+          if [ "$(date -u +%d)" != "01" ]; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          date -u +%Y-%m-%d > data/.last-monthly-refresh
+          git add data/.last-monthly-refresh
+          git commit -m "Monthly SIHF workflow heartbeat [skip ci]" || exit 0
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+      - name: Determine season and discover current SIHF team phases
         id: season
         shell: bash
         run: |
@@ -39,14 +54,8 @@ jobs:
           MONTH="$(date -u +%m)"
           if [ "$MONTH" -ge 8 ]; then YEAR="$((YEAR + 1))"; fi
           echo "year=$YEAR" >> "$GITHUB_OUTPUT"
-          jq --arg year "$YEAR" '
-            with_entries(.value |= with_entries(select(.key | startswith($year))))
-            | with_entries(select(.value | length > 0))
-          ' data/mappings.json > "data/mappings_${YEAR}.json"
-          if [ "$(jq length "data/mappings_${YEAR}.json")" -ne 4 ]; then
-            echo "::error::Unvollständige Team-Mappings für Saison $YEAR"
-            exit 1
-          fi
+          node scripts/discover-current-season.js "$YEAR"
+          test "$(jq length "data/mappings_${YEAR}.json")" -eq 4
 
       - name: Fetch players
         run: node scripts/fetch_players_detail.js --mappings data/mappings_${{ steps.season.outputs.year }}.json
@@ -59,13 +68,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          # Monthly Git activity prevents auto-disabling scheduled workflows
-          # after 60 days without activity (including the off-season).
-          if [ "$(date -u +%d)" = "01" ]; then
-            date -u +%Y-%m-%d > data/.last-monthly-refresh
-          fi
           git add data/
-          git reset -- data/mappings.json
           if git diff --cached --quiet; then
             echo "No changed statistics to commit"
             exit 0

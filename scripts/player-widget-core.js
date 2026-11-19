@@ -122,7 +122,7 @@ function mergePhaseData(datasets, season, teamName) {
 
   const merged = { season, phase: "Merged", team: teamName, league: datasets[0].league, players: [] };
   datasets.forEach((ds) => {
-    ds.players.forEach((p) => {
+    ds.players.filter((p) => !isGoalkeeperPosition(p.position)).forEach((p) => {
       let player = merged.players.find((x) => x.name === p.name);
       if (!player) {
         player = { ...p };
@@ -140,8 +140,13 @@ function mergePhaseData(datasets, season, teamName) {
   return merged;
 }
 
+function isGoalkeeperPosition(position) {
+  return /^(torh[uü]ter|goalie|goalkeeper|gardien)$/i.test(String(position || "").trim());
+}
+
 function mergePlayers(acc, seasonData, teamName, showleague) {
   for (const p of seasonData.players) {
+    if (isGoalkeeperPosition(p.position)) continue;
     let player = acc.find((x) => x.name === p.name);
     if (!player) {
       player = { name: p.name, team: teamName, games: 0, goals: 0, assists: 0, points: 0, pointsPerGame: 0, penaltyMinutes: 0 };

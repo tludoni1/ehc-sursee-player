@@ -36,3 +36,23 @@ test("Multiple phase results are combined once per player", () => {
   assert.equal(result.players[0].games,8);
   assert.equal(result.players[0].points,10);
 });
+
+test("SIHF goalkeepers never appear among skater All-Time leaders", () => {
+  let players = [];
+  players = aggregate(players, {league:37,players:[
+    {name:"Nietlispach Thomas",position:"Torhüter",games:6,goals:0,assists:0,points:0,penaltyMinutes:0},
+    {name:"Field Skater",position:"Stürmer",games:6,goals:2,assists:1,points:3,penaltyMinutes:0}
+  ]}, "Senioren", false);
+  assert.equal(players.length, 1);
+  assert.equal(players[0].name, "Field Skater");
+});
+
+test("Historical phase merger excludes goalie records without removing the source", () => {
+  const data = [{league:37,players:[
+    {name:"Nietlispach Thomas",position:"Torhüter",games:6,goals:0,assists:0,points:0,penaltyMinutes:0},
+    {name:"Field Skater",position:"Verteidiger",games:4,goals:1,assists:0,points:1,penaltyMinutes:2}
+  ]},{league:37,players:[{name:"Field Skater",position:"Verteidiger",games:2,goals:1,assists:1,points:2,penaltyMinutes:0}]}];
+  const result = phases(data,2022,"Senioren");
+  assert.deepEqual(Array.from(result.players, p => p.name),["Field Skater"]);
+  assert.equal(result.players[0].points,3);
+});
