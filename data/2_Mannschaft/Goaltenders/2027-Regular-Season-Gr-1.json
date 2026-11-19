@@ -1,0 +1,56 @@
+{
+  "season": 2027,
+  "phase": "Regular Season Gr. 1",
+  "team": "2 Mannschaft",
+  "league": 19,
+  "goalies": [
+    {
+      "rank": "",
+      "name": "Kuster Livio",
+      "team": "EHC Sursee",
+      "gamesPlayed": 2,
+      "firstKeeper": 1,
+      "goalsAgainst": 8,
+      "goalsAgainstAverage": 4.8,
+      "secondsPlayed": "100:00",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    },
+    {
+      "rank": "",
+      "name": "Zemp Marc",
+      "team": "EHC Sursee",
+      "gamesPlayed": 3,
+      "firstKeeper": 2,
+      "goalsAgainst": 10,
+      "goalsAgainstAverage": 7.39,
+      "secondsPlayed": "81:13",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 1,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    },
+    {
+      "rank": "",
+      "name": "Hofstetter Jari",
+      "team": "EHC Sursee",
+      "gamesPlayed": 4,
+      "firstKeeper": 2,
+      "goalsAgainst": 15,
+      "goalsAgainstAverage": 7.58,
+      "secondsPlayed": "118:47",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    }
+  ]
+}

@@ -1,1 +1,46 @@
-{}
+{
+  "Senioren": {
+    "2027": {
+      "leagueId": 37,
+      "teamId": 105810,
+      "region": "all",
+      "group": 71620,
+      "phase": "Regular Season Gr. 2",
+      "phaseId": 71620,
+      "api": "table"
+    }
+  },
+  "1 Mannschaft": {
+    "2027": {
+      "leagueId": 10,
+      "teamId": 103941,
+      "region": "all",
+      "group": 78910,
+      "phase": "Regular Season Gr. 3",
+      "phaseId": 78910,
+      "api": "table"
+    }
+  },
+  "2 Mannschaft": {
+    "2027": {
+      "leagueId": 19,
+      "teamId": 104319,
+      "region": "all",
+      "group": 67510,
+      "phase": "Regular Season Gr. 1",
+      "phaseId": 67510,
+      "api": "table"
+    }
+  },
+  "Damen": {
+    "2027": {
+      "leagueId": 43,
+      "teamId": 103700,
+      "region": "all",
+      "group": 778,
+      "phase": "Regular Season",
+      "phaseId": 778,
+      "api": "table"
+    }
+  }
+}

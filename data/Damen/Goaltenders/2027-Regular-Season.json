@@ -1,0 +1,40 @@
+{
+  "season": 2027,
+  "phase": "Regular Season",
+  "team": "Damen",
+  "league": 43,
+  "goalies": [
+    {
+      "rank": "1",
+      "name": "Widmer Enya",
+      "team": "EHC Sursee",
+      "gamesPlayed": 5,
+      "firstKeeper": 5,
+      "goalsAgainst": 1,
+      "goalsAgainstAverage": 0.2,
+      "secondsPlayed": "305:00",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    },
+    {
+      "rank": "",
+      "name": "Waltert Flurina",
+      "team": "EHC Sursee",
+      "gamesPlayed": 3,
+      "firstKeeper": 3,
+      "goalsAgainst": 5,
+      "goalsAgainstAverage": 1.67,
+      "secondsPlayed": "180:00",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    }
+  ]
+}

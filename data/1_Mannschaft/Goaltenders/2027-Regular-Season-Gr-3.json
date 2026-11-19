@@ -1,0 +1,40 @@
+{
+  "season": 2027,
+  "phase": "Regular Season Gr. 3",
+  "team": "1 Mannschaft",
+  "league": 10,
+  "goalies": [
+    {
+      "rank": "3",
+      "name": "Joller Yves",
+      "team": "EHC Sursee",
+      "gamesPlayed": 4,
+      "firstKeeper": 4,
+      "goalsAgainst": 12,
+      "goalsAgainstAverage": 3.01,
+      "secondsPlayed": "239:35",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    },
+    {
+      "rank": "",
+      "name": "Ruch Florian",
+      "team": "EHC Sursee",
+      "gamesPlayed": 2,
+      "firstKeeper": 2,
+      "goalsAgainst": 9,
+      "goalsAgainstAverage": 4.5,
+      "secondsPlayed": "119:59",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    }
+  ]
+}
