@@ -53,6 +53,6 @@ test("Historical phase merger excludes goalie records without removing the sourc
     {name:"Field Skater",position:"Verteidiger",games:4,goals:1,assists:0,points:1,penaltyMinutes:2}
   ]},{league:37,players:[{name:"Field Skater",position:"Verteidiger",games:2,goals:1,assists:1,points:2,penaltyMinutes:0}]}];
   const result = phases(data,2022,"Senioren");
-  assert.deepEqual(result.players.map(p=>p.name),["Field Skater"]);
+  assert.deepEqual(Array.from(result.players, p => p.name),["Field Skater"]);
   assert.equal(result.players[0].points,3);
 });
