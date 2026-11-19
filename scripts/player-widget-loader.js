@@ -30,6 +30,19 @@
         }
       };
 
+      // Support the documented data-columns JSON configuration without
+      // removing the older data-col-* attributes.
+      if (el.dataset.columns) {
+        try {
+          const settings = JSON.parse(el.dataset.columns);
+          for (const key of Object.keys(config.columns)) {
+            if (typeof settings[key] === "boolean") config.columns[key] = settings[key];
+          }
+        } catch (error) {
+          console.error("Ungültiges data-columns JSON:", error);
+        }
+      }
+
       if (window.EHCPlayerWidgetCore) {
         window.EHCPlayerWidgetCore(config);
       } else {

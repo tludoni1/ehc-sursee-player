@@ -1,0 +1,75 @@
+name: Daily SIHF Player and Goalie Data Refresh
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/refresh-statistics-daily.yml"
+      - "data/mappings.json"
+      - "scripts/fetch_players_detail.js"
+      - "scripts/fetch_goalies_detail.js"
+  schedule:
+    - cron: "30 22 * * *" # 23:30 MEZ / 00:30 MESZ
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sihf-statistics-data-update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Install packages
+        run: npm install
+
+      - name: Determine current season and mapping
+        id: season
+        shell: bash
+        run: |
+          YEAR="$(date -u +%Y)"
+          MONTH="$(date -u +%m)"
+          if [ "$MONTH" -ge 8 ]; then YEAR="$((YEAR + 1))"; fi
+          echo "year=$YEAR" >> "$GITHUB_OUTPUT"
+          jq --arg year "$YEAR" '
+            with_entries(.value |= with_entries(select(.key | startswith($year))))
+            | with_entries(select(.value | length > 0))
+          ' data/mappings.json > "data/mappings_${YEAR}.json"
+          if [ "$(jq length "data/mappings_${YEAR}.json")" -ne 4 ]; then
+            echo "::error::Unvollständige Team-Mappings für Saison $YEAR"
+            exit 1
+          fi
+
+      - name: Fetch players
+        run: node scripts/fetch_players_detail.js --mappings data/mappings_${{ steps.season.outputs.year }}.json
+
+      - name: Fetch goalkeepers
+        run: node scripts/fetch_goalies_detail.js --mappings data/mappings_${{ steps.season.outputs.year }}.json
+
+      - name: Commit verified datasets and monthly activity heartbeat
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          # Monthly Git activity prevents auto-disabling scheduled workflows
+          # after 60 days without activity (including the off-season).
+          if [ "$(date -u +%d)" = "01" ]; then
+            date -u +%Y-%m-%d > data/.last-monthly-refresh
+          fi
+          git add data/
+          git reset -- data/mappings.json
+          if git diff --cached --quiet; then
+            echo "No changed statistics to commit"
+            exit 0
+          fi
+          git commit -m "Refresh SIHF statistics (season ${{ steps.season.outputs.year }}) [skip ci]"
+          git pull --rebase origin main
+          git push origin HEAD:main
