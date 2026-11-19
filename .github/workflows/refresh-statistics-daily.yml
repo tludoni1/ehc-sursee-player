@@ -32,6 +32,20 @@ jobs:
       - name: Install packages
         run: npm install
 
+      # Preserve scheduled workflow activity even when the new season has
+      # not yet started and the SIHF provides no team games or statistics.
+      - name: Monthly activity heartbeat (independent of data availability)
+        shell: bash
+        run: |
+          if [ "$(date -u +%d)" != "01" ]; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          date -u +%Y-%m-%d > data/.last-monthly-refresh
+          git add data/.last-monthly-refresh
+          git commit -m "Monthly SIHF workflow heartbeat [skip ci]" || exit 0
+          git pull --rebase origin main
+          git push origin HEAD:main
+
       - name: Determine season and discover current SIHF team phases
         id: season
         shell: bash
@@ -54,11 +68,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          # Monthly Git activity prevents auto-disabling scheduled workflows
-          # after 60 days without activity (including the off-season).
-          if [ "$(date -u +%d)" = "01" ]; then
-            date -u +%Y-%m-%d > data/.last-monthly-refresh
-          fi
           git add data/
           if git diff --cached --quiet; then
             echo "No changed statistics to commit"
