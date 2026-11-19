@@ -117,7 +117,17 @@ async function discoverOne(team, season, previous) {
       const players = await getTable("player", season, leagueId, phaseId);
       const skaters = players.data.filter(row => row[2] && asString(row[2].id) === asString(teamId));
       // A phase with games but no player statistics is not a successful import.
-      if (!skaters.length) throw new Error(`No player statistics for ${team} phase ${phaseId}`);
+      if (!skaters.length) {
+        const previouslyImported = Object.values(previous).some(item =>
+          String(item.phaseId) === String(phaseId) && item.leagueId === leagueId
+        );
+        if (previouslyImported) {
+          throw new Error(`Previously imported SIHF statistics disappeared for ${team} phase ${phaseId}`);
+        }
+        // Fixtures may appear before the phase has been played. Defer it.
+        console.log(`Upcoming phase ${phaseId} for ${team} has no player stats yet; skipping until played`);
+        continue;
+      }
       found.push({ leagueId, teamId, phaseId, phase });
       console.log(`Verified ${team}, season ${season}, league ${leagueId}, phase ${phaseId} (${phase}): ${skaters.length} rows`);
     }
