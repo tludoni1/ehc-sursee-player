@@ -1,6 +1,13 @@
 name: Daily SIHF Player and Goalie Data Refresh
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/refresh-statistics-daily.yml"
+      - "data/mappings.json"
+      - "scripts/fetch_players_detail.js"
+      - "scripts/fetch_goalies_detail.js"
   schedule:
     - cron: "30 22 * * *" # 23:30 MEZ / 00:30 MESZ
   workflow_dispatch:
