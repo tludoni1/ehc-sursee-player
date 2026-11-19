@@ -46,15 +46,17 @@ window.EHCPlayerWidgetCore = async function (config) {
   try {
     const mappings = await fetchMappings();
 
-    // Seasons bestimmen
-    const allSeasons = [...new Set(
-      Object.keys(mappings[TEAM_MAP[config.team.split(",")[0].trim()] || config.team.split(",")[0]])
-        .map((k) => k.split("-")[0])
-    )];
-    const seasons = resolveSeasons(config.season, allSeasons);
-
-    // Teams bestimmen
+    // Alle Saisons aller ausgewählten Teams berücksichtigen, nicht nur
+    // diejenigen des ersten Teams (wichtig für Overall und All-Time).
     const teams = config.team.split(",").map((t) => t.trim());
+    const allSeasons = [...new Set(teams.flatMap((team) => {
+      const name = TEAM_MAP[team] || team;
+      return Object.keys(mappings[name] || {}).map((key) => key.split("-")[0]);
+    }))].sort((a, b) => Number(a) - Number(b));
+    if (allSeasons.length === 0) {
+      throw new Error("Für die ausgewählten Teams sind keine Saisons verfügbar");
+    }
+    const seasons = resolveSeasons(config.season, allSeasons);
 
     let players = [];
     for (const team of teams) {
