@@ -22,7 +22,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "24"
 
       - name: Install packages
         run: npm install
@@ -31,6 +31,8 @@ jobs:
         run: |
           node --check scripts/fetch_players_detail.js
           node --check scripts/fetch_goalies_detail.js
+          node --check scripts/player-widget-core.js
+          node --check scripts/player-widget-loader.js
 
       - name: Run historical and all-time regression tests
         run: node --test tests/*.test.mjs
