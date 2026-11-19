@@ -39,8 +39,10 @@
       "leagueId": 37,
       "teamId": 105810,
       "region": "all",
-      "group": "all",
-      "phase": "All phases"
+      "group": 71620,
+      "phase": "Regular Season Gr. 2",
+      "phaseId": 71620,
+      "api": "table"
     }
   },
   "1 Mannschaft": {
@@ -132,8 +134,10 @@
       "leagueId": 10,
       "teamId": 103941,
       "region": "all",
-      "group": "all",
-      "phase": "All phases"
+      "group": 78910,
+      "phase": "Regular Season Gr. 3",
+      "phaseId": 78910,
+      "api": "table"
     },
     "2016-P1": {
       "leagueId": 18,
@@ -316,8 +320,10 @@
       "leagueId": 19,
       "teamId": 104319,
       "region": "all",
-      "group": "all",
-      "phase": "All phases"
+      "group": 67510,
+      "phase": "Regular Season Gr. 1",
+      "phaseId": 67510,
+      "api": "table"
     },
     "2016-P1": {
       "leagueId": 19,
@@ -416,8 +422,10 @@
       "leagueId": 43,
       "teamId": 103700,
       "region": "all",
-      "group": "all",
-      "phase": "All phases"
+      "group": 778,
+      "phase": "Regular Season",
+      "phaseId": 778,
+      "api": "table"
     },
     "2018-P1": {
       "leagueId": 101,
