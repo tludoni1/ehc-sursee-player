@@ -49,6 +49,44 @@ async function fetchWithRetry(url, retries = 3, delay = 1000) {
   }
 }
 
+// Neue SIHF-Tabellen-API; nur für explizit migrierte Saisons.
+// Verifiziert die von SIHF zurückgegebenen Saison- und Phasenfilter.
+async function fetchModernTable(alias, season, leagueId, phaseId) {
+  const url = new URL("https://data.sihf.ch/statistic/api/cms/table");
+  url.searchParams.set("alias", alias);
+  url.searchParams.set("searchQuery", `1//${leagueId}`);
+  url.searchParams.set("language", "de");
+  url.searchParams.set("filterBy", "Season,Phase");
+  url.searchParams.set("filterQuery", `${season}/${phaseId}`);
+
+  let lastError;
+  for (let attempt = 1; attempt <= 3; attempt++) {
+    try {
+      const response = await fetch(url, {
+        headers: { Accept: "application/json" },
+        signal: AbortSignal.timeout(15000)
+      });
+      if (!response.ok) throw new Error(`SIHF HTTP ${response.status}`);
+      const body = await response.json();
+      for (const [key, expected] of [["Season", season], ["Phase", phaseId]]) {
+        const reported = body.filters?.find((item) => item.alias === key);
+        if (!reported || String(reported.selected) !== String(expected)) {
+          throw new Error(`SIHF lieferte einen falschen ${key}-Filter: ${reported?.selected}`);
+        }
+      }
+      if (!Array.isArray(body.data)) throw new Error("SIHF lieferte kein data-Array");
+      if (Number.isInteger(body.pages) && body.data.length !== body.pages) {
+        throw new Error(`Unvollständige SIHF-Tabelle: ${body.data.length}/${body.pages}`);
+      }
+      return body;
+    } catch (error) {
+      lastError = error;
+      if (attempt < 3) await new Promise((resolve) => setTimeout(resolve, attempt * 1000));
+    }
+  }
+  throw lastError;
+}
+
 function loadMappings() {
   if (fs.existsSync(MAPPING_FILE)) {
     return JSON.parse(fs.readFileSync(MAPPING_FILE, "utf-8"));
@@ -76,16 +114,24 @@ async function fetchTeamSeason(teamName, seasonKey, entry) {
 
   let out;
   try {
-    const raw = await fetchWithRetry(url, 3);
+    const modern = entry.api === "table" && entry.phaseId != null;
+    const raw = modern
+      ? await fetchModernTable("player", season, leagueId, entry.phaseId)
+      : await fetchWithRetry(url, 3);
     if (!raw.data || !Array.isArray(raw.data)) {
       throw new Error("API hat kein gültiges data-Array zurückgegeben");
     }
 
-    if (raw.data.some((p) => p[2] && typeof p[2] === "object" && p[2].id != null && String(p[2].id) !== String(teamId))) {
-      throw new Error("SIHF-Antwort enthaelt Daten eines anderen Teams");
+    // Der neue Tabellen-Endpunkt liefert die gesamte Liga/Gruppe.
+    // Ausschliesslich die bestätigte EHC-Sursee-Team-ID übernehmen.
+    const teamRows = modern
+      ? raw.data.filter((row) => Array.isArray(row) && String(row[2]?.id) === String(teamId))
+      : raw.data;
+    if (modern && teamRows.length === 0) {
+      throw new Error(`Keine Daten für Team-ID ${teamId} in SIHF-Phase ${entry.phaseId}`);
     }
 
-    const players = raw.data.map((p) => ({
+    const players = teamRows.map((p) => ({
       rank: p[0],
       name: p[1],
       position: p[3],
