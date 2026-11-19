@@ -53,8 +53,12 @@ jobs:
 
       - name: Inspect all generated 2027 datasets
         run: |
-          for dir in "Senioren" "1_Mannschaft" "2_Mannschaft" "Damen"; do
-            jq -e '.season == 2027 and (.players | length > 0)' "data/$dir/2027-All-phases.json" >/dev/null
-            jq -e '.season == 2027 and (.goalies | length > 0)' "data/$dir/Goaltenders/2027-All-phases.json" >/dev/null
-          done
-          echo "All four teams returned non-empty player and goalie data; no changes pushed."
+          jq -e '.season == 2027 and (.players | length > 0)' data/Senioren/2027-Regular-Season-Gr-2.json >/dev/null
+          jq -e '.season == 2027 and (.players | length > 0)' data/1_Mannschaft/2027-Regular-Season-Gr-3.json >/dev/null
+          jq -e '.season == 2027 and (.players | length > 0)' data/2_Mannschaft/2027-Regular-Season-Gr-1.json >/dev/null
+          jq -e '.season == 2027 and (.players | length > 0)' data/Damen/2027-Regular-Season.json >/dev/null
+          jq -e '.season == 2027 and (.goalies | length > 0)' data/Senioren/Goaltenders/2027-Regular-Season-Gr-2.json >/dev/null
+          jq -e '.season == 2027 and (.goalies | length > 0)' data/1_Mannschaft/Goaltenders/2027-Regular-Season-Gr-3.json >/dev/null
+          jq -e '.season == 2027 and (.goalies | length > 0)' data/2_Mannschaft/Goaltenders/2027-Regular-Season-Gr-1.json >/dev/null
+          jq -e '.season == 2027 and (.goalies | length > 0)' data/Damen/Goaltenders/2027-Regular-Season.json >/dev/null
+          echo "Spieler und Torhueter fuer alle vier Teams erfolgreich verifiziert."
