@@ -5,7 +5,7 @@
   "league": 19,
   "players": [
     {
-      "rank": "161",
+      "rank": "163",
       "name": "Bamert Philipp Andreas",
       "position": "Stürmer",
       "games": 5,
@@ -19,7 +19,7 @@
       "ageGroup": null
     },
     {
-      "rank": "159",
+      "rank": "161",
       "name": "Lüscher Yanik",
       "position": "Stürmer",
       "games": 5,
@@ -33,7 +33,7 @@
       "ageGroup": null
     },
     {
-      "rank": "147",
+      "rank": "152",
       "name": "Kunzmann Dylan",
       "position": "Stürmer",
       "games": 4,
@@ -47,7 +47,7 @@
       "ageGroup": null
     },
     {
-      "rank": "146",
+      "rank": "151",
       "name": "Kuster Yanis",
       "position": "Stürmer",
       "games": 4,
@@ -61,7 +61,7 @@
       "ageGroup": null
     },
     {
-      "rank": "145",
+      "rank": "150",
       "name": "Padrun Sandro",
       "position": "Stürmer",
       "games": 4,
@@ -75,7 +75,7 @@
       "ageGroup": null
     },
     {
-      "rank": "141",
+      "rank": "146",
       "name": "Bamert Daniel Thomas",
       "position": "Verteidiger",
       "games": 3,
@@ -89,7 +89,7 @@
       "ageGroup": null
     },
     {
-      "rank": "137",
+      "rank": "142",
       "name": "Graber Manuel Fabian",
       "position": "Stürmer",
       "games": 3,
@@ -103,7 +103,7 @@
       "ageGroup": null
     },
     {
-      "rank": "132",
+      "rank": "138",
       "name": "Mehr Flavio",
       "position": "Stürmer",
       "games": 3,
@@ -117,7 +117,7 @@
       "ageGroup": null
     },
     {
-      "rank": "131",
+      "rank": "136",
       "name": "Paffrath Lionel",
       "position": "Stürmer",
       "games": 3,
@@ -131,7 +131,7 @@
       "ageGroup": null
     },
     {
-      "rank": "130",
+      "rank": "135",
       "name": "Wüest Jari",
       "position": "Verteidiger",
       "games": 3,
@@ -145,7 +145,7 @@
       "ageGroup": null
     },
     {
-      "rank": "129",
+      "rank": "134",
       "name": "Zgraggen Lauro",
       "position": "Verteidiger",
       "games": 3,
@@ -159,7 +159,7 @@
       "ageGroup": null
     },
     {
-      "rank": "128",
+      "rank": "133",
       "name": "Ahlers Joshua",
       "position": "Verteidiger",
       "games": 2,
@@ -173,7 +173,7 @@
       "ageGroup": null
     },
     {
-      "rank": "115",
+      "rank": "122",
       "name": "Frei Robin-René",
       "position": "Stürmer",
       "games": 1,
@@ -187,7 +187,7 @@
       "ageGroup": null
     },
     {
-      "rank": "112",
+      "rank": "119",
       "name": "Limacher Luca",
       "position": "Verteidiger",
       "games": 1,
@@ -201,7 +201,7 @@
       "ageGroup": null
     },
     {
-      "rank": "110",
+      "rank": "118",
       "name": "Schneider Loïc",
       "position": "Stürmer",
       "games": 1,
@@ -215,7 +215,7 @@
       "ageGroup": null
     },
     {
-      "rank": "108",
+      "rank": "116",
       "name": "Wechsler Enrico",
       "position": "Verteidiger",
       "games": 1,
@@ -229,7 +229,7 @@
       "ageGroup": null
     },
     {
-      "rank": "107",
+      "rank": "114",
       "name": "Romanov Nikolai",
       "position": "Stürmer",
       "games": 4,
@@ -243,7 +243,7 @@
       "ageGroup": null
     },
     {
-      "rank": "103",
+      "rank": "110",
       "name": "Kunz Nils",
       "position": "Stürmer",
       "games": 5,
@@ -257,7 +257,7 @@
       "ageGroup": null
     },
     {
-      "rank": "93",
+      "rank": "100",
       "name": "Giampa Siro",
       "position": "Verteidiger",
       "games": 1,
@@ -271,7 +271,7 @@
       "ageGroup": null
     },
     {
-      "rank": "91",
+      "rank": "98",
       "name": "Renggli Rouven",
       "position": "Stürmer",
       "games": 1,
@@ -285,7 +285,7 @@
       "ageGroup": null
     },
     {
-      "rank": "89",
+      "rank": "96",
       "name": "Achermann Chris",
       "position": "Stürmer",
       "games": 5,
@@ -299,7 +299,7 @@
       "ageGroup": null
     },
     {
-      "rank": "76",
+      "rank": "81",
       "name": "Gisler Josua",
       "position": "Stürmer",
       "games": 2,
@@ -313,7 +313,7 @@
       "ageGroup": null
     },
     {
-      "rank": "72",
+      "rank": "76",
       "name": "Hinterberger Janik",
       "position": "Stürmer",
       "games": 1,
@@ -327,7 +327,7 @@
       "ageGroup": null
     },
     {
-      "rank": "39",
+      "rank": "43",
       "name": "Schnyder Hans",
       "position": "Stürmer",
       "games": 2,

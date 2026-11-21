@@ -5,7 +5,7 @@
   "league": 37,
   "players": [
     {
-      "rank": "103",
+      "rank": "107",
       "name": "Hunkeler Jonas",
       "position": "Stürmer",
       "games": 3,
@@ -19,7 +19,7 @@
       "ageGroup": null
     },
     {
-      "rank": "102",
+      "rank": "106",
       "name": "Iliev Michal",
       "position": "Verteidiger",
       "games": 3,
@@ -33,7 +33,7 @@
       "ageGroup": null
     },
     {
-      "rank": "96",
+      "rank": "101",
       "name": "Jaussi Markus",
       "position": "Stürmer",
       "games": 2,
@@ -47,7 +47,7 @@
       "ageGroup": null
     },
     {
-      "rank": "79",
+      "rank": "85",
       "name": "Vorpe David",
       "position": "Verteidiger",
       "games": 1,
@@ -61,7 +61,7 @@
       "ageGroup": null
     },
     {
-      "rank": "71",
+      "rank": "76",
       "name": "Vogel Thomas",
       "position": "Stürmer",
       "games": 1,
@@ -75,7 +75,7 @@
       "ageGroup": null
     },
     {
-      "rank": "65",
+      "rank": "71",
       "name": "Arnold Sandro",
       "position": "Verteidiger",
       "games": 4,
@@ -89,7 +89,7 @@
       "ageGroup": null
     },
     {
-      "rank": "64",
+      "rank": "70",
       "name": "Frey Mario",
       "position": "Stürmer",
       "games": 3,
@@ -103,7 +103,7 @@
       "ageGroup": null
     },
     {
-      "rank": "49",
+      "rank": "56",
       "name": "Brönnimann Adrian",
       "position": "Stürmer",
       "games": 2,
@@ -117,7 +117,7 @@
       "ageGroup": null
     },
     {
-      "rank": "45",
+      "rank": "52",
       "name": "Schifferle Zeno",
       "position": "Stürmer",
       "games": 2,
@@ -131,7 +131,7 @@
       "ageGroup": null
     },
     {
-      "rank": "44",
+      "rank": "49",
       "name": "Kaufmann Guido",
       "position": "Stürmer",
       "games": 4,
@@ -145,7 +145,7 @@
       "ageGroup": null
     },
     {
-      "rank": "35",
+      "rank": "41",
       "name": "Dörig Nicolas",
       "position": "Stürmer",
       "games": 4,
@@ -159,7 +159,7 @@
       "ageGroup": null
     },
     {
-      "rank": "20",
+      "rank": "23",
       "name": "Zubler Cédric",
       "position": "Verteidiger",
       "games": 3,
@@ -173,7 +173,7 @@
       "ageGroup": null
     },
     {
-      "rank": "11",
+      "rank": "13",
       "name": "Peterhans Martin",
       "position": "Stürmer",
       "games": 3,
@@ -187,7 +187,7 @@
       "ageGroup": null
     },
     {
-      "rank": "10",
+      "rank": "12",
       "name": "Grüter Andreas",
       "position": "Stürmer",
       "games": 4,
@@ -201,7 +201,7 @@
       "ageGroup": null
     },
     {
-      "rank": "6",
+      "rank": "8",
       "name": "Zürcher Marco",
       "position": "Stürmer",
       "games": 3,
@@ -215,7 +215,7 @@
       "ageGroup": null
     },
     {
-      "rank": "5",
+      "rank": "6",
       "name": "Wyss Philipp",
       "position": "Stürmer",
       "games": 3,
