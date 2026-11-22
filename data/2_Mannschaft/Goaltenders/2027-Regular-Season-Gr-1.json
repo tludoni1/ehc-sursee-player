@@ -22,6 +22,22 @@
     },
     {
       "rank": "",
+      "name": "Zgraggen Levin",
+      "team": "EHC Sursee",
+      "gamesPlayed": 1,
+      "firstKeeper": 1,
+      "goalsAgainst": 6,
+      "goalsAgainstAverage": 6,
+      "secondsPlayed": "60:00",
+      "penaltyMinutes": 0,
+      "goals": 0,
+      "assists": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    },
+    {
+      "rank": "",
       "name": "Zemp Marc",
       "team": "EHC Sursee",
       "gamesPlayed": 3,

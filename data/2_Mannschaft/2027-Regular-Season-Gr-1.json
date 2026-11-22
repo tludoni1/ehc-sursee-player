@@ -5,10 +5,10 @@
   "league": 19,
   "players": [
     {
-      "rank": "163",
+      "rank": "168",
       "name": "Bamert Philipp Andreas",
       "position": "Stürmer",
-      "games": 5,
+      "games": 6,
       "goals": 0,
       "assists": 0,
       "points": 0,
@@ -19,7 +19,21 @@
       "ageGroup": null
     },
     {
-      "rank": "161",
+      "rank": "164",
+      "name": "Kuster Yanis",
+      "position": "Stürmer",
+      "games": 5,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 6,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    },
+    {
+      "rank": "162",
       "name": "Lüscher Yanik",
       "position": "Stürmer",
       "games": 5,
@@ -33,7 +47,35 @@
       "ageGroup": null
     },
     {
-      "rank": "152",
+      "rank": "160",
+      "name": "Padrun Sandro",
+      "position": "Stürmer",
+      "games": 5,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    },
+    {
+      "rank": "155",
+      "name": "Bamert Daniel Thomas",
+      "position": "Verteidiger",
+      "games": 4,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
+      "penaltyMinutes": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    },
+    {
+      "rank": "149",
       "name": "Kunzmann Dylan",
       "position": "Stürmer",
       "games": 4,
@@ -47,22 +89,8 @@
       "ageGroup": null
     },
     {
-      "rank": "151",
-      "name": "Kuster Yanis",
-      "position": "Stürmer",
-      "games": 4,
-      "goals": 0,
-      "assists": 0,
-      "points": 0,
-      "pointsPerGame": 0,
-      "penaltyMinutes": 6,
-      "id": null,
-      "jerseyNumber": null,
-      "ageGroup": null
-    },
-    {
-      "rank": "150",
-      "name": "Padrun Sandro",
+      "rank": "148",
+      "name": "Mehr Flavio",
       "position": "Stürmer",
       "games": 4,
       "goals": 0,
@@ -75,21 +103,21 @@
       "ageGroup": null
     },
     {
-      "rank": "146",
-      "name": "Bamert Daniel Thomas",
+      "rank": "145",
+      "name": "Zgraggen Lauro",
       "position": "Verteidiger",
-      "games": 3,
+      "games": 4,
       "goals": 0,
       "assists": 0,
       "points": 0,
       "pointsPerGame": 0,
-      "penaltyMinutes": 0,
+      "penaltyMinutes": 2,
       "id": null,
       "jerseyNumber": null,
       "ageGroup": null
     },
     {
-      "rank": "142",
+      "rank": "143",
       "name": "Graber Manuel Fabian",
       "position": "Stürmer",
       "games": 3,
@@ -103,35 +131,7 @@
       "ageGroup": null
     },
     {
-      "rank": "138",
-      "name": "Mehr Flavio",
-      "position": "Stürmer",
-      "games": 3,
-      "goals": 0,
-      "assists": 0,
-      "points": 0,
-      "pointsPerGame": 0,
-      "penaltyMinutes": 0,
-      "id": null,
-      "jerseyNumber": null,
-      "ageGroup": null
-    },
-    {
-      "rank": "136",
-      "name": "Paffrath Lionel",
-      "position": "Stürmer",
-      "games": 3,
-      "goals": 0,
-      "assists": 0,
-      "points": 0,
-      "pointsPerGame": 0,
-      "penaltyMinutes": 0,
-      "id": null,
-      "jerseyNumber": null,
-      "ageGroup": null
-    },
-    {
-      "rank": "135",
+      "rank": "139",
       "name": "Wüest Jari",
       "position": "Verteidiger",
       "games": 3,
@@ -145,21 +145,7 @@
       "ageGroup": null
     },
     {
-      "rank": "134",
-      "name": "Zgraggen Lauro",
-      "position": "Verteidiger",
-      "games": 3,
-      "goals": 0,
-      "assists": 0,
-      "points": 0,
-      "pointsPerGame": 0,
-      "penaltyMinutes": 0,
-      "id": null,
-      "jerseyNumber": null,
-      "ageGroup": null
-    },
-    {
-      "rank": "133",
+      "rank": "138",
       "name": "Ahlers Joshua",
       "position": "Verteidiger",
       "games": 2,
@@ -173,7 +159,7 @@
       "ageGroup": null
     },
     {
-      "rank": "122",
+      "rank": "130",
       "name": "Frei Robin-René",
       "position": "Stürmer",
       "games": 1,
@@ -187,7 +173,7 @@
       "ageGroup": null
     },
     {
-      "rank": "119",
+      "rank": "127",
       "name": "Limacher Luca",
       "position": "Verteidiger",
       "games": 1,
@@ -201,7 +187,7 @@
       "ageGroup": null
     },
     {
-      "rank": "118",
+      "rank": "126",
       "name": "Schneider Loïc",
       "position": "Stürmer",
       "games": 1,
@@ -215,7 +201,7 @@
       "ageGroup": null
     },
     {
-      "rank": "116",
+      "rank": "123",
       "name": "Wechsler Enrico",
       "position": "Verteidiger",
       "games": 1,
@@ -229,49 +215,49 @@
       "ageGroup": null
     },
     {
-      "rank": "114",
-      "name": "Romanov Nikolai",
-      "position": "Stürmer",
-      "games": 4,
+      "rank": "122",
+      "name": "Zürcher Marco",
+      "position": "Verteidiger",
+      "games": 1,
       "goals": 0,
-      "assists": 1,
-      "points": 1,
-      "pointsPerGame": 0.25,
-      "penaltyMinutes": 8,
-      "id": null,
-      "jerseyNumber": null,
-      "ageGroup": null
-    },
-    {
-      "rank": "110",
-      "name": "Kunz Nils",
-      "position": "Stürmer",
-      "games": 5,
-      "goals": 0,
-      "assists": 1,
-      "points": 1,
-      "pointsPerGame": 0.2,
+      "assists": 0,
+      "points": 0,
+      "pointsPerGame": 0,
       "penaltyMinutes": 0,
       "id": null,
       "jerseyNumber": null,
       "ageGroup": null
     },
     {
-      "rank": "100",
-      "name": "Giampa Siro",
-      "position": "Verteidiger",
-      "games": 1,
+      "rank": "120",
+      "name": "Romanov Nikolai",
+      "position": "Stürmer",
+      "games": 5,
       "goals": 0,
       "assists": 1,
       "points": 1,
-      "pointsPerGame": 1,
-      "penaltyMinutes": 2,
+      "pointsPerGame": 0.2,
+      "penaltyMinutes": 8,
       "id": null,
       "jerseyNumber": null,
       "ageGroup": null
     },
     {
-      "rank": "98",
+      "rank": "115",
+      "name": "Kunz Nils",
+      "position": "Stürmer",
+      "games": 6,
+      "goals": 0,
+      "assists": 1,
+      "points": 1,
+      "pointsPerGame": 0.17,
+      "penaltyMinutes": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    },
+    {
+      "rank": "101",
       "name": "Renggli Rouven",
       "position": "Stürmer",
       "games": 1,
@@ -285,21 +271,35 @@
       "ageGroup": null
     },
     {
-      "rank": "96",
+      "rank": "100",
       "name": "Achermann Chris",
       "position": "Stürmer",
-      "games": 5,
+      "games": 6,
       "goals": 1,
       "assists": 0,
       "points": 1,
-      "pointsPerGame": 0.2,
-      "penaltyMinutes": 4,
+      "pointsPerGame": 0.17,
+      "penaltyMinutes": 6,
       "id": null,
       "jerseyNumber": null,
       "ageGroup": null
     },
     {
-      "rank": "81",
+      "rank": "90",
+      "name": "Paffrath Lionel",
+      "position": "Stürmer",
+      "games": 4,
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "pointsPerGame": 0.25,
+      "penaltyMinutes": 0,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    },
+    {
+      "rank": "84",
       "name": "Gisler Josua",
       "position": "Stürmer",
       "games": 2,
@@ -313,7 +313,7 @@
       "ageGroup": null
     },
     {
-      "rank": "76",
+      "rank": "79",
       "name": "Hinterberger Janik",
       "position": "Stürmer",
       "games": 1,
@@ -327,7 +327,21 @@
       "ageGroup": null
     },
     {
-      "rank": "43",
+      "rank": "55",
+      "name": "Giampa Siro",
+      "position": "Verteidiger",
+      "games": 2,
+      "goals": 1,
+      "assists": 2,
+      "points": 3,
+      "pointsPerGame": 1.5,
+      "penaltyMinutes": 2,
+      "id": null,
+      "jerseyNumber": null,
+      "ageGroup": null
+    },
+    {
+      "rank": "49",
       "name": "Schnyder Hans",
       "position": "Stürmer",
       "games": 2,
